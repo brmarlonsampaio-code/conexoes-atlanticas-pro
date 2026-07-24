@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
-  base: '/conexoes-atlanticas/',
+  base: '/conexoes-atlanticas-pro/',
   root: '.',
   publicDir: 'public',
   build: {
