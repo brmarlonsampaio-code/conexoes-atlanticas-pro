@@ -1,0 +1,1507 @@
+/**
+ * Dados embeddados dos artigos e referências
+ * Gerado automaticamente - não edite manualmente
+ */
+
+export const ARTICLES_DATA = [
+  {
+    "id": 1,
+    "titulo": "HOMENS DE ARMAS E MANDO : CONFLITOS E ALIANÇAS NA CAPITANIA DE PORTO SEGURO (1640/1690)",
+    "autor": "ANA PAULA SANTOS XAVIER",
+    "ano": "2021",
+    "orientador": "LUIZ CLÁUDIO RIBEIRO",
+    "keywords": [
+      "homens de armas",
+      "conflitos",
+      "alianças",
+      "Porto Seguro",
+      "capitania"
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "VOZES QUE ROMPEM O SILÊNCIO, MEMÓRIAS DE UMA POPULAÇÃO QUE NÃO ESTÃO NOS LIVROS, CANAVIEIRAS – BAHIA (1945-1965)",
+    "autor": "BELAINE DAS NEVES NASCIMENTO",
+    "ano": "2021",
+    "orientador": "ELIS FIAMENGUE",
+    "keywords": [
+      "vozes",
+      "memórias",
+      "Canavieiras",
+      "população",
+      "silêncio"
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "FEIRAS LIVRES: TRANSFORMAÇÕES DOS ESPAÇOS FÍSICOS E SOCIAIS EM ITABUNA – BAHIA (1960-1973)",
+    "autor": "BERENALDO NETO SILVA",
+    "ano": "ABANDONO",
+    "orientador": "KÁTIA VINHÁTICO PONTES",
+    "keywords": [
+      "feiras livres",
+      "transformações",
+      "espaços físicos",
+      "Itabuna"
+    ]
+  },
+  {
+    "id": 4,
+    "titulo": "ENTRE A MORALIDADE E A LIBERAÇÃO SEXUAL: DISCURSOS E REPRESENTAÇÕES SOBRE AS MULHERES NO BRASIL A PARTIR DO CINEMA E UMA ANÁLISE DO FILME OS HOMENS QUE EU TIVE DE TERESA TRAUTMAN (1973-1981)",
+    "autor": "BRUNA MARQUES RIBEIRO DRISOSTES",
+    "ano": "2021",
+    "orientador": "LAILA BRICHTA",
+    "keywords": [
+      "moralidade",
+      "liberação sexual",
+      "cinema",
+      "mulheres",
+      "Teresa Trautman"
+    ]
+  },
+  {
+    "id": 5,
+    "titulo": "Estudantes negras/os no Colégio Estadual Octacílio Manoel Gomes: educação, identidade e cotidiano escolar (2001 – 2019)",
+    "autor": "CAROLINE SANTOS TEIXEIRA",
+    "ano": "2021",
+    "orientador": "ADRIANA DANTAS",
+    "keywords": [
+      "estudantes negros",
+      "educação",
+      "identidade",
+      "cotidiano escolar",
+      "Octacílio Manoel Gomes"
+    ]
+  },
+  {
+    "id": 6,
+    "titulo": "A REPRESENTAÇÃO DOS NEGROS EM MANUAIS DIDÁTICOS DE HISTÓRIA DO BRASIL NA PRIMEIRA REPÚBLICA",
+    "autor": "CRISTINA FERREIRA DE ASSIS",
+    "ano": "2020",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "representação dos negros",
+      "manuais didáticos",
+      "história do Brasil",
+      "Primeira República"
+    ]
+  },
+  {
+    "id": 7,
+    "titulo": "MEMÓRIA, REPRESENTAÇÃO E TRANSFORMAÇÕES URBANAS EM ILHÉUS (1912-30)",
+    "autor": "DANILO JOSÉ MESSIAS MARQUES",
+    "ano": "2021",
+    "orientador": "KÁTIA VINHÁTICO PONTES",
+    "keywords": [
+      "memória",
+      "representação",
+      "transformações urbanas",
+      "Ilhéus"
+    ]
+  },
+  {
+    "id": 8,
+    "titulo": "NEGRITUDE, IDENTIDADE E RELAÇÕES RACIAIS NA OBRA DOS RACIONAIS MC’S (1992-1914)",
+    "autor": "DIEGO SANTOS NOGUEIRA",
+    "ano": "ABANDONO",
+    "orientador": "LAILA BRICHTA",
+    "keywords": [
+      "negritude",
+      "identidade",
+      "relações raciais",
+      "Racionais MC’s"
+    ]
+  },
+  {
+    "id": 9,
+    "titulo": "CONEXÕES ATLÂNTICAS E AS CONTROVÉRSIAS ENTRE EDUCAÇÃO RURAL E EDUCAÇÃO DO CAMPO NA CASA FAMILIAR RURAL DE IGRAPIÚNA – BA (2007-2019)",
+    "autor": "JAMILE NASCIMENTO SANTOS",
+    "ano": "2021",
+    "orientador": "ELIS FIAMENGUE",
+    "keywords": [
+      "conexões atlânticas",
+      "educação rural",
+      "educação do campo",
+      "Casa Familiar Rural",
+      "Igrapiúna"
+    ]
+  },
+  {
+    "id": 10,
+    "titulo": "Da Costa do ouro (Gana) ao sul da Bahia, Brasil: a produção do cacau (1925-1945)",
+    "autor": "LUCIANE APARECIDA GOULART",
+    "ano": "2021",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "Costa do Ouro",
+      "Gana",
+      "sul da Bahia",
+      "produção de cacau"
+    ]
+  },
+  {
+    "id": 11,
+    "titulo": "Axós: uma análise das vestimentas litúrgicas das religiões dos povos tradicionais de matriz africana",
+    "autor": "MARIA RITA SANTOS",
+    "ano": "2021",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "Axós",
+      "vestimentas litúrgicas",
+      "religiões matriz africana",
+      "povos tradicionais"
+    ]
+  },
+  {
+    "id": 12,
+    "titulo": "SANTA BÁRBARA D’OESTE, O LOCUS DO MOVIMENTO BATISTA NO BRASIL: UMA HISTORIOGRAFIA MARCADA POR CONTROVÉRSIAS, DOMINAÇÃO E CONSTRUÇÃO DE SABERES",
+    "autor": "ALMIRANICE PEREIRA CIDADE ARAÚJO",
+    "ano": "2021",
+    "orientador": "LAILA BRICHTA",
+    "keywords": [
+      "Santa Bárbara d’Oeste",
+      "movimento batista",
+      "controvérsias",
+      "dominação",
+      "construção de saberes"
+    ]
+  },
+  {
+    "id": 13,
+    "titulo": "POLÍTICAS PÚBLICAS EM EDUCAÇÃO HOSPITALAR PARA JOVENS E ADULTOS NO BRASIL: LEGISLAÇÃO E EFETIVAÇÃO DE DIREITOS (2000-2010)",
+    "autor": "ALYNE MARTINS GOMES",
+    "ano": "2022",
+    "orientador": "ISAÍAS DE CARVALHO",
+    "keywords": [
+      "políticas públicas",
+      "educação hospitalar",
+      "jovens e adultos",
+      "legislação",
+      "efetivação de direitos"
+    ]
+  },
+  {
+    "id": 14,
+    "titulo": "O PAPEL DO ESTADO BRASILEIRO NA CONSTRUÇÃO DE BARREIRAS SOCIAIS NA PASSAGEM DO SÉCULO XIX PARA O XX: CONTROLE DAS CRIANÇAS POBRES",
+    "autor": "BRUNA CONCEIÇÃO DE JESUS",
+    "ano": "2022",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "Estado brasileiro",
+      "barreiras sociais",
+      "controle de crianças pobres",
+      "século XIX-XX"
+    ]
+  },
+  {
+    "id": 15,
+    "titulo": "MEMÓRIAS QUILOMBOLAS NO AUDIOVISUAL: LUTA PELA TERRA, EDUCAÇÃO E RELIGIOSIDADES (BAHIA, 1997-2018)",
+    "autor": "FERNANDA LEMOS PINTO",
+    "ano": "2022",
+    "orientador": "ANDRÉ ROSA RIBEIRO",
+    "keywords": [
+      "memórias quilombolas",
+      "audiovisual",
+      "luta pela terra",
+      "educação",
+      "religiosidades"
+    ]
+  },
+  {
+    "id": 16,
+    "titulo": "REMODELAÇÃO URBANA NA VILA DE PORTO SEGURO (BAHIA) NA SEGUNDA METADE DO SÉCULO XVIII",
+    "autor": "INGRID DE ARAÚJO GOMEZ",
+    "ano": "2022",
+    "orientador": "MARCELO DIAS",
+    "keywords": [
+      "remodelação urbana",
+      "Vila de Porto Seguro",
+      "século XVIII"
+    ]
+  },
+  {
+    "id": 17,
+    "titulo": "O MOVIMENTO RODOVIÁRIO NO SUL DA BAHIA: A ESTRADA ILHÉUS-ITABUNA, O ESCOAMENTO DO CACAU E OS AUTOMÓVEIS (1920-1935)",
+    "autor": "LUCIANA MARIA SANTIAGO BALDUÍNO",
+    "ano": "2022",
+    "orientador": "KÁTIA VINHÁTICO PONTES",
+    "keywords": [
+      "movimento rodoviário",
+      "estrada Ilhéus-Itabuna",
+      "escoamento do cacau",
+      "automóveis"
+    ]
+  },
+  {
+    "id": 18,
+    "titulo": "A INFLUÊNCIA DAS BRINCADEIRAS E BRINQUEDOS ORIGINADOS DA ÁFRICA NA FORMAÇÃO DA CRIANÇA BRASILEIRO DO SÉCULO XX",
+    "autor": "MARCOS A. B. DORMUNDO NASCIMENTO",
+    "ano": "2022",
+    "orientador": "INARA RODRIGUES",
+    "keywords": [
+      "brincadeiras",
+      "brinquedos",
+      "África",
+      "formação da criança brasileira",
+      "século XX"
+    ]
+  },
+  {
+    "id": 19,
+    "titulo": "O CINEMA NA BELLE EPOQUE ILHEENSE: IMPORTAÇÕES ATLÂNTICAS DE CULTURA URBANA E REPRESENTAÇÕES DE PODER NO AUGE DO CACAU (1889-1930)",
+    "autor": "MARY LUCY LIMA",
+    "ano": "2022",
+    "orientador": "LAILA BRICHTA",
+    "keywords": [
+      "cinema",
+      "Belle Époque ilheense",
+      "importações atlânticas",
+      "cultura urbana",
+      "representações de poder"
+    ]
+  },
+  {
+    "id": 20,
+    "titulo": "Os frutos de ouro na terra adubada com sangue: O cinema na belle époque ilheense : representações da região cacaueira no filme os Deuses e os Mortos (1970), de Ruy Guerra",
+    "autor": "MICHAEL SILVA ROSENO",
+    "ano": "2022",
+    "orientador": "LAILA BRICHTA",
+    "keywords": [
+      "cinema",
+      "Belle Époque ilheense",
+      "região cacaueira",
+      "Deuses e os Mortos",
+      "Ruy Guerra"
+    ]
+  },
+  {
+    "id": 21,
+    "titulo": "IMPRENSA E ESTEREÓTIPOS: A LEGITIMAÇÃO DA VIOLÊNCIA POLICIAL CONTRA A POPULAÇÃO NEGRA E PERIFÉRICA DE ITABUNA (1988-1991)",
+    "autor": "NATALLIE DOS S.PESTANA DE OLIVEIRA",
+    "ano": "2022",
+    "orientador": "CEZAR TEIXEIRA HONORATO",
+    "keywords": [
+      "imprensa",
+      "estereótipos",
+      "violência policial",
+      "população negra",
+      "Itabuna"
+    ]
+  },
+  {
+    "id": 22,
+    "titulo": "ATLÂNTICO E DIÁSPORA: O REGGAE EM ITABUNA – BA COMO AFIRMAÇÃO DA NEGRITUDE (1990 – 2000)",
+    "autor": "ROBSON RODRIGUES",
+    "ano": "2022",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "Atlântico",
+      "diáspora",
+      "reggae",
+      "Itabuna",
+      "negritude"
+    ]
+  },
+  {
+    "id": 23,
+    "titulo": "A ARQUEOLOGIA URBANA NOS ESTUDOS HISTÓRICOS NA PRIMEIRA CAPITAL DA COLÔNIA PORTUGUESA NO BRASIL: UMA ANÁLISE A PARTIR DOS PROCESSOS DE LICENCIAMENTO DO IPHAN",
+    "autor": "ALEXANDRE ROCHA COLPA",
+    "ano": "2023",
+    "orientador": "WALTER MORALES",
+    "keywords": [
+      "arqueologia urbana",
+      "primeira capital",
+      "colônia portuguesa",
+      "IPHAN",
+      "licenciamento"
+    ]
+  },
+  {
+    "id": 24,
+    "titulo": "Corpos são currículo [recurso eletrônico] : experiências entre o interlocuções e Colégio Estadual Aurelino Leal em Itacaré – BA (2003 – 2023)",
+    "autor": "ALINE AREIA ALMEIDA MIMOSO",
+    "ano": "2024",
+    "orientador": "LAILA BRICHTA",
+    "keywords": [
+      "corpos",
+      "currículo",
+      "experiências",
+      "Colégio Aurelino Leal",
+      "Itacaré"
+    ]
+  },
+  {
+    "id": 25,
+    "titulo": "Atuação de Maria Firmina dos Reis e de mulheres escritoras na imprensa abolicionista brasileira (1850-1890)",
+    "autor": "ANA LÚCIA SANTOS SILVA",
+    "ano": "2023",
+    "orientador": "INARA RODRIGUES",
+    "keywords": [
+      "Maria Firmina dos Reis",
+      "mulheres escritoras",
+      "imprensa abolicionista",
+      "Brasil"
+    ]
+  },
+  {
+    "id": 26,
+    "titulo": "GRUPO CHAVES E ECONOMIA-MUNDO; A TRAJETÓRIA DE UM GRUPO EMPRESARIAL DE ITABUNA E A CRISE DO CACAU (1985-1995)",
+    "autor": "FREDERICK OLIVEIRA MORAIS",
+    "ano": "2023",
+    "orientador": "KÁTIA VINHÁTICO PONTES",
+    "keywords": [
+      "Grupo Chaves",
+      "economia-mundo",
+      "grupo empresarial",
+      "Itabuna",
+      "crise do cacau"
+    ]
+  },
+  {
+    "id": 27,
+    "titulo": "VIVER ENTRE MUNDOS: Degredo e inserção feminina no Atlântico – o caso de Maria Barbosa (1561-1614)",
+    "autor": "HELENA RIBEIRO DA SILVA",
+    "ano": "2024",
+    "orientador": "ADRIANA DANTAS REIS",
+    "keywords": [
+      "degredo",
+      "inserção feminina",
+      "Atlântico",
+      "Maria Barbosa"
+    ]
+  },
+  {
+    "id": 28,
+    "titulo": "DIMENSÕES INTERCULTURAIS BRASIL-ÁFRICA: COMPREENDENDO PARADIGMAS HISTORIOGRÁFICOS DA COOPERAÇÃO SUL A SUL NO PROCESSO DE INTEGRAÇÃO",
+    "autor": "JULIANA DO CARMO NASCIMENTO PEDRA",
+    "ano": "2023",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "dimensões interculturais",
+      "Brasil-África",
+      "cooperação Sul-Sul",
+      "integração"
+    ]
+  },
+  {
+    "id": 29,
+    "titulo": "RECEPÇÃO E APLICAÇÃO, NA DIOCESE DE ILHÉUS, DAS DIRETRIZES DA II CONFERÊNCIA GERAL DO EPISCOPADO LATINO-AMERICANO (1968-1979)",
+    "autor": "LUCAS GONÇALVES MELGAÇO",
+    "ano": "2023",
+    "orientador": "LAILA BRICHTA",
+    "keywords": [
+      "recepção",
+      "Diocese de Ilhéus",
+      "Conferência de Medellín",
+      "episcopado latino-americano"
+    ]
+  },
+  {
+    "id": 30,
+    "titulo": "NO PORTO E PELO PORTO: A VISÃO DA LITERATURA BAIANA SOBRE A ZONA PORTUÁRIA DE ILHÉUS E SUAS RELAÇÕES DE TRABALHO (1920-1945)",
+    "autor": "BRUNA SANTOS LIMA",
+    "ano": "2024",
+    "orientador": "INARA RODRIGUES",
+    "keywords": [
+      "literatura baiana",
+      "zona portuária",
+      "Ilhéus",
+      "relações de trabalho"
+    ]
+  },
+  {
+    "id": 31,
+    "titulo": "A OCUPAÇÃO TERRITORIAL DO BAIRRO ALTO DA CONQUISTA (1930-1940)",
+    "autor": "CARLOS PEREIRA NETO",
+    "ano": "sem informação",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "ocupação territorial",
+      "bairro Alto da Conquista"
+    ]
+  },
+  {
+    "id": 32,
+    "titulo": "AMOR MALDITO: O SILENCIAMENTO DE UM FILME LÉSBICO E DE UMA CINEASTA NEGRA NO CINEMA BRASILEIRO (1984-1987)",
+    "autor": "EMANUELLE SILVA FONSECA",
+    "ano": "sem informação",
+    "orientador": "LAILA BRICHTA",
+    "keywords": [
+      "Amor Maldito",
+      "filme lésbico",
+      "cineasta negra",
+      "cinema brasileiro"
+    ]
+  },
+  {
+    "id": 33,
+    "titulo": "ULYSSES AFRICANO, CAFÉ ATLÂNTICO. ANDRÉ REBOUÇAS, POLÍTICA DE REALIZAÇÃO E A REENGENHARIA DO CAFÉ NA OBRA 'AGRICULTURA NACIONAL. ESTUDOS ECONÔMICOS. PROPAGANDA ABOLICIONISTA E DEMOCRÁTICA (1875-1883)",
+    "autor": "JOSÉ WILSON MARTINS JUNIOR",
+    "ano": "2024",
+    "orientador": "MARCELO DIAS",
+    "keywords": [
+      "Ulysses Africano",
+      "café Atlântico",
+      "André Rebouças",
+      "reengenharia do café",
+      "agricultura nacional"
+    ]
+  },
+  {
+    "id": 34,
+    "titulo": "Condições de saúde e doenças entre os escravizados em Salvador - BA 1831-1850",
+    "autor": "LARISSA BISPO DOS SANTOS",
+    "ano": "2024",
+    "orientador": "MARCELO DIAS",
+    "keywords": [
+      "condições de saúde",
+      "doenças",
+      "escravizados",
+      "Salvador"
+    ]
+  },
+  {
+    "id": 35,
+    "titulo": "Entre a invisibilidade e o reconhecimento: o trabalho das mulheres na Bahia entre 1920 e 1960",
+    "autor": "MAÍRA CESÁRIO FERREIRA",
+    "ano": "2024",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "invisibilidade",
+      "reconhecimento",
+      "trabalho das mulheres",
+      "Bahia"
+    ]
+  },
+  {
+    "id": 36,
+    "titulo": "MOVIMENTO SANITÁRIO E POLÍTICAS PÚBLICAS DE SAÚDE NO CONTEXTO DE ATUAÇÃO DE JOÃO BATISTA SOARES LOPES (1902-1948)",
+    "autor": "MIRLA AUGUSTA MOURA DE SOUZA",
+    "ano": "sem informação",
+    "orientador": "KÁTIA VINHÁTICO PONTES",
+    "keywords": [
+      "movimento sanitário",
+      "políticas públicas de saúde",
+      "João Batista Soares Lopes"
+    ]
+  },
+  {
+    "id": 37,
+    "titulo": "E EU FALEI FARAÓ: OS DESFILES DO OLODUM NO CARNAVAL DE SALVADOR (1986-1889)",
+    "autor": "PEDRO PAULO ARAÚJO",
+    "ano": "2024",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "desfiles do Olodum",
+      "carnaval de Salvador",
+      "Olodum"
+    ]
+  },
+  {
+    "id": 38,
+    "titulo": "REFUGIADOS: UMA ANÁLISE SOBRE O MIGRANTE AFRO-ATLÂNTICO NO BRASIL (1997-2022)",
+    "autor": "ANTONIO DEMBUE TUMISSA",
+    "ano": "sem informação",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "refugiados",
+      "migrante afro-atlântico",
+      "Brasil"
+    ]
+  },
+  {
+    "id": 39,
+    "titulo": "(RE)CONSTRUÇÃO DE ANGOLA NA PERSPECTIVA DAS RELAÇÕES NO ATLÂNTICO SUL: NARRATIVAS DA IMPRENSA BRASILEIRA NA PRIMEIRA DÉCADA DE PAZ EM ANGOLA (2002-2012)",
+    "autor": "ELIAS BASTOS BARROS",
+    "ano": "sem informação",
+    "orientador": "DIOGO ALVES TRINDADE DE CARVALHO",
+    "keywords": [
+      "(re)construção de Angola",
+      "Atlântico Sul",
+      "imprensa brasileira",
+      "paz em Angola"
+    ]
+  },
+  {
+    "id": 40,
+    "titulo": "DO PACÍFICO AO ATLÂNTICO: O CONSUMO DA CULTURA POP JAPONESA NO BRASIL ATRAVÉS DE CAVALEIROS DO ZODÍACO (1994-2004)",
+    "autor": "GABRIEL ONASSES WENCESLAU SOUZA DE MORAIS",
+    "ano": "sem informação",
+    "orientador": "DIOGO ALVES TRINDADE DE CARVALHO",
+    "keywords": [
+      "cultura pop japonesa",
+      "Cavaleiros do Zodíaco",
+      "consumo",
+      "Brasil"
+    ]
+  },
+  {
+    "id": 41,
+    "titulo": "IMPACTOS E INVESTIMENTOS DO PROGRAMA DE INTEGRAÇÃO NACIONAL NO PROCESSO DE DESENVOLVIMENTO E INDUSTRIALIZAÇÃO DA BAHIA - 1969 A 1977",
+    "autor": "GABRIELE GOIS DE JESUS",
+    "ano": "sem informação",
+    "orientador": "KÁTIA VINHÁTICO PONTES",
+    "keywords": [
+      "Programa de Integração Nacional",
+      "desenvolvimento",
+      "industrialização",
+      "Bahia"
+    ]
+  },
+  {
+    "id": 42,
+    "titulo": "ATLÂNTICO EM MOVIMENTO: INTERVENÇÕES URBANAS E ARQUITETÔNICAS NA CIDADE DE ILHÉUS A PARTIR DE POSSÍVEIS INFLUÊNCIAS DA BELLE ÉPOQUE CARIOCA E O CASO DA CATEDRAL DE SÃO SEBASTIÃO (SÉCULO XX)",
+    "autor": "JACIANE APARECIDA JESUS DA CRUZ",
+    "ano": "sem informação",
+    "orientador": "THIAGO VINÍCIUS MANTUANO FONSECA",
+    "keywords": [
+      "intervenções urbanas",
+      "arquitetura",
+      "Ilhéus",
+      "Belle Époque carioca",
+      "Catedral de São Sebastião"
+    ]
+  },
+  {
+    "id": 43,
+    "titulo": "A POLÍTICA DE GUERRA ÀS DROGAS E A POLÍCIA MILITAR DE SALVADOR: INSTITUIÇÃO E EXPERIÊNCIAS DA VIOLÊNCIA NA DIÁSPORA AFRICANA (1988 A 1999)",
+    "autor": "LUCAS DE JESUS SANTOS",
+    "ano": "sem informação",
+    "orientador": "KÁTIA VINHÁTICO PONTES",
+    "keywords": [
+      "guerra às drogas",
+      "polícia militar",
+      "Salvador",
+      "violência",
+      "diáspora africana"
+    ]
+  },
+  {
+    "id": 44,
+    "titulo": "A DIÁSPORA AFRICANA NA PRODUÇÃO MUSICAL BREGA 1968-1978",
+    "autor": "MAGNO FREITAS DE SOUZA",
+    "ano": "sem informação",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "diáspora africana",
+      "produção musical",
+      "brega"
+    ]
+  },
+  {
+    "id": 45,
+    "titulo": "RELAÇÕES BILATERAIS ENTRE BRASIL E ALEMANHA OCIDENTAL ENTRE 1960 E 1990",
+    "autor": "MAI SOPHIE JULIA SCHULTE FROHLINDE",
+    "ano": "sem informação",
+    "orientador": "THIAGO VINÍCIUS MANTUANO FONSECA",
+    "keywords": [
+      "relações bilaterais",
+      "Brasil",
+      "Alemanha Ocidental"
+    ]
+  },
+  {
+    "id": 46,
+    "titulo": "SERESTAS NA BAHIA: CLASSES E EXPERIÊNCIAS NA DIÁSPORA ENTRE 1967 E 1978",
+    "autor": "MARIA LUISA DOS SANTOS GOMES",
+    "ano": "sem informação",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "serestas",
+      "classes",
+      "experiências",
+      "diáspora",
+      "Bahia"
+    ]
+  },
+  {
+    "id": 47,
+    "titulo": "“OH! SENHORA DO AMPARO, TUA FESTA É EMOÇÃO”: LASTROS DE HIBRIDISMO CULTURAL E DE RELAÇÕES ÉTNICO-RACIAIS NA FESTA DE NOSSA SENHORA DO AMPARO, EM VALENÇA/BA (1980 – 2000)",
+    "autor": "PAULO VITOR SOUZA DA LUZ",
+    "ano": "sem informação",
+    "orientador": "CARLOS GUSTAVO NOBREGA DE JESUS",
+    "keywords": [
+      "Festa de Nossa Senhora do Amparo",
+      "hibridismo cultural",
+      "relações étnico-raciais",
+      "Valença"
+    ]
+  },
+  {
+    "id": 48,
+    "titulo": "O TRABALHADOR ASSALARIADO RURAL EM ILHÉUS: EXPERIÊNCIAS E TRANSFORMAÇÕES LEGISLATIVAS (1973-1988)",
+    "autor": "ALISSON RAMOS DE SOUZA",
+    "ano": "sem informação",
+    "orientador": "KÁTIA VINHÁTICO PONTES",
+    "keywords": [
+      "trabalhador assalariado rural",
+      "Ilhéus",
+      "experiências",
+      "transformações legislativas"
+    ]
+  },
+  {
+    "id": 49,
+    "titulo": "DA ETNOGRAFIA À FICÇÃO: UM OLHAR SOBRE A EXPERIÊNCIA DA MULHER AGUDÁ A PARTIR DE ALMA DA ÁFRICA E BRASILEIROS NA ÁFRICA (1961-1988)",
+    "autor": "GABRIELA NOVAIS DOS SANTOS",
+    "ano": "sem informação",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "etnografia",
+      "ficção",
+      "mulher agudá",
+      "Alma da África",
+      "Brasileiros na África"
+    ]
+  },
+  {
+    "id": 50,
+    "titulo": "REELABORAÇÕES DO PASSADO PARA HORIZONTES FUTUROS: USOS E FABULAÇÕES DA EXPERIÊNCIA AFRODIASPÓRICA EM UNDERGROUND RAILROADS: CAMINHOS PARA A LIBERDADE",
+    "autor": "JOÃO JÚNIO NÔ DOS SANTOS OLIVEIRA",
+    "ano": "sem informação",
+    "orientador": "LAILA BRICHTA",
+    "keywords": [
+      "reelaborações do passado",
+      "experiência afrodiaspórica",
+      "Underground Railroads"
+    ]
+  },
+  {
+    "id": 51,
+    "titulo": "EUSÍNIO GASTON LAVIGNE E O PORTO DE ILHÉUS: UMA EXPERIÊNCIA BONAPARTISTA NO ESCOAMENTO DO CACAU (1930/1937)",
+    "autor": "IVANA CALHEIRA SAMPAIO",
+    "ano": "sem informação",
+    "orientador": "KÁTIA VINHÁTICO PONTES",
+    "keywords": [
+      "Eusínio Lavigne",
+      "Porto de Ilhéus",
+      "experiência bonapartista",
+      "escoamento do cacau"
+    ]
+  },
+  {
+    "id": 52,
+    "titulo": "PORTOS DE HISTÓRIAS E FAZENDAS DE SENTIDO: REPRESENTAÇÕES, EXPERIÊNCIAS DOS TRABALHADORES COMO TESTEMUNHAS OCULARES NO UNIVERSO CACAUEIRO DE ILHÉUS SOB O OLHAR DA LITERATURA E DA FOTOGRAFIA",
+    "autor": "RAABE SALIM DA SILVA COSTA",
+    "ano": "sem informação",
+    "orientador": "KÁTIA VINHÁTICO PONTES",
+    "keywords": [
+      "portos de histórias",
+      "fazendas de sentido",
+      "trabalhadores",
+      "universo cacaueiro",
+      "Ilhéus",
+      "literatura",
+      "fotografia"
+    ]
+  },
+  {
+    "id": 53,
+    "titulo": "TERRA TUPINAMBÁ DE OLIVENÇA NO ATLÂNTICO: OS IMPACTOS DA CRISE DO CACAU E O AVANÇO DO TURISMO (1990 - 1995)",
+    "autor": "ERIK DOUGLAS MACIEL ANDRADE",
+    "ano": "sem informação",
+    "orientador": "KÁTIA VINHÁTICO PONTES",
+    "keywords": [
+      "Terra Tupinambá de Olivença",
+      "Atlântico",
+      "crise do cacau",
+      "turismo"
+    ]
+  },
+  {
+    "id": 54,
+    "titulo": "HISTÓRIA SUBMERSA NA COSTA BAIANA: NAUFRÁGIOS OCORRIDOS NA BAÍA DO PONTAL AO RIO ACUÍPE, ILHÉUS, ENTRE OS SÉCULOS XVIII E XX",
+    "autor": "CRISTIELLE REIS SANTOS",
+    "ano": "sem informação",
+    "orientador": "WALTER FAGUNDES MORALES",
+    "keywords": [
+      "história submersa",
+      "naufrágios",
+      "costa baiana",
+      "Ilhéus"
+    ]
+  },
+  {
+    "id": 55,
+    "titulo": "RIOS QUE MOLDAM CAMINHOS: O SISTEMA FLÚVIO-MARÍTIMO DA VILA ATLÂNTICA DE ILHÉUS NO SÉCULO XIX",
+    "autor": "LUCAS ARAÚJO SILVA",
+    "ano": "sem informação",
+    "orientador": "MARCELO HENRIQUE DIAS",
+    "keywords": [
+      "rios",
+      "sistema fluvio-marítimo",
+      "Vila Atlântica de Ilhéus",
+      "século XIX"
+    ]
+  },
+  {
+    "id": 56,
+    "titulo": "RAP BAIANO: DINÂMICAS DE RAÇA E CLASSE NA EXPERIÊNCIA AFRODIASPÓRICA ENTRE 1996 A 2006",
+    "autor": "LAÍZA GAMA DE BULHÕES",
+    "ano": "sem informação",
+    "orientador": "CARLOS GUSTAVO NÓBREGA DE JESUS",
+    "keywords": [
+      "rap baiano",
+      "dinâmicas de raça e classe",
+      "experiência afrodiaspórica"
+    ]
+  },
+  {
+    "id": 57,
+    "titulo": "O ENSINO DA HISTÓRIA E CULTURA DA ÁFRICA NOS ANOS FINAIS DO MUNICÍPIO DE ILHÉUS: ENTRE A LDB E A BNCC",
+    "autor": "CLEIZE ARAÚJO SANDES",
+    "ano": "sem informação",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "ensino de história e cultura da África",
+      "anos finais",
+      "Ilhéus",
+      "LDB",
+      "BNCC"
+    ]
+  },
+  {
+    "id": 58,
+    "titulo": "A DEMOGRAFIA E A FORMAÇÃO DA MONOCULTURA CACAUEIRA: UM ESTUDO QUANTITATIVO DA POPULAÇÃO DE ILHÉUS NO SUL DA BAHIA (1890-1940)",
+    "autor": "VIVIANE JESUS SOUZA",
+    "ano": "sem informação",
+    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
+    "keywords": [
+      "demografia",
+      "monocultura cacaueira",
+      "população de Ilhéus"
+    ]
+  },
+  {
+    "id": 59,
+    "titulo": "A POLÍTICA CULTURAL E A CONSTRUÇÃO DA SOCIEDADE CUBANA NO PÓS-REVOLUÇÃO: ANÁLISE DO PERIÓDICO PENSAMIENTO CRÍTICO (1961-1971)",
+    "autor": "ANA LUÍZA BRAGA BRANDÃO",
+    "ano": "sem informação",
+    "orientador": "LAILA BRICHTA",
+    "keywords": [
+      "política cultural",
+      "sociedade cubana",
+      "pós-revolução",
+      "Pensamiento Crítico"
+    ]
+  },
+  {
+    "id": 60,
+    "titulo": "CRAVO, CANELA E MUITO AÇÚCAR NO ATLÂNTICO: A DOÇARIA NA LITERATURA E NA HISTÓRIA DOS SÉCULOS XIX E XX (1870-1904)",
+    "autor": "CARMOLY CARTEADO MONTEIRO LOPES FILHO",
+    "ano": "sem informação",
+    "orientador": "CEZAR TEIXEIRA HONORATO",
+    "keywords": [
+      "cravo",
+      "canela",
+      "açúcar",
+      "doçaria",
+      "Atlântico",
+      "literatura",
+      "história"
+    ]
+  },
+  {
+    "id": 61,
+    "titulo": "MODELOS URBANOS DAS VILAS DE BAIXO: UM ESTUDO DE CASO DOS NÚCLEOS URBANOS COLONIAIS DO NORTE DOS ILHÉUS",
+    "autor": "LEONARDO ALVES DE MOURA",
+    "ano": "sem informação",
+    "orientador": "MARCELO HENRIQUE DIAS",
+    "keywords": [
+      "modelos urbanos",
+      "vilas de baixo",
+      "núcleos urbanos coloniais",
+      "norte dos Ilhéus"
+    ]
+  },
+  {
+    "id": 62,
+    "titulo": "A BATALHA DOS NADADORES EM ILHÉUS-BA NO GOVERNO DE MEN DE SÁ - 1559-1566: UMA ANÁLISE DAS ESTRATÉGIAS MILITARES, DOS REGULAMENTOS, ORDENAÇÕES DA LEGISLAÇÃO PORTUGUESA E DAS AÇÕES DOS GUERREIROS",
+    "autor": "EDEILSON CARDOSO SILVA",
+    "ano": "sem informação",
+    "orientador": "TERESINHA MARCIS",
+    "keywords": [
+      "Batalha dos Nadadores",
+      "Ilhéus",
+      "Men de Sá",
+      "estratégias militares",
+      "legislação portuguesa"
+    ]
+  },
+  {
+    "id": 63,
+    "titulo": "Trabalho, associativismo e cultura: a formação da sociedade união operária dos estivadores de Ilhéus-Bahia (1919-1937)",
+    "autor": "ALCÂNTARA, Érika Luanna da Mota",
+    "ano": "2024",
+    "orientador": "—",
+    "keywords": [
+      "Trabalho",
+      "Associativismo",
+      "Cultura",
+      "Formação",
+      "Sociedade"
+    ],
+    "tematica": "Trabalho",
+    "editora_local": "Universidade do Estado da Bahia, Santo Antônio de Jesus (dissertação de mestrado)",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 64,
+    "titulo": "A conquista do closed shop pelos estivadores de Ilhéus (1918–1921)",
+    "autor": "ALCÂNTARA, Érika Luanna da Mota",
+    "ano": "2022",
+    "orientador": "—",
+    "keywords": [
+      "Conquista",
+      "Closed",
+      "Shop",
+      "Pelos",
+      "Estivadores"
+    ],
+    "tematica": "Trabalho",
+    "editora_local": "Anpuh-ba – XI Encontro Estadual de História, Salvador",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 65,
+    "titulo": "A distinção: crítica social do julgamento",
+    "autor": "BOURDIEU, Pierre",
+    "ano": "2007",
+    "orientador": "—",
+    "keywords": [
+      "Distinção",
+      "Crítica",
+      "Social",
+      "Julgamento"
+    ],
+    "tematica": "Outros",
+    "editora_local": "Zouk, Porto Alegre",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 66,
+    "titulo": "Civilização material, economia e capitalismo: séculos XV-XVIII (3 v.)",
+    "autor": "BRAUDEL, Fernand",
+    "ano": "1995-1998",
+    "orientador": "—",
+    "keywords": [
+      "Civilização",
+      "Material",
+      "Economia",
+      "Capitalismo",
+      "Séculos"
+    ],
+    "tematica": "Economia",
+    "editora_local": "Martins Fontes, São Paulo",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 67,
+    "titulo": "O Mediterrâneo e o mundo mediterrânico na época de Filipe II",
+    "autor": "BRAUDEL, Fernand",
+    "ano": "2016",
+    "orientador": "—",
+    "keywords": [
+      "Mediterrâneo",
+      "Mundo",
+      "Mediterrânico",
+      "Época",
+      "Filipe"
+    ],
+    "tematica": "Outros",
+    "editora_local": "Edusp, São Paulo",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 68,
+    "titulo": "Crônica da Capitania de São Jorge dos Ilhéus",
+    "autor": "CAMPOS, João da Silva",
+    "ano": "1947",
+    "orientador": "—",
+    "keywords": [
+      "Crônica",
+      "Capitania",
+      "Jorge",
+      "Ilhéus"
+    ],
+    "tematica": "Urbanismo",
+    "editora_local": "Salvador",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 69,
+    "titulo": "O lugar no/do mundo",
+    "autor": "CARLOS, Ana Fani Alessandri",
+    "ano": "1996",
+    "orientador": "—",
+    "keywords": [
+      "Lugar",
+      "Mundo"
+    ],
+    "tematica": "Outros",
+    "editora_local": "FFLCH/USP, São Paulo",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 70,
+    "titulo": "A construção da ordem: a elite política imperial",
+    "autor": "CARVALHO, José Murilo de",
+    "ano": "2012",
+    "orientador": "—",
+    "keywords": [
+      "Construção",
+      "Ordem",
+      "Elite",
+      "Política",
+      "Imperial"
+    ],
+    "tematica": "Política",
+    "editora_local": "Civilização Brasileira, Rio de Janeiro",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 71,
+    "titulo": "Trabalhadores, associativismo e política no sul da Bahia (1910–1950)",
+    "autor": "CARVALHO, Philipe Murillo Santana de",
+    "ano": "2018",
+    "orientador": "—",
+    "keywords": [
+      "Trabalhadores",
+      "Associativismo",
+      "Política",
+      "Bahia"
+    ],
+    "tematica": "Trabalho",
+    "editora_local": "Universidade Federal da Bahia, Salvador (dissertação de mestrado)",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 72,
+    "titulo": "A invenção do cotidiano: 1. Artes de fazer (22. ed.)",
+    "autor": "CERTEAU, Michel de",
+    "ano": "2014",
+    "orientador": "—",
+    "keywords": [
+      "Invenção",
+      "Cotidiano",
+      "Artes",
+      "Fazer"
+    ],
+    "tematica": "História",
+    "editora_local": "Vozes, Petrópolis",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 73,
+    "titulo": "A escrita da história",
+    "autor": "CERTEAU, Michel de",
+    "ano": "1982",
+    "orientador": "—",
+    "keywords": [
+      "Escrita",
+      "História"
+    ],
+    "tematica": "História",
+    "editora_local": "Forense Universitária, Rio de Janeiro",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 74,
+    "titulo": "Cidade febril: cortiços e epidemias na Corte imperial",
+    "autor": "CHALHOUB, Sidney",
+    "ano": "1996",
+    "orientador": "—",
+    "keywords": [
+      "Cidade",
+      "Febril",
+      "Cortiços",
+      "Epidemias",
+      "Corte"
+    ],
+    "tematica": "Urbanismo",
+    "editora_local": "Companhia das Letras, São Paulo",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 75,
+    "titulo": "Economia e sociedade no sul da Bahia",
+    "autor": "COSTA, Ana Paula da",
+    "ano": "2014",
+    "orientador": "—",
+    "keywords": [
+      "Economia",
+      "Sociedade",
+      "Bahia"
+    ],
+    "tematica": "Urbanismo",
+    "editora_local": "EDUFBA, Salvador",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 76,
+    "titulo": "Carnavais, malandros e heróis: para uma sociologia do dilema brasileiro",
+    "autor": "DAMATTA, Roberto",
+    "ano": "1997",
+    "orientador": "—",
+    "keywords": [
+      "Carnavais",
+      "Malandros",
+      "Heróis",
+      "Sociologia",
+      "Dilema"
+    ],
+    "tematica": "Outros",
+    "editora_local": "Rocco, Rio de Janeiro",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 77,
+    "titulo": "Estado e capital estrangeiro na industrialização brasileira",
+    "autor": "DINIZ, Eli",
+    "ano": "1978",
+    "orientador": "—",
+    "keywords": [
+      "Estado",
+      "Capital",
+      "Estrangeiro",
+      "Industrialização",
+      "Brasileira"
+    ],
+    "tematica": "Política",
+    "editora_local": "Paz e Terra, Rio de Janeiro",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 78,
+    "titulo": "A integração do negro na sociedade de classes (5. ed.)",
+    "autor": "FERNANDES, Florestan",
+    "ano": "2008",
+    "orientador": "—",
+    "keywords": [
+      "Integração",
+      "Negro",
+      "Sociedade",
+      "Classes"
+    ],
+    "tematica": "Diáspora",
+    "editora_local": "Globo, São Paulo",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 79,
+    "titulo": "O nascimento da clínica (7. ed.)",
+    "autor": "FOUCAULT, Michel",
+    "ano": "2011",
+    "orientador": "—",
+    "keywords": [
+      "Nascimento",
+      "Clínica"
+    ],
+    "tematica": "Outros",
+    "editora_local": "Forense Universitária, Rio de Janeiro",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 80,
+    "titulo": "Vigiar e punir",
+    "autor": "FOUCAULT, Michel",
+    "ano": "1987",
+    "orientador": "—",
+    "keywords": [
+      "Vigiar",
+      "Punir"
+    ],
+    "tematica": "Outros",
+    "editora_local": "Vozes, Petrópolis",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 81,
+    "titulo": "Afogados em leis: a CLT e a cultura política dos trabalhadores brasileiros",
+    "autor": "FRENCH, John D.",
+    "ano": "2001",
+    "orientador": "—",
+    "keywords": [
+      "Afogados",
+      "Leis",
+      "Cultura",
+      "Política",
+      "Trabalhadores"
+    ],
+    "tematica": "Trabalho",
+    "editora_local": "Fundação Perseu Abramo, São Paulo",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 82,
+    "titulo": "Formação Econômica do Brasil",
+    "autor": "FURTADO, Celso",
+    "ano": "2009",
+    "orientador": "—",
+    "keywords": [
+      "Formação",
+      "Econômica",
+      "Brasil"
+    ],
+    "tematica": "Economia",
+    "editora_local": "Companhia Editora Nacional, São Paulo",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 83,
+    "titulo": "A invenção do trabalhismo (3. ed.)",
+    "autor": "GOMES, Ângela de Castro",
+    "ano": "2005",
+    "orientador": "—",
+    "keywords": [
+      "Invenção",
+      "Trabalhismo"
+    ],
+    "tematica": "História",
+    "editora_local": "FGV, Rio de Janeiro",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 84,
+    "titulo": "Por um feminismo afro-latino-americano: ensaios, intervenções e diálogos",
+    "autor": "GONZALEZ, Lélia",
+    "ano": "2020",
+    "orientador": "—",
+    "keywords": [
+      "Feminismo",
+      "Afro",
+      "Latino",
+      "Americano",
+      "Ensaios"
+    ],
+    "tematica": "Gênero",
+    "editora_local": "Zahar, Rio de Janeiro",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 85,
+    "titulo": "Racismo e sexismo na cultura brasileira (capítulo em livro organizado)",
+    "autor": "GONZALEZ, Lélia",
+    "ano": "1983",
+    "orientador": "—",
+    "keywords": [
+      "Racismo",
+      "Sexismo",
+      "Cultura",
+      "Brasileira",
+      "Capítulo"
+    ],
+    "tematica": "Gênero",
+    "editora_local": "ANPOCS, Brasília",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 86,
+    "titulo": "Coronelismo, enxada e voto: o município e o regime representativo no Brasil (7. ed.)",
+    "autor": "LEAL, Victor Nunes",
+    "ano": "2012",
+    "orientador": "—",
+    "keywords": [
+      "Coronelismo",
+      "Enxada",
+      "Voto",
+      "Município",
+      "Regime"
+    ],
+    "tematica": "Outros",
+    "editora_local": "Companhia das Letras, São Paulo",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 87,
+    "titulo": "A produção do espaço",
+    "autor": "LEFEBVRE, Henri",
+    "ano": "2006",
+    "orientador": "—",
+    "keywords": [
+      "Produção",
+      "Espaço"
+    ],
+    "tematica": "Urbanismo",
+    "editora_local": "Editora da UFMG, Belo Horizonte",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 88,
+    "titulo": "Política e interesses na industrialização brasileira: as associações industriais, a política econômica e o Estado",
+    "autor": "LEOPOLDI, Maria Antonieta P.",
+    "ano": "2000",
+    "orientador": "—",
+    "keywords": [
+      "Política",
+      "Interesses",
+      "Industrialização",
+      "Brasileira",
+      "Associações"
+    ],
+    "tematica": "Política",
+    "editora_local": "Paz e Terra, São Paulo",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 89,
+    "titulo": "Os portos e a cidade de ilhéus: transformações da paisagem urbana (1940-1980)",
+    "autor": "LOPES, Santos",
+    "ano": "2015",
+    "orientador": "—",
+    "keywords": [
+      "Portos",
+      "Cidade",
+      "Ilhéus",
+      "Transformações",
+      "Paisagem"
+    ],
+    "tematica": "Porto",
+    "editora_local": "REDP – VI Jornadas Internacionales de Estudios Portuários, Rosário/Argentina",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 90,
+    "titulo": "Sociologia do negro brasileiro",
+    "autor": "MOURA, Clóvis",
+    "ano": "1988",
+    "orientador": "—",
+    "keywords": [
+      "Sociologia",
+      "Negro",
+      "Brasileiro"
+    ],
+    "tematica": "Diáspora",
+    "editora_local": "Ática, São Paulo",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 91,
+    "titulo": "O binômio porto-ferrovia: o escoamento da produção cacaueira no sul da Bahia (1920-1970)",
+    "autor": "PONTES, Kátia Vinhático",
+    "ano": "2018",
+    "orientador": "—",
+    "keywords": [
+      "Binômio",
+      "Porto",
+      "Ferrovia",
+      "Escoamento",
+      "Produção"
+    ],
+    "tematica": "Porto",
+    "editora_local": "Niterói",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 92,
+    "titulo": "Portos e cidades: movimentos portuários, Atlântico e diáspora africana",
+    "autor": "ROSADO, Rita de Cássia Santana; SANTOS, Flávio Gonçalves dos (org.)",
+    "ano": "2011",
+    "orientador": "—",
+    "keywords": [
+      "Portos",
+      "Cidades",
+      "Movimentos",
+      "Portuários",
+      "Atlântico"
+    ],
+    "tematica": "Porto",
+    "editora_local": "Editus, Ilhéus",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 93,
+    "titulo": "A Baía do Pontal – Ilhéus: formação urbana, economia e cotidiano",
+    "autor": "SANTOS, Flávio Gonçalves dos",
+    "ano": "2016",
+    "orientador": "—",
+    "keywords": [
+      "Baía",
+      "Pontal",
+      "Ilhéus",
+      "Formação",
+      "Urbana"
+    ],
+    "tematica": "Urbanismo",
+    "editora_local": "Editus, Ilhéus",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 94,
+    "titulo": "Cidadania e justiça: a política social na ordem brasileira",
+    "autor": "SANTOS, Wanderley Guilherme dos",
+    "ano": "1979",
+    "orientador": "—",
+    "keywords": [
+      "Cidadania",
+      "Justiça",
+      "Política",
+      "Social",
+      "Ordem"
+    ],
+    "tematica": "Política",
+    "editora_local": "Campus, Rio de Janeiro",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 95,
+    "titulo": "Operários sem patrões: os trabalhadores da cidade de Santos no entreguerras",
+    "autor": "SILVA, Fernando Teixeira da",
+    "ano": "2003",
+    "orientador": "—",
+    "keywords": [
+      "Operários",
+      "Patrões",
+      "Trabalhadores",
+      "Cidade",
+      "Santos"
+    ],
+    "tematica": "Trabalho",
+    "editora_local": "Editora da UNICAMP, Campinas",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 96,
+    "titulo": "Portos, poder e economia: disputas regionais na Bahia republicana",
+    "autor": "SOUZA, Ricardo M.",
+    "ano": "2014",
+    "orientador": "—",
+    "keywords": [
+      "Portos",
+      "Poder",
+      "Economia",
+      "Disputas",
+      "Regionais"
+    ],
+    "tematica": "Porto",
+    "editora_local": "Revista Brasileira de História, v.34, n.67, p.85-112",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 97,
+    "titulo": "Da diáspora: identidades e mediações culturais",
+    "autor": "HALL, Stuart",
+    "ano": "2003",
+    "orientador": "—",
+    "keywords": [
+      "Diáspora",
+      "Identidades",
+      "Mediações",
+      "Culturais"
+    ],
+    "tematica": "Diáspora",
+    "editora_local": "Editora UFMG, Belo Horizonte",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 98,
+    "titulo": "Bandidos",
+    "autor": "HOBSBAWM, Eric",
+    "ano": "1975",
+    "orientador": "—",
+    "keywords": [
+      "Bandidos"
+    ],
+    "tematica": "Outros",
+    "editora_local": "Paz e Terra, Rio de Janeiro",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 99,
+    "titulo": "A globalização da natureza e a natureza da globalização",
+    "autor": "PORTO-GONÇALVES, Carlos Walter",
+    "ano": "2006",
+    "orientador": "—",
+    "keywords": [
+      "Globalização",
+      "Natureza",
+      "Natureza",
+      "Globalização"
+    ],
+    "tematica": "Outros",
+    "editora_local": "Civilização Brasileira, Rio de Janeiro",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 100,
+    "titulo": "Thirdspace: Journeys to Los Angeles and Other Real-and-Imagined Places",
+    "autor": "SOJA, Edward W.",
+    "ano": "1996",
+    "orientador": "—",
+    "keywords": [
+      "Thirdspace",
+      "Journeys",
+      "Angeles",
+      "Other",
+      "Real"
+    ],
+    "tematica": "Outros",
+    "editora_local": "Blackwell, Cambridge",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 101,
+    "titulo": "The Making of the English Working Class (2. ed.)",
+    "autor": "THOMPSON, E. P.",
+    "ano": "1963",
+    "orientador": "—",
+    "keywords": [
+      "Making",
+      "English",
+      "Working",
+      "Class"
+    ],
+    "tematica": "Outros",
+    "editora_local": "Victor Gollancz Ltd, London",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 102,
+    "titulo": "Orixás: deuses iorubás na África e no Novo Mundo",
+    "autor": "VERGER, Pierre",
+    "ano": "1981",
+    "orientador": "—",
+    "keywords": [
+      "Orixás",
+      "Deuses",
+      "Iorubás",
+      "África",
+      "Mundo"
+    ],
+    "tematica": "Diáspora",
+    "editora_local": "Corrupio, Salvador",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 103,
+    "titulo": "Liberalismo e sindicato no Brasil",
+    "autor": "VIANNA, Luiz Werneck",
+    "ano": "1976",
+    "orientador": "—",
+    "keywords": [
+      "Liberalismo",
+      "Sindicato",
+      "Brasil"
+    ],
+    "tematica": "Trabalho",
+    "editora_local": "Paz e Terra, Rio de Janeiro",
+    "tipo": "referencia_bibliografica"
+  },
+  {
+    "id": 104,
+    "titulo": "Economia e sociedade: fundamentos da sociologia compreensiva (v.1)",
+    "autor": "WEBER, Max",
+    "ano": "1999",
+    "orientador": "—",
+    "keywords": [
+      "Economia",
+      "Sociedade",
+      "Fundamentos",
+      "Sociologia",
+      "Compreensiva"
+    ],
+    "tematica": "Economia",
+    "editora_local": "Editora UnB, Brasília",
+    "tipo": "referencia_bibliografica"
+  }
+];
