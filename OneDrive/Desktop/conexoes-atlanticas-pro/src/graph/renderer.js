@@ -1,9 +1,9 @@
 /**
  * Renderer do grafo com D3.js
- * Layout estilo Connected Papers
+ * Layout estilo Connected Papers - versão corrigida
  */
 
-import { select, zoom, zoomIdentity, forceSimulation, forceManyBody, forceCenter, forceLink, forceCollide, drag } from 'd3';
+import { select, zoom, forceSimulation, forceManyBody, forceCenter, forceLink, forceCollide, drag } from 'd3';
 import { store } from '../state/store.js';
 import { COLORS } from '../config/colors.js';
 
@@ -21,9 +21,8 @@ export class GraphRenderer {
       .attr('height', this.height)
       .attr('viewBox', [0, 0, this.width, this.height]);
 
-    // Definições de filtros (glow)
+    // Glow filter
     const defs = this.svg.append('defs');
-
     const filter = defs.append('filter')
       .attr('id', 'node-glow')
       .attr('x', '-50%')
@@ -39,16 +38,17 @@ export class GraphRenderer {
 
     this.g = this.svg.append('g');
 
-    this.zoom = zoom()
+    this.zoomBehavior = zoom()
       .scaleExtent([0.1, 4])
       .on('zoom', (event) => {
         this.g.attr('transform', event.transform);
       });
 
-    this.svg.call(this.zoom);
+    this.svg.call(this.zoomBehavior);
 
     this.simulation = null;
     this.nodeElements = null;
+    this.glowElements = null;
     this.linkElements = null;
     this.labelElements = null;
 
@@ -63,22 +63,47 @@ export class GraphRenderer {
 
     // Links
     this.linkElements = this.g.append('g')
-      .attr('class', 'links')
       .selectAll('line')
       .data(edges)
       .join('line')
-      .attr('class', 'link-line')
       .attr('stroke', COLORS.link.default)
-      .attr('stroke-width', d => 0.5 + d.weight * 1.5);
+      .attr('stroke-width', d => Math.max(0.5, d.weight * 1.5))
+      .attr('stroke-opacity', 0.25);
 
-    // Nodes
-    const nodeGroup = this.g.append('g')
-      .attr('class', 'nodes')
-      .selectAll('g')
+    // Glow (círculo maior por trás)
+    this.glowElements = this.g.append('g')
+      .selectAll('circle')
       .data(nodes)
-      .join('g')
-      .attr('class', 'node-group')
+      .join('circle')
+      .attr('r', d => d.radius + 4)
+      .attr('fill', d => d.color)
+      .attr('opacity', 0.15)
+      .attr('filter', 'url(#node-glow)')
+      .style('pointer-events', 'none');
+
+    // Nós principais
+    this.nodeElements = this.g.append('g')
+      .selectAll('circle')
+      .data(nodes)
+      .join('circle')
+      .attr('r', d => d.radius)
+      .attr('fill', d => d.color)
+      .attr('stroke', d => d.color)
+      .attr('stroke-width', 1.5)
+      .attr('stroke-opacity', 0.6)
       .style('cursor', 'pointer')
+      .on('click', (event, d) => {
+        event.stopPropagation();
+        store.setState({ selectedNodeId: d.id });
+      })
+      .on('mouseover', (event, d) => {
+        store.setState({ highlightedNodeId: d.id });
+        this._showTooltip(event, d);
+      })
+      .on('mouseout', () => {
+        store.setState({ highlightedNodeId: null });
+        this._hideTooltip();
+      })
       .call(drag()
         .on('start', (event, d) => {
           if (!event.active) this.simulation.alphaTarget(0.3).restart();
@@ -95,75 +120,45 @@ export class GraphRenderer {
           d.fy = null;
         }));
 
-    // Glow circle
-    nodeGroup.append('circle')
-      .attr('r', d => d.radius + 5)
-      .attr('fill', d => d.color)
-      .attr('opacity', 0.12)
-      .attr('filter', 'url(#node-glow)')
-      .style('pointer-events', 'none');
-
-    // Main circle
-    this.nodeElements = nodeGroup.append('circle')
-      .attr('class', 'node-circle')
-      .attr('r', d => d.radius)
-      .attr('fill', d => d.color)
-      .attr('stroke', d => {
-        const c = d.color;
-        // Brighter stroke
-        return c;
-      })
-      .attr('stroke-width', 1.5)
-      .attr('stroke-opacity', 0.6)
-      .on('click', (event, d) => {
-        event.stopPropagation();
-        store.setState({ selectedNodeId: d.id });
-      })
-      .on('mouseover', (event, d) => {
-        store.setState({ highlightedNodeId: d.id });
-        this._showTooltip(event, d);
-      })
-      .on('mouseout', () => {
-        store.setState({ highlightedNodeId: null });
-        this._hideTooltip();
-      });
-
-    // Labels
+    // Labels (só para nós com conexões >= 3 ou originais)
+    const labeledNodes = nodes.filter(d => d.connections >= 3 || d.nodeType === 'original');
     this.labelElements = this.g.append('g')
-      .attr('class', 'labels')
       .selectAll('text')
-      .data(nodes.filter(d => d.connections >= 3 || d.nodeType === 'original'))
+      .data(labeledNodes)
       .join('text')
-      .attr('class', 'node-label')
-      .attr('dy', d => d.radius + 14)
       .text(d => d.label)
+      .attr('text-anchor', 'middle')
+      .attr('dy', d => d.radius + 12)
+      .style('font-size', '10px')
+      .style('fill', 'rgba(255,255,255,0.6)')
+      .style('pointer-events', 'none')
       .style('opacity', 0.7);
 
     // Simulação de forças
     this.simulation = forceSimulation(nodes)
       .force('link', forceLink(edges)
         .id(d => d.id)
-        .distance(d => 60 + (1 - d.weight) * 80)
-        .strength(d => d.weight * 0.5)
+        .distance(d => 80 + (1 - d.weight) * 60)
+        .strength(d => d.weight * 0.4)
       )
       .force('charge', forceManyBody()
-        .strength(d => -60 - d.radius * 6)
-        .distanceMin(20)
-        .distanceMax(400)
+        .strength(d => -100 - d.radius * 5)
+        .distanceMin(15)
+        .distanceMax(350)
       )
       .force('collide', forceCollide()
-        .radius(d => d.radius + 6)
-        .strength(0.6)
+        .radius(d => d.radius + 8)
+        .strength(0.5)
         .iterations(2)
       )
       .force('center', forceCenter(this.width / 2, this.height / 2))
-      .force('x', forceCenter(this.width / 2, this.height / 2).strength(0.03))
-      .force('y', forceCenter(this.width / 2, this.height / 2).strength(0.03))
+      .force('x', forceCenter(this.width / 2, this.height / 2).strength(0.02))
+      .force('y', forceCenter(this.height / 2, this.height / 2).strength(0.02))
       .alphaDecay(0.02)
-      .velocityDecay(0.3)
+      .velocityDecay(0.35)
       .on('tick', () => this._tick());
 
-    // Click no fundo
+    // Click no fundo = desselecionar
     this.svg.on('click', () => {
       store.setState({ selectedNodeId: null });
     });
@@ -176,56 +171,70 @@ export class GraphRenderer {
       .attr('x2', d => d.target.x)
       .attr('y2', d => d.target.y);
 
-    this.g.selectAll('.node-group')
-      .attr('transform', d => `translate(${d.x || 0},${d.y || 0})`);
+    this.glowElements
+      .attr('cx', d => d.x)
+      .attr('cy', d => d.y);
+
+    this.nodeElements
+      .attr('cx', d => d.x)
+      .attr('cy', d => d.y);
 
     this.labelElements
-      .attr('x', d => d.x || 0)
-      .attr('y', d => d.y || 0);
+      .attr('x', d => d.x)
+      .attr('y', d => d.y);
   }
 
   updateHighlights(highlightedId, selectedId) {
     if (!this.nodeElements) return;
 
+    const isHighlighted = d => d.id === highlightedId || d.id === selectedId;
+    const isConnectedTo = (d, targetId) => {
+      if (!targetId) return false;
+      return this.edges.some(e => {
+        const s = typeof e.source === 'object' ? e.source.id : e.source;
+        const t = typeof e.target === 'object' ? e.target.id : e.target;
+        return (s === targetId && t === d.id) || (t === targetId && s === d.id);
+      });
+    };
+
     this.nodeElements
-      .classed('highlight', d => d.id === highlightedId || d.id === selectedId)
-      .classed('fade', d => {
-        if (!highlightedId && !selectedId) return false;
-        if (d.id === highlightedId || d.id === selectedId) return false;
-        if (selectedId) {
-          const connected = this.edges.some(e => {
-            const s = typeof e.source === 'object' ? e.source.id : e.source;
-            const t = typeof e.target === 'object' ? e.target.id : e.target;
-            return (s === selectedId && t === d.id) || (t === selectedId && s === d.id);
-          });
-          return !connected;
-        }
-        return false;
+      .attr('stroke-width', d => isHighlighted(d) ? 3 : 1.5)
+      .attr('stroke-opacity', d => {
+        if (!highlightedId && !selectedId) return 0.6;
+        if (isHighlighted(d)) return 1;
+        if (selectedId && isConnectedTo(d, selectedId)) return 0.8;
+        return 0.2;
+      })
+      .attr('opacity', d => {
+        if (!highlightedId && !selectedId) return 1;
+        if (isHighlighted(d)) return 1;
+        if (selectedId && isConnectedTo(d, selectedId)) return 1;
+        return 0.25;
+      });
+
+    this.glowElements
+      .attr('opacity', d => {
+        if (!highlightedId && !selectedId) return 0.15;
+        if (isHighlighted(d)) return 0.4;
+        if (selectedId && isConnectedTo(d, selectedId)) return 0.25;
+        return 0.05;
       });
 
     this.linkElements
-      .classed('highlight', d => {
+      .attr('stroke-opacity', d => {
         const s = typeof d.source === 'object' ? d.source.id : d.source;
         const t = typeof d.target === 'object' ? d.target.id : d.target;
-        return (s === highlightedId || t === highlightedId || s === selectedId || t === selectedId);
-      })
-      .classed('fade', d => {
-        if (!highlightedId && !selectedId) return false;
-        const s = typeof d.source === 'object' ? d.source.id : d.source;
-        const t = typeof d.target === 'object' ? d.target.id : d.target;
-        return !((s === highlightedId || t === highlightedId) || (s === selectedId || t === selectedId));
+        if (!highlightedId && !selectedId) return 0.25;
+        if (s === highlightedId || t === highlightedId || s === selectedId || t === selectedId) return 0.6;
+        return 0.05;
       });
 
     this.labelElements
       .style('opacity', d => {
         if (!highlightedId && !selectedId) return 0.7;
-        if (d.id === highlightedId || d.id === selectedId) return 1;
-        const connected = this.edges.some(e => {
-          const s = typeof e.source === 'object' ? e.source.id : e.source;
-          const t = typeof e.target === 'object' ? e.target.id : e.target;
-          return (s === selectedId && t === d.id) || (t === selectedId && s === d.id);
-        });
-        return connected ? 0.6 : 0.15;
+        if (isHighlighted(d)) return 1;
+        if (selectedId && isConnectedTo(d, selectedId)) return 0.8;
+        return 0.15;
       });
   }
 
