@@ -34,18 +34,23 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 4px 0;
+      padding: 5px 8px;
+      margin: 0 -8px;
+      border-radius: 6px;
       font-size: 12px;
       color: rgba(255, 255, 255, 0.75);
       cursor: pointer;
-      transition: opacity 0.2s;
+      transition: all 0.2s;
       user-select: none;
     }
     .doc-legend-item:hover {
-      opacity: 0.8;
+      background: rgba(255, 255, 255, 0.05);
     }
     .doc-legend-item.inactive {
       opacity: 0.35;
+    }
+    .doc-legend-item.active {
+      background: rgba(255, 255, 255, 0.08);
     }
     .doc-legend-dot {
       width: 10px;
@@ -59,33 +64,148 @@
       font-size: 10px;
       color: rgba(255, 255, 255, 0.35);
       font-variant-numeric: tabular-nums;
+      min-width: 20px;
+      text-align: right;
     }
 
-    /* ─── FILTRO POR TIPO NO TOPBAR ──────────────────────────────────── */
-    .filter-group select#tipo-filter {
-      min-width: 140px;
+    /* ─── SIDEBAR ESTILIZADO ───────────────────────────────────────── */
+    #sidebar {
+      background: rgba(6, 10, 18, 0.94);
+      backdrop-filter: blur(20px);
+      border-left: 1px solid rgba(255, 255, 255, 0.06);
+      overflow-y: auto;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     }
-
-    /* ─── BADGE DE TIPO NO SIDEBAR ───────────────────────────────────── */
+    #sidebar-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    #sidebar-empty .big-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.4;
+    }
+    .sidebar-detail {
+      padding: 24px;
+    }
     .sidebar-doc-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
+      gap: 8px;
+      padding: 6px 14px;
       border-radius: 20px;
       font-size: 11px;
-      font-weight: 500;
-      margin-bottom: 12px;
-      border: 1px solid currentColor;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border: 1.5px solid currentColor;
       background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(4px);
     }
     .sidebar-doc-badge .dot {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
+      box-shadow: 0 0 8px currentColor;
+    }
+    .sidebar-title {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #e8ecf2;
+      margin: 0 0 20px 0;
+      letter-spacing: -0.01em;
+    }
+    .sidebar-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .meta-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .meta-label {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.35);
+      min-width: 100px;
+      flex-shrink: 0;
+    }
+    .meta-value {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+    }
+    .sidebar-keywords h3 {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.35);
+      margin: 0 0 12px 0;
+    }
+    .keyword-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .keyword-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.65);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.2s ease;
+      cursor: default;
+    }
+    .keyword-tag:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .sidebar-actions {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: center;
+    }
+    .type-icon-large {
+      font-size: 32px;
+      opacity: 0.6;
+      filter: drop-shadow(0 0 12px currentColor);
+    }
+    #sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    #sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    #sidebar::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+    }
+    #sidebar::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.2);
     }
   </style>
-<base target="_blank">
 </head>
 <body>
   <div class="bg-gradient-animated"></div>
@@ -136,7 +256,7 @@
         <svg id="graph-svg"></svg>
         <div id="hint">🖱️ Passe o mouse · Clique para detalhes · Rolagem zoom · Escape fecha</div>
 
-        <!-- 🎨 NOVO: Legenda de cores por tipo -->
+        <!-- 🎨 Legenda de cores por tipo -->
         <div class="doc-legend" id="doc-legend" aria-label="Legenda de tipos de documento">
           <h4>Tipos de documento</h4>
           <div class="doc-legend-item" data-type="dissertacao_tese">
