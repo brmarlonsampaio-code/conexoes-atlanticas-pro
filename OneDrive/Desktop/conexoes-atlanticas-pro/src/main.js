@@ -2,6 +2,7 @@
  * Entry point da aplicação
  */
 
+import './style.css';
 import { articleRepository } from './data/repository.js';
 import { store } from './state/store.js';
 import { GraphRenderer } from './graph/renderer.js';
@@ -9,7 +10,6 @@ import { showToast } from './ui/toast.js';
 import { closeSidebar, renderSidebar } from './ui/sidebar.js';
 import { DOC_TYPE_LABELS } from './config/colors.js';
 import { PERIODS } from './config/constants.js';
-import './ui/filters.js';
 
 // ─── ELEMENTOS DOM ──────────────────────────────────────────────────
 const searchInput = document.getElementById('search-input');
@@ -33,31 +33,25 @@ class App {
     try {
       showToast('Carregando constelação...', 'loading', 2000);
 
-      // Carregar dados
       allNodes = await articleRepository.load();
       allEdges = articleRepository.buildEdges(allNodes);
 
-      // Extrair temáticas únicas
       allNodes.forEach(n => {
         if (n.tematica) tematicas.add(n.tematica);
       });
 
       store.setState({ nodes: allNodes, edges: allEdges });
 
-      // Popular filtros
       this._populatePeriodFilter();
       this._populateTematicaFilter();
       this._updateLegendCounts();
 
-      // Inicializar grafo
       this.renderer = new GraphRenderer('graph-container');
       this.renderer.update(allNodes, allEdges);
 
-      // Subscrever a mudanças
       this._subscribeToState();
       this._bindEvents();
 
-      // Selecionar primeiro nó
       if (allNodes.length > 0) {
         setTimeout(() => {
           store.setState({ selectedNodeId: allNodes[0].id });
@@ -91,7 +85,6 @@ class App {
     allNodes.forEach(n => {
       counts[n.docType] = (counts[n.docType] || 0) + 1;
     });
-
     Object.keys(DOC_TYPE_LABELS).forEach(type => {
       const el = document.getElementById(`count-${type}`);
       if (el) el.textContent = counts[type] || 0;
@@ -101,13 +94,11 @@ class App {
   _updateLegendActiveState() {
     const activeType = store.getState().filters.tipo;
     if (!docLegend) return;
-
     docLegend.querySelectorAll('.doc-legend-item').forEach(item => {
       const type = item.dataset.type;
       item.classList.remove('active', 'inactive');
-
       if (activeType === 'all') {
-        // Todos ativos
+        // nada
       } else if (activeType === type) {
         item.classList.add('active');
       } else {
@@ -117,7 +108,6 @@ class App {
   }
 
   _bindEvents() {
-    // Busca
     if (searchInput) {
       searchInput.addEventListener('input', debounce(() => {
         store.setState({
@@ -126,7 +116,6 @@ class App {
       }, 300));
     }
 
-    // Filtro de período
     if (periodFilter) {
       periodFilter.addEventListener('change', () => {
         store.setState({
@@ -135,7 +124,6 @@ class App {
       });
     }
 
-    // Filtro de temática
     if (tematicaFilter) {
       tematicaFilter.addEventListener('change', () => {
         store.setState({
@@ -144,7 +132,6 @@ class App {
       });
     }
 
-    // 🎨 Filtro por tipo de documento
     if (tipoFilter) {
       tipoFilter.addEventListener('change', () => {
         store.setState({
@@ -154,13 +141,11 @@ class App {
       });
     }
 
-    // 🎨 Clique na legenda para filtrar
     if (docLegend) {
       docLegend.querySelectorAll('.doc-legend-item').forEach(item => {
         item.addEventListener('click', () => {
           const type = item.dataset.type;
           const currentFilter = store.getState().filters.tipo;
-
           if (currentFilter === type) {
             tipoFilter.value = 'all';
             store.setState({
@@ -172,7 +157,6 @@ class App {
               filters: { ...store.getState().filters, tipo: type }
             });
           }
-
           this._updateLegendActiveState();
         });
       });
@@ -180,7 +164,6 @@ class App {
   }
 
   _subscribeToState() {
-    // Highlights
     this.unsubscribers.push(
       store.subscribe((state, prev) => {
         if (state.highlightedNodeId !== prev.highlightedNodeId ||
@@ -190,7 +173,6 @@ class App {
       })
     );
 
-    // Sidebar - renderizar nó selecionado
     this.unsubscribers.push(
       store.subscribe((state, prev) => {
         if (state.selectedNodeId !== prev.selectedNodeId) {
@@ -204,7 +186,6 @@ class App {
       })
     );
 
-    // Filtros
     this.unsubscribers.push(
       store.subscribe((state, prev) => {
         if (JSON.stringify(state.filters) !== JSON.stringify(prev.filters)) {
@@ -218,7 +199,6 @@ class App {
     const visibleNodes = store.getVisibleNodes();
     const visibleEdges = store.getVisibleEdges();
 
-    // Atualizar visibilidade dos elementos D3
     if (this.renderer.nodeElements) {
       this.renderer.nodeElements.style('display', d => {
         return visibleNodes.some(n => n.id === d.id) ? null : 'none';
@@ -235,7 +215,6 @@ class App {
       });
     }
 
-    // Fechar sidebar se nó selecionado ficou invisível
     const state = store.getState();
     if (state.selectedNodeId && !visibleNodes.some(n => n.id === state.selectedNodeId)) {
       closeSidebar();
@@ -247,7 +226,6 @@ class App {
   }
 }
 
-// Debounce utilitário
 function debounce(fn, ms) {
   let timeout;
   return (...args) => {
@@ -256,12 +234,10 @@ function debounce(fn, ms) {
   };
 }
 
-// Inicializar quando DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
   const app = new App();
   app.init();
 
-  // Tecla Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       store.setState({ selectedNodeId: null });
