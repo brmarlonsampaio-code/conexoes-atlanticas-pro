@@ -31,27 +31,43 @@ class App {
 
   async init() {
     try {
-      showToast('Carregando constelação...', 'loading', 2000);
+      // Mostrar spinner sutil no grafo
+      const graphContainer = document.getElementById('graph-container');
+      const spinner = document.createElement('div');
+      spinner.className = 'graph-spinner';
+      spinner.innerHTML = '<div class="spinner-ring"></div><span>Carregando constelação...</span>';
+      if (graphContainer) graphContainer.appendChild(spinner);
 
+      // Carregar dados
       allNodes = await articleRepository.load();
       allEdges = articleRepository.buildEdges(allNodes);
 
+      // Extrair temáticas únicas
       allNodes.forEach(n => {
         if (n.tematica) tematicas.add(n.tematica);
       });
 
       store.setState({ nodes: allNodes, edges: allEdges });
 
+      // Popular filtros
       this._populatePeriodFilter();
       this._populateTematicaFilter();
       this._updateLegendCounts();
 
+      // Inicializar grafo
       this.renderer = new GraphRenderer('graph-container');
       this.renderer.update(allNodes, allEdges);
 
+      // Remover spinner
+      if (spinner && spinner.parentNode) {
+        spinner.parentNode.removeChild(spinner);
+      }
+
+      // Subscrever a mudanças
       this._subscribeToState();
       this._bindEvents();
 
+      // Selecionar primeiro nó
       if (allNodes.length > 0) {
         setTimeout(() => {
           store.setState({ selectedNodeId: allNodes[0].id });
