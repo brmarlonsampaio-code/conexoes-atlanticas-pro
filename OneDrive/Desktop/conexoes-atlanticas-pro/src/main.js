@@ -11,14 +11,19 @@ import { closeSidebar, renderSidebar } from './ui/sidebar.js';
 import { DOC_TYPE_LABELS } from './config/colors.js';
 import { PERIODS } from './config/constants.js';
 
-// ─── ELEMENTOS DOM ──────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════
+// ELEMENTOS DOM
+// ═══════════════════════════════════════════════════════════════════
 const searchInput = document.getElementById('search-input');
 const periodFilter = document.getElementById('period-filter');
 const tematicaFilter = document.getElementById('tematica-filter');
 const tipoFilter = document.getElementById('tipo-filter');
 const docLegend = document.getElementById('doc-legend');
+const timelineTrack = document.getElementById('timeline-track');
 
-// ─── ESTADO LOCAL ───────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════
+// ESTADO LOCAL
+// ═══════════════════════════════════════════════════════════════════
 let allNodes = [];
 let allEdges = [];
 let tematicas = new Set();
@@ -53,6 +58,7 @@ class App {
       this._populatePeriodFilter();
       this._populateTematicaFilter();
       this._updateLegendCounts();
+      this._updateTimeline(); // NOVO: timeline visual
 
       // Inicializar grafo
       this.renderer = new GraphRenderer('graph-container');
@@ -104,6 +110,29 @@ class App {
     Object.keys(DOC_TYPE_LABELS).forEach(type => {
       const el = document.getElementById(`count-${type}`);
       if (el) el.textContent = counts[type] || 0;
+    });
+  }
+
+  // NOVO: Atualizar timeline visual
+  _updateTimeline() {
+    if (!timelineTrack) return;
+    timelineTrack.innerHTML = '';
+
+    const minYear = 1500;
+    const maxYear = 2024;
+    const range = maxYear - minYear;
+
+    allNodes.forEach(node => {
+      if (node.year !== null && node.year >= minYear && node.year <= maxYear) {
+        const pct = ((node.year - minYear) / range) * 100;
+        const dot = document.createElement('div');
+        dot.className = 'timeline-dot';
+        dot.style.left = pct + '%';
+        dot.style.color = node.color;
+        dot.style.background = node.color;
+        dot.title = `${node.year}: ${node.fullTitle.substring(0, 50)}...`;
+        timelineTrack.appendChild(dot);
+      }
     });
   }
 

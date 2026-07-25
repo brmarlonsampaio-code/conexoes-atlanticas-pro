@@ -1,103 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Conexões Atlânticas - Constelação Acadêmica Interativa" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Conexões Atlânticas · Constelação Acadêmica</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="./src/main.js"></script>
 </head>
 <body>
   <div class="bg-gradient-animated"></div>
 
   <div id="app">
+    <!-- Topbar -->
     <header id="topbar">
       <div class="logo">Conexões <span>Atlânticas</span></div>
 
       <div class="search-wrapper">
-        <span class="icon" aria-hidden="true">⌕</span>
-        <input 
-          type="text" 
-          id="search-input" 
-          placeholder="Buscar título, autor, orientador..." 
-          aria-label="Buscar artigos"
-          autocomplete="off"
-        />
+        <span class="icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Buscar dissertação, autor, tema..." autocomplete="off">
       </div>
 
       <div class="filter-group">
         <span class="label">Período</span>
-        <select id="period-filter" aria-label="Filtrar por período"></select>
-      </div>
+        <select id="period-filter">
+          <option value="all">Todos</option>
+          <option value="2020-2021">2020–2021</option>
+          <option value="2022-2023">2022–2023</option>
+          <option value="2024+">2024+</option>
+          <option value="sem-info">Sem info</option>
+        </select>
 
-      <div class="filter-group">
         <span class="label">Temática</span>
-        <select id="tematica-filter" aria-label="Filtrar por temática">
+        <select id="tematica-filter">
           <option value="all">Todas</option>
         </select>
-      </div>
 
-      <div class="filter-group">
         <span class="label">Tipo</span>
-        <select id="tipo-filter" aria-label="Filtrar por tipo de documento">
+        <select id="tipo-filter">
           <option value="all">Todos</option>
           <option value="dissertacao_tese">Dissertação/Tese</option>
           <option value="livro">Livro</option>
-          <option value="capitulo_livro">Capítulo de livro</option>
-          <option value="artigo_revista">Artigo de revista</option>
-          <option value="referencia_bibliografica">Referência bibliográfica</option>
+          <option value="capitulo_livro">Capítulo</option>
+          <option value="artigo_revista">Artigo</option>
+          <option value="referencia_bibliografica">Referência</option>
         </select>
       </div>
     </header>
 
-    <main id="main">
-      <div id="graph-container" role="img" aria-label="Constelação acadêmica interativa">
-        <svg id="graph-svg"></svg>
+    <!-- Main -->
+    <div id="main">
+      <div id="graph-container">
         <div id="hint">🖱️ Passe o mouse · Clique para detalhes · Rolagem zoom · Escape fecha</div>
 
-        <div class="doc-legend" id="doc-legend" aria-label="Legenda de tipos de documento">
-          <h4>Tipos de documento</h4>
-          <div class="doc-legend-item" data-type="dissertacao_tese">
-            <span class="doc-legend-dot" style="background:#3B82F6;color:#3B82F6;"></span>
-            <span>Dissertação/Tese</span>
-            <span class="doc-legend-count" id="count-dissertacao_tese">0</span>
+        <!-- Timeline visual -->
+        <div class="timeline-bar">
+          <span class="timeline-label">1500</span>
+          <div class="timeline-track" id="timeline-track">
+            <!-- Marcadores serão preenchidos via JS -->
           </div>
-          <div class="doc-legend-item" data-type="livro">
-            <span class="doc-legend-dot" style="background:#D97706;color:#D97706;"></span>
-            <span>Livro</span>
-            <span class="doc-legend-count" id="count-livro">0</span>
-          </div>
-          <div class="doc-legend-item" data-type="capitulo_livro">
-            <span class="doc-legend-dot" style="background:#EA580C;color:#EA580C;"></span>
-            <span>Capítulo de livro</span>
-            <span class="doc-legend-count" id="count-capitulo_livro">0</span>
-          </div>
-          <div class="doc-legend-item" data-type="artigo_revista">
-            <span class="doc-legend-dot" style="background:#16A34A;color:#16A34A;"></span>
-            <span>Artigo de revista</span>
-            <span class="doc-legend-count" id="count-artigo_revista">0</span>
-          </div>
-          <div class="doc-legend-item" data-type="referencia_bibliografica">
-            <span class="doc-legend-dot" style="background:#9CA3AF;color:#9CA3AF;"></span>
-            <span>Referência bibliográfica</span>
-            <span class="doc-legend-count" id="count-referencia_bibliografica">0</span>
-          </div>
+          <span class="timeline-label">2024</span>
         </div>
       </div>
 
-      <aside id="sidebar" aria-label="Painel de detalhes">
-        <div class="empty-state" id="sidebar-empty">
-          <div class="big-icon" aria-hidden="true">✦</div>
-          <div>Selecione um nó na constelação<br />para ver os detalhes</div>
+      <aside id="sidebar">
+        <div class="empty-state">
+          <div class="big-icon">✦</div>
+          <p>Clique em um nó para ver detalhes</p>
         </div>
-        <div id="sidebar-content" style="display:none;"></div>
       </aside>
-    </main>
+    </div>
   </div>
 
-  <div id="tooltip" role="tooltip" aria-hidden="true"></div>
+  <div id="tooltip"></div>
 
-  <script type="module" src="/src/main.js"></script>
+  <!-- Legenda de tipos -->
+  <div class="doc-legend" id="doc-legend">
+    <h4>Tipos de documento</h4>
+    <div class="doc-legend-item" data-type="dissertacao_tese">
+      <span class="doc-legend-dot" style="color:#3B82F6;background:#3B82F6;"></span>
+      <span>Dissertação/Tese</span>
+      <span class="doc-legend-count" id="count-dissertacao_tese">0</span>
+    </div>
+    <div class="doc-legend-item" data-type="livro">
+      <span class="doc-legend-dot" style="color:#D97706;background:#D97706;"></span>
+      <span>Livro</span>
+      <span class="doc-legend-count" id="count-livro">0</span>
+    </div>
+    <div class="doc-legend-item" data-type="capitulo_livro">
+      <span class="doc-legend-dot" style="color:#EA580C;background:#EA580C;"></span>
+      <span>Capítulo de livro</span>
+      <span class="doc-legend-count" id="count-capitulo_livro">0</span>
+    </div>
+    <div class="doc-legend-item" data-type="artigo_revista">
+      <span class="doc-legend-dot" style="color:#16A34A;background:#16A34A;"></span>
+      <span>Artigo de revista</span>
+      <span class="doc-legend-count" id="count-artigo_revista">0</span>
+    </div>
+    <div class="doc-legend-item" data-type="referencia_bibliografica">
+      <span class="doc-legend-dot" style="color:#9CA3AF;background:#9CA3AF;"></span>
+      <span>Referência bibliográfica</span>
+      <span class="doc-legend-count" id="count-referencia_bibliografica">0</span>
+    </div>
+  </div>
 </body>
 </html>

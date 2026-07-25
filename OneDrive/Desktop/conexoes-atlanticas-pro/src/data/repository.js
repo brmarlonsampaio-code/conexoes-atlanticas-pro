@@ -3,7 +3,7 @@
  */
 
 import { classifyTematica } from '../utils/classifier.js';
-import { getNodeColorByType, DOC_TYPES } from '../config/colors.js';
+import { getNodeColorByTheme, DOC_TYPES } from '../config/colors.js';
 import { ARTICLES_DATA } from './articles-data.js';
 
 /**
@@ -35,7 +35,7 @@ function classifyDocType(d) {
   if (editora.includes('dissertação') || editora.includes('dissertacao') || editora.includes('mestrado') || editora.includes('doutorado')) {
     return DOC_TYPES.DISSERTACAO_TESE;
   }
-  if (editora.includes('livro') || (!d.orientador && d.ano && !editora.includes('revista'))) {
+  if (!d.orientador && d.ano && !editora.includes('revista')) {
     return DOC_TYPES.LIVRO;
   }
 
@@ -96,9 +96,12 @@ export class ArticleRepository {
     const id = d.id.toString().startsWith('t') ? d.id : `t${d.id}`;
     const docType = classifyDocType(d);
 
+    // NOVO: cor baseada na TEMÁTICA (estilo Connected Papers)
+    const color = getNodeColorByTheme(tematica);
+
     return {
       id: id,
-      label: d.titulo.length > 40 ? d.titulo.substring(0, 38) + '…' : d.titulo,
+      label: d.titulo.length > 40 ? d.titulo.substring(0, 38) + '...' : d.titulo,
       fullTitle: d.titulo,
       author: d.autor,
       year: yearNum,
@@ -107,13 +110,14 @@ export class ArticleRepository {
       keywords: d.keywords,
       tematica: tematica,
       docType: docType,
-      color: getNodeColorByType(docType),
+      color: color,  // AGORA: cor por temática!
       nodeType: id.startsWith('t') && parseInt(id.slice(1)) <= 62 ? 'original' : 'referencia',
-      citations: 0,
-      abstract: d.abstract || null,
+      connections: 0,  // será preenchido depois de buildEdges
+      radius: 5,       // será ajustado depois de buildEdges
+      abstract: d.resumo || d.abstract || null,
       venue: d.editora_local || null,
       doi: d.doi || null,
-      pdfUrl: d.pdf_url || null,  // 🎓 NOVO: link do PDF
+      pdfUrl: d.pdf_url || null,
       paperId: id,
       url: d.url || null
     };
@@ -160,7 +164,25 @@ export class ArticleRepository {
       }
     }
 
-    return this._limitDegree(edges, nodes, 8);
+    const limitedEdges = this._limitDegree(edges, nodes, 8);
+
+    // NOVO: calcular grau e radius após limitar arestas
+    const degree = {};
+    nodes.forEach(n => degree[n.id] = 0);
+    limitedEdges.forEach(e => {
+      const src = typeof e.source === 'object' ? e.source.id : e.source;
+      const tgt = typeof e.target === 'object' ? e.target.id : e.target;
+      degree[src] = (degree[src] || 0) + 1;
+      degree[tgt] = (degree[tgt] || 0) + 1;
+    });
+    nodes.forEach(n => {
+      n.connections = degree[n.id] || 1;
+      // Tamanho proporcional às conexões (estilo Connected Papers)
+      const baseSize = n.nodeType === 'original' ? 7 : 4.5;
+      n.radius = baseSize + Math.sqrt(n.connections) * 1.8;
+    });
+
+    return limitedEdges;
   }
 
   _limitDegree(edges, nodes, limit) {

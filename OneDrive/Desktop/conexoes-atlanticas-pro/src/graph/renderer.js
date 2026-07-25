@@ -1,330 +1,265 @@
 /**
- * Renderizador do grafo D3
+ * Renderer do grafo com D3.js
+ * Layout estilo Connected Papers com forças mais orgânicas
  */
 
 import * as d3 from 'd3';
-import { COLORS, DOC_TYPE_COLORS, DOC_TYPE_LABELS, DOC_TYPE_ICONS } from '../config/colors.js';
-import { CONFIG } from '../config/constants.js';
 import { store } from '../state/store.js';
-import { showTooltip, hideTooltip, positionTooltip } from '../ui/tooltip.js';
+import { COLORS } from '../config/colors.js';
 
 export class GraphRenderer {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
-    this.svgEl = document.getElementById('graph-svg');
-    this.width = 800;
-    this.height = 600;
-    this.simulation = null;
-    this.g = null;
-    this.linkElements = null;
-    this.nodeElements = null;
-    this.zoomBehavior = null;
+    if (!this.container) throw new Error(`Container #${containerId} não encontrado`);
 
-    this._initSVG();
-    this._initSimulation();
-    this._bindEvents();
-  }
+    this.width = this.container.clientWidth;
+    this.height = this.container.clientHeight;
 
-  _initSVG() {
-    const rect = this.container.getBoundingClientRect();
-    this.width = rect.width || 800;
-    this.height = rect.height || 600;
-
-    this.svg = d3.select(this.svgEl)
+    this.svg = d3.select(this.container)
+      .append('svg')
       .attr('width', this.width)
       .attr('height', this.height)
-      .attr('viewBox', `0 0 ${this.width} ${this.height}`)
-      .style('background', 'transparent');
+      .attr('viewBox', [0, 0, this.width, this.height]);
 
-    this._initDefs();
+    // Definições de filtros (glow)
+    const defs = this.svg.append('defs');
+
+    // Glow filter para nós
+    const filter = defs.append('filter')
+      .attr('id', 'node-glow')
+      .attr('x', '-50%')
+      .attr('y', '-50%')
+      .attr('width', '200%')
+      .attr('height', '200%');
+    filter.append('feGaussianBlur')
+      .attr('stdDeviation', '4')
+      .attr('result', 'coloredBlur');
+    const feMerge = filter.append('feMerge');
+    feMerge.append('feMergeNode').attr('in', 'coloredBlur');
+    feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
+
     this.g = this.svg.append('g');
 
-    this.zoomBehavior = d3.zoom()
-      .scaleExtent([CONFIG.GRAPH.ZOOM_MIN, CONFIG.GRAPH.ZOOM_MAX])
+    this.zoom = d3.zoom()
+      .scaleExtent([0.1, 4])
       .on('zoom', (event) => {
         this.g.attr('transform', event.transform);
       });
 
-    this.svg.call(this.zoomBehavior);
+    this.svg.call(this.zoom);
+
+    this.simulation = null;
+    this.nodeElements = null;
+    this.linkElements = null;
+    this.labelElements = null;
+
+    this._setupResize();
   }
 
-  _initDefs() {
-    const defs = this.svg.append('defs');
-
-    // Glow filter
-    const filter = defs.append('filter')
-      .attr('id', 'glow')
-      .attr('x', '-50%').attr('y', '-50%')
-      .attr('width', '200%').attr('height', '200%');
-    filter.append('feGaussianBlur').attr('stdDeviation', '4').attr('result', 'blur');
-    const merge = filter.append('feMerge');
-    merge.append('feMergeNode').attr('in', 'blur');
-    merge.append('feMergeNode').attr('in', 'SourceGraphic');
-
-    // Highlight glow
-    const filterH = defs.append('filter')
-      .attr('id', 'glow-highlight')
-      .attr('x', '-50%').attr('y', '-50%')
-      .attr('width', '200%').attr('height', '200%');
-    filterH.append('feGaussianBlur').attr('stdDeviation', '7').attr('result', 'blur');
-    const mergeH = filterH.append('feMerge');
-    mergeH.append('feMergeNode').attr('in', 'blur');
-    mergeH.append('feMergeNode').attr('in', 'SourceGraphic');
-  }
-
-  _initSimulation() {
-    this.simulation = d3.forceSimulation()
-      .force('charge', d3.forceManyBody()
-        .strength(-550)
-        .distanceMin(CONFIG.GRAPH.CHARGE_DISTANCE_MIN)
-        .distanceMax(CONFIG.GRAPH.CHARGE_DISTANCE_MAX))
-      .force('center', d3.forceCenter(this.width / 2, this.height / 2))
-      .force('collision', d3.forceCollide().radius(CONFIG.GRAPH.COLLISION_RADIUS));
-  }
-
-  _bindEvents() {
-    window.addEventListener('resize', () => this._resize());
-
-    this.svgEl.addEventListener('click', (e) => {
-      if (e.target === this.svgEl || e.target.tagName === 'svg') {
-        store.setState({ selectedNodeId: null });
-      }
-    });
-  }
-
-  _resize() {
-    const rect = this.container.getBoundingClientRect();
-    this.width = rect.width || 800;
-    this.height = rect.height || 600;
-
-    this.svg
-      .attr('width', this.width)
-      .attr('height', this.height)
-      .attr('viewBox', `0 0 ${this.width} ${this.height}`);
-
-    this.simulation.force('center', d3.forceCenter(this.width / 2, this.height / 2));
-    this.simulation.alpha(0.2).restart();
-  }
-
-  /**
-   * Atualiza o grafo com dados
-   * @param {Object[]} nodes 
-   * @param {Object[]} edges 
-   */
   update(nodes, edges) {
-    // Calcular grau
-    const degree = {};
-    nodes.forEach(n => degree[n.id] = 0);
-    edges.forEach(e => {
-      const src = typeof e.source === 'object' ? e.source.id : e.source;
-      const tgt = typeof e.target === 'object' ? e.target.id : e.target;
-      degree[src] = (degree[src] || 0) + 1;
-      degree[tgt] = (degree[tgt] || 0) + 1;
-    });
+    this.nodes = nodes;
+    this.edges = edges;
 
-    // Configurar simulação
-    this.simulation.nodes(nodes);
-    this.simulation.force('link', d3.forceLink(edges)
-      .id(d => d.id)
-      .distance(250)
-      .strength(CONFIG.GRAPH.LINK_STRENGTH));
-
-    // Inicializar posições
-    nodes.forEach((d) => {
-      if (d.x == null && d.y == null) {
-        d.x = this.width / 2 + (Math.random() - 0.5) * 300;
-        d.y = this.height / 2 + (Math.random() - 0.5) * 300;
-      }
-    });
-
-    // Renderizar links
-    this._renderLinks(edges);
-    this._renderNodes(nodes, degree);
-
-    this.simulation.on('tick', () => this._onTick());
-    this.simulation.alpha(1).restart();
-
-    // Zoom inicial
-    setTimeout(() => {
-      const scale = Math.min(this.width / 1600, this.height / 1200, 0.75);
-      const tx = (this.width - 1100 * scale) / 2;
-      const ty = (this.height - 800 * scale) / 2;
-      this.svg.call(this.zoomBehavior.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
-    }, 500);
-  }
-
-  _renderLinks(edges) {
-    this.g.selectAll('.links').remove();
-    const linkGroup = this.g.append('g').attr('class', 'links');
-
-    this.linkElements = linkGroup
-      .selectAll('path')
-      .data(edges)
-      .enter()
-      .append('path')
-      .attr('class', 'link-line')
-      .attr('stroke', COLORS.link.default)
-      .attr('stroke-width', d => Math.min(2.5, 0.5 + (d.weight || 1) * 0.5));
-  }
-
-  _renderNodes(nodes, degree) {
-    this.g.selectAll('.nodes').remove();
-    const nodeGroup = this.g.append('g').attr('class', 'nodes');
-
-    this.nodeElements = nodeGroup
-      .selectAll('g')
-      .data(nodes)
-      .enter()
-      .append('g')
-      .attr('class', 'node-group')
-      .call(d3.drag()
-        .on('start', (e, d) => this._dragStarted(e, d))
-        .on('drag', (e, d) => this._dragged(e, d))
-        .on('end', (e, d) => this._dragEnded(e, d)));
-
-    // Círculos — cor baseada no tipo de documento
-    this.nodeElements.append('circle')
-      .attr('class', 'node-circle')
-      .attr('r', d => {
-          const baseSize = d.nodeType === 'original' ? 7 : 4.5;
-          return baseSize + (degree[d.id] || 0) * 0.8;
-        })
-      .attr('fill', d => d.color || COLORS.node.default)
-      .attr('stroke', d => d.color || COLORS.node.default)
-      .attr('stroke-width', 1.5)
-      .attr('filter', 'url(#glow)')
-      .style('cursor', 'pointer')
-      .on('click', (e, d) => {
-        e.stopPropagation();
-        store.setState({ selectedNodeId: d.id });
-      })
-      .on('mouseenter', (e, d) => {
-        store.setState({ highlightedNodeId: d.id });
-        showTooltip(e, d);
-      })
-      .on('mousemove', (e) => positionTooltip(e))
-      .on('mouseleave', () => {
-        store.setState({ highlightedNodeId: null });
-        hideTooltip();
-      });
-
-    // Labels
-    this.nodeElements.append('text')
-      .attr('class', 'node-label')
-      .attr('dy', d => 10 + (degree[d.id] || 0) * 1.2 + 12)
-      .text(d => d.label)
-      .style('font-size', '9px')
-      .style('fill', COLORS.text.primary);
-  }
-
-  _onTick() {
-    if (this.linkElements) {
-      this.linkElements.attr('d', d => {
-        if (!d.source || !d.target) return '';
-        const dx = d.target.x - d.source.x;
-        const dy = d.target.y - d.source.y;
-        const dr = Math.sqrt(dx * dx + dy * dy) * 0.5 || 1;
-        return `M${d.source.x},${d.source.y}A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
-      });
-    }
-
-    if (this.nodeElements) {
-      this.nodeElements.attr('transform', d => `translate(${d.x},${d.y})`);
-    }
-  }
-
-  _dragStarted(event, d) {
-    if (!event.active) this.simulation.alphaTarget(0.3).restart();
-    d.fx = d.x;
-    d.fy = d.y;
-  }
-
-  _dragged(event, d) {
-    d.fx = event.x;
-    d.fy = event.y;
-  }
-
-  _dragEnded(event, d) {
-    if (!event.active) this.simulation.alphaTarget(0);
-    d.fx = null;
-    d.fy = null;
-  }
-
-  /**
-   * Atualiza highlights visuais
-   * @param {string|null} highlightId 
-   * @param {string|null} selectedId 
-   */
-  updateHighlights(highlightId, selectedId) {
-    const activeId = highlightId || selectedId;
-    if (!activeId || !this.linkElements || !this.nodeElements) {
-      this._resetHighlights();
-      return;
-    }
-
-    const state = store.getState();
-    const edges = state.edges;
+    this.g.selectAll('*').remove();
 
     // Links
-    this.linkElements.each(function(d) {
-      const el = d3.select(this);
-      const src = typeof d.source === 'object' ? d.source.id : d.source;
-      const tgt = typeof d.target === 'object' ? d.target.id : d.target;
-      const isConnected = src === activeId || tgt === activeId;
+    this.linkElements = this.g.append('g')
+      .attr('class', 'links')
+      .selectAll('line')
+      .data(edges)
+      .join('line')
+      .attr('class', 'link-line')
+      .attr('stroke', COLORS.link.default)
+      .attr('stroke-width', d => 0.5 + d.weight * 1.5);
 
-      if (isConnected) {
-        el.attr('class', 'link-line highlight').attr('stroke', COLORS.link.highlight);
-      } else {
-        el.attr('class', 'link-line fade').attr('stroke', COLORS.link.fade);
-      }
-    });
+    // Nodes (grupos com círculo + glow)
+    const nodeGroup = this.g.append('g')
+      .attr('class', 'nodes')
+      .selectAll('g')
+      .data(nodes)
+      .join('g')
+      .attr('class', 'node-group')
+      .style('cursor', 'pointer')
+      .call(d3.drag()
+        .on('start', (event, d) => {
+          if (!event.active) this.simulation.alphaTarget(0.3).restart();
+          d.fx = d.x;
+          d.fy = d.y;
+        })
+        .on('drag', (event, d) => {
+          d.fx = event.x;
+          d.fy = event.y;
+        })
+        .on('end', (event, d) => {
+          if (!event.active) this.simulation.alphaTarget(0);
+          d.fx = null;
+          d.fy = null;
+        }));
 
-    // Nodes
-    this.nodeElements.selectAll('.node-circle').each(function(d) {
-      const el = d3.select(this);
-      const isActive = d.id === activeId;
-      const isConnected = edges.some(e => {
-        const src = typeof e.source === 'object' ? e.source.id : e.source;
-        const tgt = typeof e.target === 'object' ? e.target.id : e.target;
-        return (src === activeId && tgt === d.id) || (tgt === activeId && src === d.id);
+    // Círculo externo (glow)
+    nodeGroup.append('circle')
+      .attr('r', d => d.radius + 6)
+      .attr('fill', d => d.color)
+      .attr('opacity', 0.15)
+      .attr('filter', 'url(#node-glow)');
+
+    // Círculo principal
+    this.nodeElements = nodeGroup.append('circle')
+      .attr('class', 'node-circle')
+      .attr('r', d => d.radius)
+      .attr('fill', d => d.color)
+      .attr('stroke', d => d3.color(d.color).brighter(0.5))
+      .attr('stroke-width', 1.5)
+      .on('click', (event, d) => {
+        event.stopPropagation();
+        store.setState({ selectedNodeId: d.id });
+      })
+      .on('mouseover', (event, d) => {
+        store.setState({ highlightedNodeId: d.id });
+        this._showTooltip(event, d);
+      })
+      .on('mouseout', () => {
+        store.setState({ highlightedNodeId: null });
+        this._hideTooltip();
       });
 
-      if (isActive) {
-        el.attr('class', 'node-circle highlight').attr('filter', 'url(#glow-highlight)').style('opacity', 1);
-      } else if (isConnected) {
-        el.attr('class', 'node-circle').style('opacity', 0.9);
-      } else {
-        el.attr('class', 'node-circle fade').style('opacity', 0.25);
-      }
-    });
+    // Labels (só para nós grandes ou originais)
+    this.labelElements = this.g.append('g')
+      .attr('class', 'labels')
+      .selectAll('text')
+      .data(nodes.filter(d => d.connections >= 3 || d.nodeType === 'original'))
+      .join('text')
+      .attr('class', 'node-label')
+      .attr('dy', d => d.radius + 14)
+      .text(d => d.label)
+      .style('opacity', 0.7);
 
-    // Labels
-    this.nodeElements.selectAll('.node-label').each(function(d) {
-      const el = d3.select(this);
-      const isActive = d.id === activeId;
-      const isConnected = edges.some(e => {
-        const src = typeof e.source === 'object' ? e.source.id : e.source;
-        const tgt = typeof e.target === 'object' ? e.target.id : e.target;
-        return (src === activeId && tgt === d.id) || (tgt === activeId && src === d.id);
-      });
+    // Simulação de forças (mais orgânica, estilo Connected Papers)
+    this.simulation = d3.forceSimulation(nodes)
+      .force('link', d3.forceLink(edges)
+        .id(d => d.id)
+        .distance(d => 60 + (1 - d.weight) * 80)
+        .strength(d => d.weight * 0.5)
+      )
+      .force('charge', d3.forceManyBody()
+        .strength(d => -80 - d.radius * 8)
+        .distanceMin(20)
+        .distanceMax(400)
+      )
+      .force('collide', d3.forceCollide()
+        .radius(d => d.radius + 8)
+        .strength(0.7)
+        .iterations(2)
+      )
+      .force('center', d3.forceCenter(this.width / 2, this.height / 2))
+      .force('x', d3.forceX(this.width / 2).strength(0.03))
+      .force('y', d3.forceY(this.height / 2).strength(0.03))
+      .alphaDecay(0.02)
+      .velocityDecay(0.3)
+      .on('tick', () => this._tick());
 
-      el.style('opacity', isActive || isConnected ? 1 : 0);
+    // Click no fundo = desselecionar
+    this.svg.on('click', () => {
+      store.setState({ selectedNodeId: null });
     });
   }
 
-  _resetHighlights() {
-    if (!this.linkElements || !this.nodeElements) return;
+  _tick() {
+    this.linkElements
+      .attr('x1', d => d.source.x)
+      .attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x)
+      .attr('y2', d => d.target.y);
+
+    this.nodeElements.attr('transform', d => `translate(${d.x},${d.y})`);
+
+    // Atualizar também os grupos (glow + círculo)
+    this.g.selectAll('.node-group')
+      .attr('transform', d => `translate(${d.x},${d.y})`);
+
+    this.labelElements
+      .attr('x', d => d.x)
+      .attr('y', d => d.y);
+  }
+
+  updateHighlights(highlightedId, selectedId) {
+    if (!this.nodeElements) return;
+
+    this.nodeElements
+      .classed('highlight', d => d.id === highlightedId || d.id === selectedId)
+      .classed('fade', d => {
+        if (!highlightedId && !selectedId) return false;
+        if (d.id === highlightedId || d.id === selectedId) return false;
+        // Fade nós não conectados ao selecionado
+        if (selectedId) {
+          const connected = this.edges.some(e => {
+            const s = typeof e.source === 'object' ? e.source.id : e.source;
+            const t = typeof e.target === 'object' ? e.target.id : e.target;
+            return (s === selectedId && t === d.id) || (t === selectedId && s === d.id);
+          });
+          return !connected;
+        }
+        return false;
+      });
 
     this.linkElements
-      .attr('class', 'link-line')
-      .attr('stroke', COLORS.link.default)
-      .style('stroke-opacity', null);
+      .classed('highlight', d => {
+        const s = typeof d.source === 'object' ? d.source.id : d.source;
+        const t = typeof d.target === 'object' ? d.target.id : d.target;
+        return (s === highlightedId || t === highlightedId || s === selectedId || t === selectedId);
+      })
+      .classed('fade', d => {
+        if (!highlightedId && !selectedId) return false;
+        const s = typeof d.source === 'object' ? d.source.id : d.source;
+        const t = typeof d.target === 'object' ? d.target.id : d.target;
+        return !((s === highlightedId || t === highlightedId) || (s === selectedId || t === selectedId));
+      });
 
-    this.nodeElements.selectAll('.node-circle')
-      .attr('class', 'node-circle')
-      .attr('filter', 'url(#glow)')
-      .style('opacity', 1);
+    this.labelElements
+      .style('opacity', d => {
+        if (!highlightedId && !selectedId) return 0.7;
+        if (d.id === highlightedId || d.id === selectedId) return 1;
+        const connected = this.edges.some(e => {
+          const s = typeof e.source === 'object' ? e.source.id : e.source;
+          const t = typeof e.target === 'object' ? e.target.id : e.target;
+          return (s === selectedId && t === d.id) || (t === selectedId && s === d.id);
+        });
+        return connected ? 0.6 : 0.15;
+      });
+  }
 
-    this.nodeElements.selectAll('.node-label').style('opacity', 1);
+  _showTooltip(event, d) {
+    const tooltip = document.getElementById('tooltip');
+    if (!tooltip) return;
+    tooltip.innerHTML = `
+      <strong>${d.fullTitle}</strong>
+      <span class="tooltip-sub">${d.author}${d.yearDisplay ? ' · ' + d.yearDisplay : ''}</span>
+      <span class="tooltip-sub" style="color:${d.color};margin-top:4px;">● ${d.tematica}</span>
+    `;
+    tooltip.style.display = 'block';
+    tooltip.style.left = (event.clientX + 15) + 'px';
+    tooltip.style.top = (event.clientY + 15) + 'px';
+  }
+
+  _hideTooltip() {
+    const tooltip = document.getElementById('tooltip');
+    if (tooltip) tooltip.style.display = 'none';
+  }
+
+  _setupResize() {
+    const ro = new ResizeObserver(entries => {
+      for (const entry of entries) {
+        const { width, height } = entry.contentRect;
+        this.width = width;
+        this.height = height;
+        this.svg.attr('width', width).attr('height', height)
+          .attr('viewBox', [0, 0, width, height]);
+        if (this.simulation) {
+          this.simulation.force('center', d3.forceCenter(width / 2, height / 2));
+          this.simulation.alpha(0.3).restart();
+        }
+      }
+    });
+    ro.observe(this.container);
   }
 }
