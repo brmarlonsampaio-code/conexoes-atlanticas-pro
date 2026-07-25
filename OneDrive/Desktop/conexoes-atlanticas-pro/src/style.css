@@ -286,6 +286,7 @@ body {
 
 .detail-card {
   animation: fadeSlide 0.3s ease-out;
+  position: relative;
 }
 
 @keyframes fadeSlide {
@@ -302,133 +303,6 @@ body {
   letter-spacing: 0.4px;
   text-transform: uppercase;
   border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-#sidebar .title {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.3;
-  margin: 10px 0 4px;
-  color: #f0f4fa;
-}
-
-#sidebar .sub {
-  font-size: 14px;
-  color: var(--color-text-secondary);
-  margin-bottom: 4px;
-  font-weight: 300;
-}
-
-#sidebar .year,
-#sidebar .advisor,
-#sidebar .citations {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.35);
-  margin-bottom: 4px;
-}
-
-#sidebar .tematica {
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  margin-bottom: 12px;
-  font-weight: 500;
-}
-
-#sidebar .abstract {
-  font-size: 14px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.70);
-  margin: 12px 0 16px;
-  padding: 14px 18px;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: var(--radius-md);
-  border-left: 2px solid rgba(255, 255, 255, 0.08);
-  font-weight: 300;
-}
-
-#sidebar .keywords {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 8px 0 16px;
-}
-
-#sidebar .keywords span {
-  padding: 3px 12px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.06);
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  font-weight: 300;
-}
-
-.section-title {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-  margin: 16px 0 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  padding-bottom: 6px;
-}
-
-.connections-list {
-  margin: 8px 0 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.connections-list .conn-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 12px;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.03);
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  transition: background var(--transition-base);
-  cursor: pointer;
-  border-left: 2px solid transparent;
-}
-
-.connections-list .conn-item:hover {
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.connections-list .conn-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.sidebar-close {
-  position: sticky;
-  top: 0;
-  float: right;
-  background: rgba(255, 255, 255, 0.05);
-  border: none;
-  color: var(--color-text-muted);
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background var(--transition-base), color var(--transition-base);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-
-.sidebar-close:hover {
-  background: rgba(255, 255, 255, 0.10);
-  color: #fff;
 }
 
 /* Graph elements */
@@ -541,10 +415,6 @@ body {
     padding: 4px 8px;
     max-width: 100px;
   }
-
-  #sidebar .title {
-    font-size: 18px;
-  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -618,7 +488,11 @@ body {
   text-align: right;
 }
 
-/* ─── BADGE DE TIPO NO SIDEBAR ──────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════
+   SIDEBAR ACADÊMICO - Layout completo e profissional
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── BADGE DE TIPO ──────────────────────────────────────────────── */
 .sidebar-doc-badge {
   display: inline-flex;
   align-items: center;
@@ -641,194 +515,283 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 8px currentColor;
 }
-/**
- * Componente Sidebar - Painel de detalhes acadêmicos do nó selecionado
- */
 
-import { store } from '../state/store.js';
-import { DOC_TYPE_LABELS, DOC_TYPE_ICONS } from '../config/colors.js';
-
-const sidebarEl = document.getElementById('sidebar');
-const emptyEl = document.getElementById('sidebar-empty');
-const contentEl = document.getElementById('sidebar-content');
-
-export function closeSidebar() {
-  if (sidebarEl) sidebarEl.classList.remove('open');
-  if (contentEl) contentEl.style.display = 'none';
-  if (emptyEl) emptyEl.style.display = 'flex';
+/* ─── TÍTULO E AUTOR ───────────────────────────────────────────── */
+.sidebar-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #f0f4fa;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
 }
 
-export function openSidebar() {
-  if (sidebarEl) sidebarEl.classList.add('open');
+.sidebar-author {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 16px;
+  font-weight: 400;
 }
 
-/**
- * Renderiza sidebar completo com dados acadêmicos
- */
-export function renderSidebar(node) {
-  if (!node) { closeSidebar(); return; }
-
-  openSidebar();
-  if (emptyEl) emptyEl.style.display = 'none';
-  if (contentEl) contentEl.style.display = 'block';
-
-  const state = store.getState();
-  const edges = state.edges || [];
-  const allNodes = state.nodes || [];
-
-  // Encontrar conexões do nó
-  const connections = edges.filter(e => {
-    const src = typeof e.source === 'object' ? e.source.id : e.source;
-    const tgt = typeof e.target === 'object' ? e.target.id : e.target;
-    return src === node.id || tgt === node.id;
-  }).map(e => {
-    const src = typeof e.source === 'object' ? e.source.id : e.source;
-    const tgt = typeof e.target === 'object' ? e.target.id : e.target;
-    const otherId = src === node.id ? tgt : src;
-    const otherNode = allNodes.find(n => n.id === otherId);
-    return { node: otherNode, weight: e.weight };
-  }).filter(c => c.node).sort((a, b) => b.weight - a.weight);
-
-  // Calcular grau (número de conexões)
-  const degree = connections.length;
-
-  // Montar HTML
-  const html = `
-    <div class="detail-card">
-      <button class="sidebar-close" aria-label="Fechar painel">×</button>
-
-      <!-- Badge de tipo -->
-      <div class="sidebar-doc-badge" style="color:${node.color};border-color:${node.color}">
-        <span class="dot" style="background:${node.color};box-shadow:0 0 8px ${node.color}"></span>
-        <span>${DOC_TYPE_LABELS[node.docType] || 'Documento'}</span>
-      </div>
-
-      <!-- Título -->
-      <h2 class="sidebar-title">${escapeHtml(node.fullTitle || node.label)}</h2>
-
-      <!-- Autor -->
-      ${node.author ? `<div class="sidebar-author">${escapeHtml(node.author)}</div>` : ''}
-
-      <!-- Metadados em grid -->
-      <div class="meta-grid">
-        ${node.yearDisplay ? `
-          <div class="meta-item">
-            <span class="meta-icon">📅</span>
-            <div>
-              <span class="meta-label">Ano</span>
-              <span class="meta-value">${escapeHtml(node.yearDisplay)}</span>
-            </div>
-          </div>
-        ` : ''}
-        ${node.advisor && node.advisor !== '—' ? `
-          <div class="meta-item">
-            <span class="meta-icon">👨‍🏫</span>
-            <div>
-              <span class="meta-label">Orientador</span>
-              <span class="meta-value">${escapeHtml(node.advisor)}</span>
-            </div>
-          </div>
-        ` : ''}
-        ${node.tematica ? `
-          <div class="meta-item">
-            <span class="meta-icon">🏷️</span>
-            <div>
-              <span class="meta-label">Temática</span>
-              <span class="meta-value">${escapeHtml(node.tematica)}</span>
-            </div>
-          </div>
-        ` : ''}
-        ${node.venue ? `
-          <div class="meta-item">
-            <span class="meta-icon">📚</span>
-            <div>
-              <span class="meta-label">Editora/Local</span>
-              <span class="meta-value">${escapeHtml(node.venue)}</span>
-            </div>
-          </div>
-        ` : ''}
-        <div class="meta-item">
-          <span class="meta-icon">🔗</span>
-          <div>
-            <span class="meta-label">Conexões</span>
-            <span class="meta-value">${degree} documento${degree !== 1 ? 's' : ''} relacionado${degree !== 1 ? 's' : ''}</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Resumo/Abstract -->
-      ${node.abstract ? `
-        <div class="abstract-section">
-          <h3 class="section-title">Resumo</h3>
-          <p class="abstract-text">${escapeHtml(node.abstract)}</p>
-        </div>
-      ` : `
-        <div class="abstract-section">
-          <h3 class="section-title">Resumo</h3>
-          <p class="abstract-text abstract-placeholder">Resumo não disponível para este documento.</p>
-        </div>
-      `}
-
-      <!-- Palavras-chave -->
-      ${node.keywords && node.keywords.length > 0 ? `
-        <div class="keywords-section">
-          <h3 class="section-title">Palavras-chave</h3>
-          <div class="keywords-list">
-            ${node.keywords.map(kw => `<span class="keyword-tag">${escapeHtml(kw)}</span>`).join('')}
-          </div>
-        </div>
-      ` : ''}
-
-      <!-- Conexões / Documentos relacionados -->
-      ${connections.length > 0 ? `
-        <div class="connections-section">
-          <h3 class="section-title">Documentos Relacionados (${connections.length})</h3>
-          <div class="connections-list">
-            ${connections.slice(0, 10).map(c => `
-              <div class="connection-item" data-node-id="${c.node.id}">
-                <span class="connection-dot" style="background:${c.node.color || '#9CA3AF'};box-shadow:0 0 6px ${c.node.color || '#9CA3AF'}"></span>
-                <div class="connection-info">
-                  <div class="connection-title">${escapeHtml(c.node.label)}</div>
-                  <div class="connection-meta">${escapeHtml(c.node.author || '')} · ${escapeHtml(c.node.yearDisplay || '')}</div>
-                </div>
-                <span class="connection-weight">${c.weight.toFixed(1)}</span>
-              </div>
-            `).join('')}
-            ${connections.length > 10 ? `<div class="connection-more">+${connections.length - 10} documentos relacionados</div>` : ''}
-          </div>
-        </div>
-      ` : ''}
-
-      <!-- Ícone do tipo no rodapé -->
-      <div class="sidebar-footer">
-        <div class="type-icon-large" style="color:${node.color || '#9CA3AF'}">
-          ${DOC_TYPE_ICONS[node.docType] || '●'}
-        </div>
-        <div class="footer-label">${DOC_TYPE_LABELS[node.docType] || 'Documento'}</div>
-      </div>
-    </div>
-  `;
-
-  if (contentEl) {
-    contentEl.innerHTML = html;
-
-    // Bind do botão fechar
-    const closeBtn = contentEl.querySelector('.sidebar-close');
-    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
-
-    // Bind dos itens de conexão (clicar para navegar)
-    contentEl.querySelectorAll('.connection-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const nodeId = item.dataset.nodeId;
-        if (nodeId) store.setState({ selectedNodeId: nodeId });
-      });
-    });
-  }
+/* ─── GRID DE METADADOS ───────────────────────────────────────── */
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-function escapeHtml(text) {
-  if (!text) return '';
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
+.meta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.meta-icon {
+  font-size: 14px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.meta-item > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.meta-label {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 2px;
+}
+
+.meta-value {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* ─── SEÇÕES ───────────────────────────────────────────────────── */
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 20px 0 10px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ─── RESUMO ──────────────────────────────────────────────────── */
+.abstract-section {
+  margin-bottom: 16px;
+}
+
+.abstract-text {
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 300;
+}
+
+.abstract-placeholder {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ─── PALAVRAS-CHAVE ──────────────────────────────────────────── */
+.keywords-section {
+  margin-bottom: 16px;
+}
+
+.keywords-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.keyword-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 14px;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.keyword-tag:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ─── CONEXÕES / DOCUMENTOS RELACIONADOS ─────────────────────── */
+.connections-section {
+  margin-bottom: 20px;
+}
+
+.connections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.connection-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.connection-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(3px);
+}
+
+.connection-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.connection-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.connection-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.connection-meta {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 2px;
+}
+
+.connection-weight {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(212, 168, 83, 0.7);
+  background: rgba(212, 168, 83, 0.1);
+  padding: 2px 6px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.connection-more {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  padding: 6px;
+  font-style: italic;
+}
+
+/* ─── RODAPÉ DO SIDEBAR ───────────────────────────────────────── */
+.sidebar-footer {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.type-icon-large {
+  font-size: 28px;
+  opacity: 0.5;
+  filter: drop-shadow(0 0 12px currentColor);
+}
+
+.footer-label {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ─── BOTÃO FECHAR ────────────────────────────────────────────── */
+.sidebar-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding-bottom: 2px;
+}
+
+.sidebar-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* ─── SPINNER ──────────────────────────────────────────────────── */
+.graph-spinner {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.graph-spinner span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.spinner-ring {
+  width: 40px; height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-top-color: #d4a853;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
