@@ -3,7 +3,7 @@
  */
 
 import * as d3 from 'd3';
-import { COLORS } from '../config/colors.js';
+import { COLORS, DOC_TYPE_COLORS, DOC_TYPE_LABELS, DOC_TYPE_ICONS } from '../config/colors.js';
 import { CONFIG } from '../config/constants.js';
 import { store } from '../state/store.js';
 import { showTooltip, hideTooltip, positionTooltip } from '../ui/tooltip.js';
@@ -182,7 +182,7 @@ export class GraphRenderer {
         .on('drag', (e, d) => this._dragged(e, d))
         .on('end', (e, d) => this._dragEnded(e, d)));
 
-    // Círculos
+    // Círculos — cor baseada no tipo de documento
     this.nodeElements.append('circle')
       .attr('class', 'node-circle')
       .attr('r', d => {
