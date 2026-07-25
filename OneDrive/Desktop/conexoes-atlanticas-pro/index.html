@@ -7,6 +7,85 @@
   <title>Conexões Atlânticas · Constelação Acadêmica</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── LEGENDA DE TIPOS DE DOCUMENTO ─────────────────────────────── */
+    .doc-legend {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(6, 10, 18, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 14px 18px;
+      z-index: 100;
+      max-width: 260px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+    .doc-legend h4 {
+      margin: 0 0 10px 0;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.45);
+    }
+    .doc-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.75);
+      cursor: pointer;
+      transition: opacity 0.2s;
+      user-select: none;
+    }
+    .doc-legend-item:hover {
+      opacity: 0.8;
+    }
+    .doc-legend-item.inactive {
+      opacity: 0.35;
+    }
+    .doc-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 0 6px currentColor;
+    }
+    .doc-legend-count {
+      margin-left: auto;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.35);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ─── FILTRO POR TIPO NO TOPBAR ──────────────────────────────────── */
+    .filter-group select#tipo-filter {
+      min-width: 140px;
+    }
+
+    /* ─── BADGE DE TIPO NO SIDEBAR ───────────────────────────────────── */
+    .sidebar-doc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      border: 1px solid currentColor;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .sidebar-doc-badge .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+  </style>
+<base target="_blank">
 </head>
 <body>
   <div class="bg-gradient-animated"></div>
@@ -37,12 +116,55 @@
           <option value="all">Todas</option>
         </select>
       </div>
+
+      <!-- 🎨 NOVO: Filtro por tipo de documento -->
+      <div class="filter-group">
+        <span class="label">Tipo</span>
+        <select id="tipo-filter" aria-label="Filtrar por tipo de documento">
+          <option value="all">Todos</option>
+          <option value="dissertacao_tese">Dissertação/Tese</option>
+          <option value="livro">Livro</option>
+          <option value="capitulo_livro">Capítulo de livro</option>
+          <option value="artigo_revista">Artigo de revista</option>
+          <option value="referencia_bibliografica">Referência bibliográfica</option>
+        </select>
+      </div>
     </header>
 
     <main id="main">
       <div id="graph-container" role="img" aria-label="Constelação acadêmica interativa">
         <svg id="graph-svg"></svg>
         <div id="hint">🖱️ Passe o mouse · Clique para detalhes · Rolagem zoom · Escape fecha</div>
+
+        <!-- 🎨 NOVO: Legenda de cores por tipo -->
+        <div class="doc-legend" id="doc-legend" aria-label="Legenda de tipos de documento">
+          <h4>Tipos de documento</h4>
+          <div class="doc-legend-item" data-type="dissertacao_tese">
+            <span class="doc-legend-dot" style="background:#3B82F6;color:#3B82F6;"></span>
+            <span>Dissertação/Tese</span>
+            <span class="doc-legend-count" id="count-dissertacao_tese">0</span>
+          </div>
+          <div class="doc-legend-item" data-type="livro">
+            <span class="doc-legend-dot" style="background:#D97706;color:#D97706;"></span>
+            <span>Livro</span>
+            <span class="doc-legend-count" id="count-livro">0</span>
+          </div>
+          <div class="doc-legend-item" data-type="capitulo_livro">
+            <span class="doc-legend-dot" style="background:#EA580C;color:#EA580C;"></span>
+            <span>Capítulo de livro</span>
+            <span class="doc-legend-count" id="count-capitulo_livro">0</span>
+          </div>
+          <div class="doc-legend-item" data-type="artigo_revista">
+            <span class="doc-legend-dot" style="background:#16A34A;color:#16A34A;"></span>
+            <span>Artigo de revista</span>
+            <span class="doc-legend-count" id="count-artigo_revista">0</span>
+          </div>
+          <div class="doc-legend-item" data-type="referencia_bibliografica">
+            <span class="doc-legend-dot" style="background:#9CA3AF;color:#9CA3AF;"></span>
+            <span>Referência bibliográfica</span>
+            <span class="doc-legend-count" id="count-referencia_bibliografica">0</span>
+          </div>
+        </div>
       </div>
 
       <aside id="sidebar" aria-label="Painel de detalhes">
