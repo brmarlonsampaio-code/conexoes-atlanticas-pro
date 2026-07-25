@@ -1,9 +1,9 @@
 /**
  * Renderer do grafo com D3.js
- * Layout estilo Connected Papers com forças mais orgânicas
+ * Layout estilo Connected Papers
  */
 
-import * as d3 from 'd3';
+import { select, zoom, zoomIdentity, forceSimulation, forceManyBody, forceCenter, forceLink, forceCollide, drag } from 'd3';
 import { store } from '../state/store.js';
 import { COLORS } from '../config/colors.js';
 
@@ -15,7 +15,7 @@ export class GraphRenderer {
     this.width = this.container.clientWidth;
     this.height = this.container.clientHeight;
 
-    this.svg = d3.select(this.container)
+    this.svg = select(this.container)
       .append('svg')
       .attr('width', this.width)
       .attr('height', this.height)
@@ -24,7 +24,6 @@ export class GraphRenderer {
     // Definições de filtros (glow)
     const defs = this.svg.append('defs');
 
-    // Glow filter para nós
     const filter = defs.append('filter')
       .attr('id', 'node-glow')
       .attr('x', '-50%')
@@ -32,7 +31,7 @@ export class GraphRenderer {
       .attr('width', '200%')
       .attr('height', '200%');
     filter.append('feGaussianBlur')
-      .attr('stdDeviation', '4')
+      .attr('stdDeviation', '3')
       .attr('result', 'coloredBlur');
     const feMerge = filter.append('feMerge');
     feMerge.append('feMergeNode').attr('in', 'coloredBlur');
@@ -40,7 +39,7 @@ export class GraphRenderer {
 
     this.g = this.svg.append('g');
 
-    this.zoom = d3.zoom()
+    this.zoom = zoom()
       .scaleExtent([0.1, 4])
       .on('zoom', (event) => {
         this.g.attr('transform', event.transform);
@@ -72,7 +71,7 @@ export class GraphRenderer {
       .attr('stroke', COLORS.link.default)
       .attr('stroke-width', d => 0.5 + d.weight * 1.5);
 
-    // Nodes (grupos com círculo + glow)
+    // Nodes
     const nodeGroup = this.g.append('g')
       .attr('class', 'nodes')
       .selectAll('g')
@@ -80,7 +79,7 @@ export class GraphRenderer {
       .join('g')
       .attr('class', 'node-group')
       .style('cursor', 'pointer')
-      .call(d3.drag()
+      .call(drag()
         .on('start', (event, d) => {
           if (!event.active) this.simulation.alphaTarget(0.3).restart();
           d.fx = d.x;
@@ -96,20 +95,26 @@ export class GraphRenderer {
           d.fy = null;
         }));
 
-    // Círculo externo (glow)
+    // Glow circle
     nodeGroup.append('circle')
-      .attr('r', d => d.radius + 6)
+      .attr('r', d => d.radius + 5)
       .attr('fill', d => d.color)
-      .attr('opacity', 0.15)
-      .attr('filter', 'url(#node-glow)');
+      .attr('opacity', 0.12)
+      .attr('filter', 'url(#node-glow)')
+      .style('pointer-events', 'none');
 
-    // Círculo principal
+    // Main circle
     this.nodeElements = nodeGroup.append('circle')
       .attr('class', 'node-circle')
       .attr('r', d => d.radius)
       .attr('fill', d => d.color)
-      .attr('stroke', d => d3.color(d.color).brighter(0.5))
+      .attr('stroke', d => {
+        const c = d.color;
+        // Brighter stroke
+        return c;
+      })
       .attr('stroke-width', 1.5)
+      .attr('stroke-opacity', 0.6)
       .on('click', (event, d) => {
         event.stopPropagation();
         store.setState({ selectedNodeId: d.id });
@@ -123,7 +128,7 @@ export class GraphRenderer {
         this._hideTooltip();
       });
 
-    // Labels (só para nós grandes ou originais)
+    // Labels
     this.labelElements = this.g.append('g')
       .attr('class', 'labels')
       .selectAll('text')
@@ -134,31 +139,31 @@ export class GraphRenderer {
       .text(d => d.label)
       .style('opacity', 0.7);
 
-    // Simulação de forças (mais orgânica, estilo Connected Papers)
-    this.simulation = d3.forceSimulation(nodes)
-      .force('link', d3.forceLink(edges)
+    // Simulação de forças
+    this.simulation = forceSimulation(nodes)
+      .force('link', forceLink(edges)
         .id(d => d.id)
         .distance(d => 60 + (1 - d.weight) * 80)
         .strength(d => d.weight * 0.5)
       )
-      .force('charge', d3.forceManyBody()
-        .strength(d => -80 - d.radius * 8)
+      .force('charge', forceManyBody()
+        .strength(d => -60 - d.radius * 6)
         .distanceMin(20)
         .distanceMax(400)
       )
-      .force('collide', d3.forceCollide()
-        .radius(d => d.radius + 8)
-        .strength(0.7)
+      .force('collide', forceCollide()
+        .radius(d => d.radius + 6)
+        .strength(0.6)
         .iterations(2)
       )
-      .force('center', d3.forceCenter(this.width / 2, this.height / 2))
-      .force('x', d3.forceX(this.width / 2).strength(0.03))
-      .force('y', d3.forceY(this.height / 2).strength(0.03))
+      .force('center', forceCenter(this.width / 2, this.height / 2))
+      .force('x', forceCenter(this.width / 2, this.height / 2).strength(0.03))
+      .force('y', forceCenter(this.width / 2, this.height / 2).strength(0.03))
       .alphaDecay(0.02)
       .velocityDecay(0.3)
       .on('tick', () => this._tick());
 
-    // Click no fundo = desselecionar
+    // Click no fundo
     this.svg.on('click', () => {
       store.setState({ selectedNodeId: null });
     });
@@ -171,15 +176,12 @@ export class GraphRenderer {
       .attr('x2', d => d.target.x)
       .attr('y2', d => d.target.y);
 
-    this.nodeElements.attr('transform', d => `translate(${d.x},${d.y})`);
-
-    // Atualizar também os grupos (glow + círculo)
     this.g.selectAll('.node-group')
-      .attr('transform', d => `translate(${d.x},${d.y})`);
+      .attr('transform', d => `translate(${d.x || 0},${d.y || 0})`);
 
     this.labelElements
-      .attr('x', d => d.x)
-      .attr('y', d => d.y);
+      .attr('x', d => d.x || 0)
+      .attr('y', d => d.y || 0);
   }
 
   updateHighlights(highlightedId, selectedId) {
@@ -190,7 +192,6 @@ export class GraphRenderer {
       .classed('fade', d => {
         if (!highlightedId && !selectedId) return false;
         if (d.id === highlightedId || d.id === selectedId) return false;
-        // Fade nós não conectados ao selecionado
         if (selectedId) {
           const connected = this.edges.some(e => {
             const s = typeof e.source === 'object' ? e.source.id : e.source;
@@ -255,7 +256,7 @@ export class GraphRenderer {
         this.svg.attr('width', width).attr('height', height)
           .attr('viewBox', [0, 0, width, height]);
         if (this.simulation) {
-          this.simulation.force('center', d3.forceCenter(width / 2, height / 2));
+          this.simulation.force('center', forceCenter(width / 2, height / 2));
           this.simulation.alpha(0.3).restart();
         }
       }
