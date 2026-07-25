@@ -12,7 +12,8 @@ class Store {
       filters: {
         query: '',
         period: 'all',
-        tematica: 'all'
+        tematica: 'all',
+        tipo: 'all'  // 🎨 NOVO: filtro por tipo de documento
       },
       ui: {
         sidebarOpen: false,
@@ -81,7 +82,7 @@ class Store {
   }
 
   _matchesFilters(node, filters) {
-    const { query, period, tematica } = filters;
+    const { query, period, tematica, tipo } = filters;
 
     if (query) {
       const q = query.toLowerCase();
@@ -112,6 +113,11 @@ class Store {
     }
 
     if (tematica !== 'all' && node.tematica !== tematica) {
+      return false;
+    }
+
+    // 🎨 NOVO: filtro por tipo de documento
+    if (tipo !== 'all' && node.docType !== tipo) {
       return false;
     }
 

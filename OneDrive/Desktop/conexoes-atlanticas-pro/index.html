@@ -37,12 +37,53 @@
           <option value="all">Todas</option>
         </select>
       </div>
+
+      <div class="filter-group">
+        <span class="label">Tipo</span>
+        <select id="tipo-filter" aria-label="Filtrar por tipo de documento">
+          <option value="all">Todos</option>
+          <option value="dissertacao_tese">Dissertação/Tese</option>
+          <option value="livro">Livro</option>
+          <option value="capitulo_livro">Capítulo de livro</option>
+          <option value="artigo_revista">Artigo de revista</option>
+          <option value="referencia_bibliografica">Referência bibliográfica</option>
+        </select>
+      </div>
     </header>
 
     <main id="main">
       <div id="graph-container" role="img" aria-label="Constelação acadêmica interativa">
         <svg id="graph-svg"></svg>
         <div id="hint">🖱️ Passe o mouse · Clique para detalhes · Rolagem zoom · Escape fecha</div>
+
+        <div class="doc-legend" id="doc-legend" aria-label="Legenda de tipos de documento">
+          <h4>Tipos de documento</h4>
+          <div class="doc-legend-item" data-type="dissertacao_tese">
+            <span class="doc-legend-dot" style="background:#3B82F6;color:#3B82F6;"></span>
+            <span>Dissertação/Tese</span>
+            <span class="doc-legend-count" id="count-dissertacao_tese">0</span>
+          </div>
+          <div class="doc-legend-item" data-type="livro">
+            <span class="doc-legend-dot" style="background:#D97706;color:#D97706;"></span>
+            <span>Livro</span>
+            <span class="doc-legend-count" id="count-livro">0</span>
+          </div>
+          <div class="doc-legend-item" data-type="capitulo_livro">
+            <span class="doc-legend-dot" style="background:#EA580C;color:#EA580C;"></span>
+            <span>Capítulo de livro</span>
+            <span class="doc-legend-count" id="count-capitulo_livro">0</span>
+          </div>
+          <div class="doc-legend-item" data-type="artigo_revista">
+            <span class="doc-legend-dot" style="background:#16A34A;color:#16A34A;"></span>
+            <span>Artigo de revista</span>
+            <span class="doc-legend-count" id="count-artigo_revista">0</span>
+          </div>
+          <div class="doc-legend-item" data-type="referencia_bibliografica">
+            <span class="doc-legend-dot" style="background:#9CA3AF;color:#9CA3AF;"></span>
+            <span>Referência bibliográfica</span>
+            <span class="doc-legend-count" id="count-referencia_bibliografica">0</span>
+          </div>
+        </div>
       </div>
 
       <aside id="sidebar" aria-label="Painel de detalhes">

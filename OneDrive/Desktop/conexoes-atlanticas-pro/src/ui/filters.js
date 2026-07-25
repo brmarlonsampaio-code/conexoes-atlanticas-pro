@@ -8,6 +8,8 @@ import { PERIODS } from '../config/constants.js';
 const searchInput = document.getElementById('search-input');
 const periodFilter = document.getElementById('period-filter');
 const tematicaFilter = document.getElementById('tematica-filter');
+const tipoFilter = document.getElementById('tipo-filter');
+const docLegend = document.getElementById('doc-legend');
 
 /**
  * Popula o select de períodos
@@ -32,6 +34,51 @@ function populateTematicas() {
 }
 
 /**
+ * Atualiza contadores da legenda
+ */
+function updateLegendCounts() {
+  const state = store.getState();
+  const counts = {};
+  state.nodes.forEach(n => {
+    counts[n.docType] = (counts[n.docType] || 0) + 1;
+  });
+
+  const typeMap = {
+    'dissertacao_tese': 'count-dissertacao_tese',
+    'livro': 'count-livro',
+    'capitulo_livro': 'count-capitulo_livro',
+    'artigo_revista': 'count-artigo_revista',
+    'referencia_bibliografica': 'count-referencia_bibliografica'
+  };
+
+  Object.entries(typeMap).forEach(([type, id]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = counts[type] || 0;
+  });
+}
+
+/**
+ * Atualiza estado visual da legenda (ativo/inativo)
+ */
+function updateLegendActiveState() {
+  const activeType = store.getState().filters.tipo;
+  if (!docLegend) return;
+
+  docLegend.querySelectorAll('.doc-legend-item').forEach(item => {
+    const type = item.dataset.type;
+    item.classList.remove('active', 'inactive');
+
+    if (activeType === 'all') {
+      // Todos ativos
+    } else if (activeType === type) {
+      item.classList.add('active');
+    } else {
+      item.classList.add('inactive');
+    }
+  });
+}
+
+/**
  * Atualiza filtros no estado
  */
 function updateFilters() {
@@ -39,15 +86,37 @@ function updateFilters() {
     filters: {
       query: searchInput.value.trim().toLowerCase(),
       period: periodFilter.value,
-      tematica: tematicaFilter.value
+      tematica: tematicaFilter.value,
+      tipo: tipoFilter.value
     }
   });
+  updateLegendActiveState();
 }
 
 // Event listeners
 searchInput.addEventListener('input', debounce(updateFilters, 300));
 periodFilter.addEventListener('change', updateFilters);
 tematicaFilter.addEventListener('change', updateFilters);
+tipoFilter.addEventListener('change', updateFilters);
+
+// 🎨 Clique na legenda para filtrar
+if (docLegend) {
+  docLegend.querySelectorAll('.doc-legend-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const type = item.dataset.type;
+      const currentFilter = store.getState().filters.tipo;
+
+      // Toggle: se já está selecionado, volta para "todos"
+      if (currentFilter === type) {
+        tipoFilter.value = 'all';
+      } else {
+        tipoFilter.value = type;
+      }
+
+      updateFilters();
+    });
+  });
+}
 
 // Debounce utilitário
 function debounce(fn, ms) {
@@ -62,6 +131,7 @@ function debounce(fn, ms) {
 store.subscribe((state, prev) => {
   if (state.nodes.length > 0 && prev.nodes.length === 0) {
     populateTematicas();
+    updateLegendCounts();
   }
 });
 

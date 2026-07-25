@@ -6,7 +6,7 @@ import { articleRepository } from './data/repository.js';
 import { store } from './state/store.js';
 import { GraphRenderer } from './graph/renderer.js';
 import { showToast } from './ui/toast.js';
-import { closeSidebar } from './ui/sidebar.js';
+import { closeSidebar, renderSidebar } from './ui/sidebar.js';
 import './ui/filters.js';
 
 class App {
@@ -54,6 +54,20 @@ class App {
         if (state.highlightedNodeId !== prev.highlightedNodeId ||
             state.selectedNodeId !== prev.selectedNodeId) {
           this.renderer.updateHighlights(state.highlightedNodeId, state.selectedNodeId);
+        }
+      })
+    );
+
+    // Sidebar - renderizar nó selecionado
+    this.unsubscribers.push(
+      store.subscribe((state, prev) => {
+        if (state.selectedNodeId !== prev.selectedNodeId) {
+          const node = store.getSelectedNode();
+          if (node) {
+            renderSidebar(node);
+          } else {
+            closeSidebar();
+          }
         }
       })
     );

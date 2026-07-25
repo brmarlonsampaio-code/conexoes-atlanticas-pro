@@ -3,8 +3,67 @@
  */
 
 import { classifyTematica } from '../utils/classifier.js';
-import { getNodeColor } from '../config/colors.js';
+import { getNodeColorByType, DOC_TYPES } from '../config/colors.js';
 import { ARTICLES_DATA } from './articles-data.js';
+
+/**
+ * Classifica o tipo de documento baseado nos dados
+ * @param {Object} d — dados brutos do artigo
+ * @returns {string} tipo de documento
+ */
+function classifyDocType(d) {
+  // Se já tem tipo definido no dado
+  if (d.tipo) {
+    if (d.tipo === 'referencia_bibliografica') return DOC_TYPES.REFERENCIA_BIBLIOGRAFICA;
+    if (d.tipo === 'dissertacao') return DOC_TYPES.DISSERTACAO_TESE;
+    if (d.tipo === 'tese') return DOC_TYPES.DISSERTACAO_TESE;
+    if (d.tipo === 'livro') return DOC_TYPES.LIVRO;
+    if (d.tipo === 'capitulo') return DOC_TYPES.CAPITULO_LIVRO;
+    if (d.tipo === 'artigo') return DOC_TYPES.ARTIGO_REVISTA;
+  }
+
+  // Inferência pelo campo editora_local
+  const editora = (d.editora_local || '').toLowerCase();
+  const titulo = (d.titulo || '').toLowerCase();
+
+  if (editora.includes('revista') || editora.includes('v.')) {
+    return DOC_TYPES.ARTIGO_REVISTA;
+  }
+  if (editora.includes('capítulo') || titulo.includes('capítulo')) {
+    return DOC_TYPES.CAPITULO_LIVRO;
+  }
+  if (editora.includes('dissertação') || editora.includes('dissertacao') || editora.includes('mestrado') || editora.includes('doutorado')) {
+    return DOC_TYPES.DISSERTACAO_TESE;
+  }
+  if (editora.includes('livro') || (!d.orientador && d.ano && !editora.includes('revista'))) {
+    return DOC_TYPES.LIVRO;
+  }
+
+  // IDs 1-62 são trabalhos originais (dissertações/teses)
+  const numId = parseInt(d.id);
+  if (numId >= 1 && numId <= 62) {
+    return DOC_TYPES.DISSERTACAO_TESE;
+  }
+
+  // IDs 63-104 são referências bibliográficas
+  if (numId >= 63 && numId <= 104) {
+    // Verificar se é artigo de revista
+    if (editora.includes('revista') || editora.includes('v.')) {
+      return DOC_TYPES.ARTIGO_REVISTA;
+    }
+    // Verificar se é capítulo
+    if (editora.includes('capítulo') || editora.includes('capitulo')) {
+      return DOC_TYPES.CAPITULO_LIVRO;
+    }
+    // Verificar se é livro
+    if (!editora.includes('dissertação') && !editora.includes('dissertacao')) {
+      return DOC_TYPES.LIVRO;
+    }
+    return DOC_TYPES.REFERENCIA_BIBLIOGRAFICA;
+  }
+
+  return DOC_TYPES.REFERENCIA_BIBLIOGRAFICA;
+}
 
 export class ArticleRepository {
   constructor() {
@@ -38,6 +97,7 @@ export class ArticleRepository {
 
     const tematica = d.tematica || classifyTematica(d.keywords);
     const id = d.id.toString().startsWith('t') ? d.id : `t${d.id}`;
+    const docType = classifyDocType(d);
 
     return {
       id: id,
@@ -49,11 +109,12 @@ export class ArticleRepository {
       advisor: d.orientador || '—',
       keywords: d.keywords,
       tematica: tematica,
-      color: getNodeColor(yearNum),
+      docType: docType,
+      color: getNodeColorByType(docType),
       nodeType: id.startsWith('t') && parseInt(id.slice(1)) <= 62 ? 'original' : 'referencia',
       citations: 0,
       abstract: null,
-      venue: null,
+      venue: d.editora_local || null,
       doi: null,
       paperId: id,
       url: null

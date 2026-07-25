@@ -1,81 +1,41 @@
 /**
- * Renderização do painel lateral
+ * Componente Sidebar - Painel de detalhes do nó selecionado
  */
 
-import { escapeHTML, createElement, clearElement } from '../utils/dom.js';
-import { store } from '../state/store.js';
+import { DOC_TYPE_LABELS, DOC_TYPE_COLORS, DOC_TYPE_ICONS } from '../config/colors.js';
 
-const sidebar = document.getElementById('sidebar');
-const sidebarEmpty = document.getElementById('sidebar-empty');
-const sidebarContent = document.getElementById('sidebar-content');
+// Elementos do DOM
+const sidebarEl = document.getElementById('sidebar');
+const emptyEl = document.getElementById('sidebar-empty');
+const contentEl = document.getElementById('sidebar-content');
 
 /**
- * Gera resumo do abstract
- * @param {Object} node 
- * @returns {string}
+ * Fecha o sidebar
  */
-function generateAbstract(node) {
-  if (node.abstract && node.abstract.trim().length > 0) {
-    return node.abstract;
+export function closeSidebar() {
+  if (sidebarEl) {
+    sidebarEl.classList.remove('open');
   }
-
-  const parts = [`Temática: ${node.tematica}.`];
-  if (node.advisor && node.advisor !== '—') {
-    parts.push(`Orientado por ${node.advisor},`);
+  if (contentEl) {
+    contentEl.style.display = 'none';
   }
-  if (node.keywords && node.keywords.length) {
-    parts.push(`aborda temas como ${node.keywords.slice(0, 4).join(', ')}`);
+  if (emptyEl) {
+    emptyEl.style.display = 'flex';
   }
-  parts.push('situado no contexto da história da Bahia.');
-  return parts.join(' ');
 }
 
 /**
- * Cria lista de conexões
- * @param {Object[]} connections 
- * @param {Function} onSelect 
- * @returns {HTMLElement}
+ * Abre o sidebar
  */
-function createConnectionsList(connections, onSelect) {
-  if (!connections || connections.length === 0) {
-    return createElement('div', {
-      text: 'Nenhuma conexão direta',
-      style: { fontSize: '13px', color: 'rgba(255,255,255,0.2)', margin: '8px 0 12px' }
-    });
+export function openSidebar() {
+  if (sidebarEl) {
+    sidebarEl.classList.add('open');
   }
-
-  const list = createElement('div', { className: 'connections-list' });
-
-  connections.forEach(conn => {
-    const item = createElement('div', {
-      className: 'conn-item',
-      style: { cursor: 'pointer' },
-      onClick: () => onSelect(conn.id)
-    });
-
-    const dot = createElement('span', {
-      className: 'conn-dot',
-      style: { background: conn.color || '#4a5a6a' }
-    });
-
-    const label = createElement('span', { text: conn.label });
-    const year = createElement('span', {
-      text: conn.yearDisplay || '—',
-      style: { marginLeft: 'auto', fontSize: '11px', color: 'rgba(255,255,255,0.3)' }
-    });
-
-    item.appendChild(dot);
-    item.appendChild(label);
-    item.appendChild(year);
-    list.appendChild(item);
-  });
-
-  return list;
 }
 
 /**
- * Renderiza o sidebar com dados do nó
- * @param {Object} node 
+ * Renderiza os detalhes de um nó no sidebar
+ * @param {Object|null} node 
  */
 export function renderSidebar(node) {
   if (!node) {
@@ -83,145 +43,120 @@ export function renderSidebar(node) {
     return;
   }
 
-  sidebarEmpty.style.display = 'none';
-  sidebarContent.style.display = 'block';
-  sidebar.classList.add('open');
+  openSidebar();
 
-  const state = store.getState();
-  const edges = state.edges;
-  const allNodes = state.nodes;
+  if (emptyEl) emptyEl.style.display = 'none';
+  if (contentEl) contentEl.style.display = 'block';
 
-  // Calcular conexões
-  const connectedEdges = edges.filter(e => {
-    const src = typeof e.source === 'object' ? e.source.id : e.source;
-    const tgt = typeof e.target === 'object' ? e.target.id : e.target;
-    return src === node.id || tgt === node.id;
-  });
-
-  const connections = connectedEdges.map(e => {
-    const src = typeof e.source === 'object' ? e.source.id : e.source;
-    const tgt = typeof e.target === 'object' ? e.target.id : e.target;
-    const otherId = src === node.id ? tgt : src;
-    return allNodes.find(n => n.id === otherId);
-  }).filter(Boolean);
-
-  const uniqueConnections = connections.filter((v, i, a) => 
-    a.findIndex(t => t.id === v.id) === i
-  );
-
-  const degree = connectedEdges.length;
-
-  // Construir DOM
-  clearElement(sidebarContent);
-
-  const card = createElement('div', { className: 'detail-card' });
-
-  // Badge
-  const badge = createElement('div', {
-    className: 'badge-category',
-    text: 'Trabalho Acadêmico',
-    style: {
-      background: `${node.color}22`,
-      color: node.color,
-      borderColor: `${node.color}44`
-    }
-  });
-  card.appendChild(badge);
-
-  // Título
-  card.appendChild(createElement('h2', { 
-    className: 'title', 
-    text: node.fullTitle 
-  }));
-
-  // Autor
-  card.appendChild(createElement('p', { 
-    className: 'sub', 
-    text: node.author 
-  }));
-
-  // Ano
-  card.appendChild(createElement('p', { 
-    className: 'year', 
-    text: `📅 ${node.yearDisplay || '—'}` 
-  }));
-
-  // Orientador
-  card.appendChild(createElement('p', { 
-    className: 'advisor', 
-    text: `👨‍🏫 Orientador: ${node.advisor || '—'}` 
-  }));
-
-  // Temática
-  card.appendChild(createElement('p', { 
-    className: 'tematica', 
-    text: `✦ Temática: ${node.tematica}` 
-  }));
-
-  // Keywords
-  if (node.keywords && node.keywords.length) {
-    const kwContainer = createElement('div', { className: 'keywords' });
-    node.keywords.forEach(kw => {
-      kwContainer.appendChild(createElement('span', { text: kw }));
-    });
-    card.appendChild(kwContainer);
-  }
-
-  // Abstract
-  const abstract = createElement('div', { 
-    className: 'abstract', 
-    text: generateAbstract(node) 
-  });
-  card.appendChild(abstract);
-
-  // Centralidade
-  card.appendChild(createElement('div', {
-    className: 'section-title',
-    text: '📊 Centralidade'
-  }));
-  card.appendChild(createElement('p', {
-    style: { fontSize: '13px', color: 'rgba(255,255,255,0.5)', marginBottom: '12px' },
-    text: `Grau: ${degree} conexões${degree > 5 ? ' ⭐ Nó central' : ''}`
-  }));
-
-  // Conexões
-  card.appendChild(createElement('div', {
-    className: 'section-title',
-    text: '🔗 Conexões diretas'
-  }));
-  card.appendChild(createConnectionsList(uniqueConnections, (id) => {
-    store.setState({ selectedNodeId: id });
-  }));
+  // Criar fragmento
+  const frag = document.createDocumentFragment();
+  const wrapper = document.createElement('div');
+  wrapper.className = 'detail-card';
 
   // Botão fechar
-  const closeBtn = createElement('button', {
-    className: 'sidebar-close',
-    text: '✕',
-    onClick: closeSidebar
-  });
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'sidebar-close';
+  closeBtn.innerHTML = '×';
+  closeBtn.setAttribute('aria-label', 'Fechar painel');
+  closeBtn.addEventListener('click', closeSidebar);
+  wrapper.appendChild(closeBtn);
 
-  sidebarContent.appendChild(closeBtn);
-  sidebarContent.appendChild(card);
-}
+  // ─── BADGE DE TIPO DE DOCUMENTO ─────────────────────────────────
+  const badge = document.createElement('div');
+  badge.className = 'sidebar-doc-badge';
+  badge.style.color = node.color || '#9CA3AF';
+  badge.style.borderColor = node.color || '#9CA3AF';
 
-/**
- * Fecha o sidebar
- */
-export function closeSidebar() {
-  sidebar.classList.remove('open');
-  sidebarEmpty.style.display = 'flex';
-  sidebarContent.style.display = 'none';
-  store.setState({ selectedNodeId: null, ui: { ...store.getState().ui, sidebarOpen: false } });
-}
+  const dot = document.createElement('span');
+  dot.className = 'dot';
+  dot.style.backgroundColor = node.color || '#9CA3AF';
 
-// Subscrever a mudanças de seleção
-store.subscribe((state, prev) => {
-  if (state.selectedNodeId !== prev.selectedNodeId) {
-    if (state.selectedNodeId) {
-      const node = state.nodes.find(n => n.id === state.selectedNodeId);
-      renderSidebar(node);
-    } else {
-      closeSidebar();
-    }
+  const badgeLabel = document.createElement('span');
+  badgeLabel.textContent = DOC_TYPE_LABELS[node.docType] || 'Documento';
+
+  badge.appendChild(dot);
+  badge.appendChild(badgeLabel);
+  wrapper.appendChild(badge);
+
+  // ─── TÍTULO ─────────────────────────────────────────────────────
+  const title = document.createElement('h2');
+  title.className = 'title';
+  title.textContent = node.fullTitle || node.label;
+  wrapper.appendChild(title);
+
+  // ─── AUTOR ──────────────────────────────────────────────────────
+  if (node.author) {
+    const author = document.createElement('div');
+    author.className = 'sub';
+    author.textContent = node.author;
+    wrapper.appendChild(author);
   }
-});
+
+  // ─── ANO ────────────────────────────────────────────────────────
+  if (node.yearDisplay) {
+    const year = document.createElement('div');
+    year.className = 'year';
+    year.textContent = `📅 ${node.yearDisplay}`;
+    wrapper.appendChild(year);
+  }
+
+  // ─── ORIENTADOR ────────────────────────────────────────────────
+  if (node.advisor && node.advisor !== '—') {
+    const advisor = document.createElement('div');
+    advisor.className = 'advisor';
+    advisor.textContent = `👨‍🏫 Orientador: ${node.advisor}`;
+    wrapper.appendChild(advisor);
+  }
+
+  // ─── TEMÁTICA ──────────────────────────────────────────────────
+  if (node.tematica) {
+    const tematica = document.createElement('div');
+    tematica.className = 'tematica';
+    tematica.textContent = `🏷️ ${node.tematica}`;
+    wrapper.appendChild(tematica);
+  }
+
+  // ─── EDITORA/LOCAL ─────────────────────────────────────────────
+  if (node.venue) {
+    const venue = document.createElement('div');
+    venue.className = 'year';
+    venue.textContent = `📚 ${node.venue}`;
+    wrapper.appendChild(venue);
+  }
+
+  // ─── PALAVRAS-CHAVE ────────────────────────────────────────────
+  if (node.keywords && node.keywords.length > 0) {
+    const sectionTitle = document.createElement('div');
+    sectionTitle.className = 'section-title';
+    sectionTitle.textContent = 'Palavras-chave';
+    wrapper.appendChild(sectionTitle);
+
+    const kwContainer = document.createElement('div');
+    kwContainer.className = 'keywords';
+
+    node.keywords.forEach(kw => {
+      const tag = document.createElement('span');
+      tag.textContent = kw;
+      kwContainer.appendChild(tag);
+    });
+
+    wrapper.appendChild(kwContainer);
+  }
+
+  // ─── ÍCONE DO TIPO ─────────────────────────────────────────────
+  const typeIcon = document.createElement('div');
+  typeIcon.style.textAlign = 'center';
+  typeIcon.style.marginTop = '20px';
+  typeIcon.style.fontSize = '28px';
+  typeIcon.style.opacity = '0.5';
+  typeIcon.style.color = node.color || '#9CA3AF';
+  typeIcon.textContent = DOC_TYPE_ICONS[node.docType] || '●';
+  typeIcon.setAttribute('aria-hidden', 'true');
+  wrapper.appendChild(typeIcon);
+
+  frag.appendChild(wrapper);
+  if (contentEl) {
+    contentEl.innerHTML = '';
+    contentEl.appendChild(frag);
+  }
+}
