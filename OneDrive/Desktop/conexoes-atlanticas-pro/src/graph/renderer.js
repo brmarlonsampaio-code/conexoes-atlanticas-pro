@@ -1,11 +1,9 @@
 /**
- * Renderer do grafo com D3.js
- * Layout estilo Connected Papers - versão corrigida
+ * Renderer do grafo com D3.js - versão limpa
  */
 
 import { select, zoom, forceSimulation, forceManyBody, forceCenter, forceLink, forceCollide, drag } from 'd3';
 import { store } from '../state/store.js';
-import { COLORS } from '../config/colors.js';
 
 export class GraphRenderer {
   constructor(containerId) {
@@ -21,21 +19,6 @@ export class GraphRenderer {
       .attr('height', this.height)
       .attr('viewBox', [0, 0, this.width, this.height]);
 
-    // Glow filter
-    const defs = this.svg.append('defs');
-    const filter = defs.append('filter')
-      .attr('id', 'node-glow')
-      .attr('x', '-50%')
-      .attr('y', '-50%')
-      .attr('width', '200%')
-      .attr('height', '200%');
-    filter.append('feGaussianBlur')
-      .attr('stdDeviation', '3')
-      .attr('result', 'coloredBlur');
-    const feMerge = filter.append('feMerge');
-    feMerge.append('feMergeNode').attr('in', 'coloredBlur');
-    feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
-
     this.g = this.svg.append('g');
 
     this.zoomBehavior = zoom()
@@ -48,7 +31,6 @@ export class GraphRenderer {
 
     this.simulation = null;
     this.nodeElements = null;
-    this.glowElements = null;
     this.linkElements = null;
     this.labelElements = null;
 
@@ -56,6 +38,16 @@ export class GraphRenderer {
   }
 
   update(nodes, edges) {
+    // Inicializar posições aleatórias para evitar empilhamento
+    nodes.forEach((d, i) => {
+      if (d.x == null || d.y == null) {
+        const angle = (i / nodes.length) * Math.PI * 2;
+        const radius = 100 + Math.random() * 200;
+        d.x = this.width / 2 + Math.cos(angle) * radius;
+        d.y = this.height / 2 + Math.sin(angle) * radius;
+      }
+    });
+
     this.nodes = nodes;
     this.edges = edges;
 
@@ -66,22 +58,10 @@ export class GraphRenderer {
       .selectAll('line')
       .data(edges)
       .join('line')
-      .attr('stroke', COLORS.link.default)
-      .attr('stroke-width', d => Math.max(0.5, d.weight * 1.5))
-      .attr('stroke-opacity', 0.25);
+      .attr('stroke', 'rgba(148,163,184,0.12)')
+      .attr('stroke-width', d => Math.max(0.3, d.weight));
 
-    // Glow (círculo maior por trás)
-    this.glowElements = this.g.append('g')
-      .selectAll('circle')
-      .data(nodes)
-      .join('circle')
-      .attr('r', d => d.radius + 4)
-      .attr('fill', d => d.color)
-      .attr('opacity', 0.15)
-      .attr('filter', 'url(#node-glow)')
-      .style('pointer-events', 'none');
-
-    // Nós principais
+    // Nós
     this.nodeElements = this.g.append('g')
       .selectAll('circle')
       .data(nodes)
@@ -89,9 +69,11 @@ export class GraphRenderer {
       .attr('r', d => d.radius)
       .attr('fill', d => d.color)
       .attr('stroke', d => d.color)
-      .attr('stroke-width', 1.5)
-      .attr('stroke-opacity', 0.6)
+      .attr('stroke-width', 1.2)
+      .attr('stroke-opacity', 0.5)
+      .attr('opacity', 0.85)
       .style('cursor', 'pointer')
+      .style('transition', 'r 0.2s, opacity 0.2s')
       .on('click', (event, d) => {
         event.stopPropagation();
         store.setState({ selectedNodeId: d.id });
@@ -120,45 +102,45 @@ export class GraphRenderer {
           d.fy = null;
         }));
 
-    // Labels (só para nós com conexões >= 3 ou originais)
-    const labeledNodes = nodes.filter(d => d.connections >= 3 || d.nodeType === 'original');
+    // Labels - SÓ para os 12 nós mais conectados
+    const topNodes = [...nodes].sort((a, b) => b.connections - a.connections).slice(0, 12);
+    const topIds = new Set(topNodes.map(d => d.id));
+
     this.labelElements = this.g.append('g')
       .selectAll('text')
-      .data(labeledNodes)
+      .data(nodes.filter(d => topIds.has(d.id)))
       .join('text')
       .text(d => d.label)
       .attr('text-anchor', 'middle')
-      .attr('dy', d => d.radius + 12)
-      .style('font-size', '10px')
-      .style('fill', 'rgba(255,255,255,0.6)')
+      .attr('dy', d => d.radius + 11)
+      .style('font-size', '9px')
+      .style('font-weight', '500')
+      .style('fill', 'rgba(255,255,255,0.5)')
       .style('pointer-events', 'none')
-      .style('opacity', 0.7);
+      .style('opacity', 0);
 
-    // Simulação de forças
+    // Simulação
     this.simulation = forceSimulation(nodes)
       .force('link', forceLink(edges)
         .id(d => d.id)
-        .distance(d => 80 + (1 - d.weight) * 60)
-        .strength(d => d.weight * 0.4)
+        .distance(d => 70 + (1 - d.weight) * 50)
+        .strength(d => d.weight * 0.3)
       )
       .force('charge', forceManyBody()
-        .strength(d => -100 - d.radius * 5)
-        .distanceMin(15)
-        .distanceMax(350)
+        .strength(d => -80 - d.radius * 4)
+        .distanceMin(10)
+        .distanceMax(300)
       )
       .force('collide', forceCollide()
-        .radius(d => d.radius + 8)
-        .strength(0.5)
+        .radius(d => d.radius + 5)
+        .strength(0.4)
         .iterations(2)
       )
       .force('center', forceCenter(this.width / 2, this.height / 2))
-      .force('x', forceCenter(this.width / 2, this.height / 2).strength(0.02))
-      .force('y', forceCenter(this.height / 2, this.height / 2).strength(0.02))
-      .alphaDecay(0.02)
-      .velocityDecay(0.35)
+      .alphaDecay(0.03)
+      .velocityDecay(0.4)
       .on('tick', () => this._tick());
 
-    // Click no fundo = desselecionar
     this.svg.on('click', () => {
       store.setState({ selectedNodeId: null });
     });
@@ -170,10 +152,6 @@ export class GraphRenderer {
       .attr('y1', d => d.source.y)
       .attr('x2', d => d.target.x)
       .attr('y2', d => d.target.y);
-
-    this.glowElements
-      .attr('cx', d => d.x)
-      .attr('cy', d => d.y);
 
     this.nodeElements
       .attr('cx', d => d.x)
@@ -187,54 +165,54 @@ export class GraphRenderer {
   updateHighlights(highlightedId, selectedId) {
     if (!this.nodeElements) return;
 
-    const isHighlighted = d => d.id === highlightedId || d.id === selectedId;
-    const isConnectedTo = (d, targetId) => {
-      if (!targetId) return false;
-      return this.edges.some(e => {
+    const targetId = selectedId || highlightedId;
+
+    // Encontrar nós conectados ao target
+    const connectedIds = new Set();
+    if (targetId) {
+      this.edges.forEach(e => {
         const s = typeof e.source === 'object' ? e.source.id : e.source;
         const t = typeof e.target === 'object' ? e.target.id : e.target;
-        return (s === targetId && t === d.id) || (t === targetId && s === d.id);
+        if (s === targetId) connectedIds.add(t);
+        if (t === targetId) connectedIds.add(s);
       });
-    };
+      connectedIds.add(targetId);
+    }
 
     this.nodeElements
-      .attr('stroke-width', d => isHighlighted(d) ? 3 : 1.5)
-      .attr('stroke-opacity', d => {
-        if (!highlightedId && !selectedId) return 0.6;
-        if (isHighlighted(d)) return 1;
-        if (selectedId && isConnectedTo(d, selectedId)) return 0.8;
-        return 0.2;
+      .transition().duration(150)
+      .attr('r', d => {
+        if (d.id === selectedId) return d.radius * 1.6;
+        if (d.id === highlightedId) return d.radius * 1.3;
+        return d.radius;
       })
       .attr('opacity', d => {
-        if (!highlightedId && !selectedId) return 1;
-        if (isHighlighted(d)) return 1;
-        if (selectedId && isConnectedTo(d, selectedId)) return 1;
-        return 0.25;
-      });
-
-    this.glowElements
-      .attr('opacity', d => {
-        if (!highlightedId && !selectedId) return 0.15;
-        if (isHighlighted(d)) return 0.4;
-        if (selectedId && isConnectedTo(d, selectedId)) return 0.25;
-        return 0.05;
+        if (!targetId) return 0.85;
+        if (connectedIds.has(d.id)) return 1;
+        return 0.15;
+      })
+      .attr('stroke-width', d => {
+        if (d.id === selectedId) return 3;
+        if (d.id === highlightedId) return 2;
+        return 1.2;
       });
 
     this.linkElements
+      .transition().duration(150)
       .attr('stroke-opacity', d => {
+        if (!targetId) return 0.12;
         const s = typeof d.source === 'object' ? d.source.id : d.source;
         const t = typeof d.target === 'object' ? d.target.id : d.target;
-        if (!highlightedId && !selectedId) return 0.25;
-        if (s === highlightedId || t === highlightedId || s === selectedId || t === selectedId) return 0.6;
-        return 0.05;
+        if (s === targetId || t === targetId) return 0.5;
+        return 0.03;
       });
 
+    // Mostrar label do nó em destaque
     this.labelElements
       .style('opacity', d => {
-        if (!highlightedId && !selectedId) return 0.7;
-        if (isHighlighted(d)) return 1;
-        if (selectedId && isConnectedTo(d, selectedId)) return 0.8;
-        return 0.15;
+        if (!targetId) return 0;
+        if (d.id === targetId || connectedIds.has(d.id)) return 1;
+        return 0;
       });
   }
 
