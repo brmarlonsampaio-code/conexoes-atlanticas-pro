@@ -1,162 +1,191 @@
 /**
- * Componente Sidebar - Painel de detalhes do nó selecionado
+ * Componente Sidebar - Painel de detalhes acadêmicos do nó selecionado
  */
 
+import { store } from '../state/store.js';
 import { DOC_TYPE_LABELS, DOC_TYPE_ICONS } from '../config/colors.js';
 
-// Elementos do DOM
 const sidebarEl = document.getElementById('sidebar');
 const emptyEl = document.getElementById('sidebar-empty');
 const contentEl = document.getElementById('sidebar-content');
 
-/**
- * Fecha o sidebar
- */
 export function closeSidebar() {
-  if (sidebarEl) {
-    sidebarEl.classList.remove('open');
-  }
-  if (contentEl) {
-    contentEl.style.display = 'none';
-  }
-  if (emptyEl) {
-    emptyEl.style.display = 'flex';
-  }
+  if (sidebarEl) sidebarEl.classList.remove('open');
+  if (contentEl) contentEl.style.display = 'none';
+  if (emptyEl) emptyEl.style.display = 'flex';
 }
 
-/**
- * Abre o sidebar
- */
 export function openSidebar() {
-  if (sidebarEl) {
-    sidebarEl.classList.add('open');
-  }
+  if (sidebarEl) sidebarEl.classList.add('open');
 }
 
 /**
- * Renderiza os detalhes de um nó no sidebar
- * @param {Object|null} node 
+ * Renderiza sidebar completo com dados acadêmicos
  */
 export function renderSidebar(node) {
-  if (!node) {
-    closeSidebar();
-    return;
-  }
+  if (!node) { closeSidebar(); return; }
 
   openSidebar();
-
   if (emptyEl) emptyEl.style.display = 'none';
   if (contentEl) contentEl.style.display = 'block';
 
-  // Criar fragmento
-  const frag = document.createDocumentFragment();
-  const wrapper = document.createElement('div');
-  wrapper.className = 'detail-card';
+  const state = store.getState();
+  const edges = state.edges || [];
+  const allNodes = state.nodes || [];
 
-  // Botão fechar
-  const closeBtn = document.createElement('button');
-  closeBtn.className = 'sidebar-close';
-  closeBtn.innerHTML = '×';
-  closeBtn.setAttribute('aria-label', 'Fechar painel');
-  closeBtn.addEventListener('click', closeSidebar);
-  wrapper.appendChild(closeBtn);
+  // Encontrar conexões do nó
+  const connections = edges.filter(e => {
+    const src = typeof e.source === 'object' ? e.source.id : e.source;
+    const tgt = typeof e.target === 'object' ? e.target.id : e.target;
+    return src === node.id || tgt === node.id;
+  }).map(e => {
+    const src = typeof e.source === 'object' ? e.source.id : e.source;
+    const tgt = typeof e.target === 'object' ? e.target.id : e.target;
+    const otherId = src === node.id ? tgt : src;
+    const otherNode = allNodes.find(n => n.id === otherId);
+    return { node: otherNode, weight: e.weight };
+  }).filter(c => c.node).sort((a, b) => b.weight - a.weight);
 
-  // ─── BADGE DE TIPO DE DOCUMENTO ─────────────────────────────────
-  const badge = document.createElement('div');
-  badge.className = 'sidebar-doc-badge';
-  badge.style.color = node.color || '#9CA3AF';
-  badge.style.borderColor = node.color || '#9CA3AF';
+  // Calcular grau (número de conexões)
+  const degree = connections.length;
 
-  const dot = document.createElement('span');
-  dot.className = 'dot';
-  dot.style.backgroundColor = node.color || '#9CA3AF';
+  // Montar HTML
+  const html = `
+    <div class="detail-card">
+      <button class="sidebar-close" aria-label="Fechar painel">×</button>
 
-  const badgeLabel = document.createElement('span');
-  badgeLabel.textContent = DOC_TYPE_LABELS[node.docType] || 'Documento';
+      <!-- Badge de tipo -->
+      <div class="sidebar-doc-badge" style="color:${node.color};border-color:${node.color}">
+        <span class="dot" style="background:${node.color};box-shadow:0 0 8px ${node.color}"></span>
+        <span>${DOC_TYPE_LABELS[node.docType] || 'Documento'}</span>
+      </div>
 
-  badge.appendChild(dot);
-  badge.appendChild(badgeLabel);
-  wrapper.appendChild(badge);
+      <!-- Título -->
+      <h2 class="sidebar-title">${escapeHtml(node.fullTitle || node.label)}</h2>
 
-  // ─── TÍTULO ─────────────────────────────────────────────────────
-  const title = document.createElement('h2');
-  title.className = 'title';
-  title.textContent = node.fullTitle || node.label;
-  wrapper.appendChild(title);
+      <!-- Autor -->
+      ${node.author ? `<div class="sidebar-author">${escapeHtml(node.author)}</div>` : ''}
 
-  // ─── AUTOR ──────────────────────────────────────────────────────
-  if (node.author) {
-    const author = document.createElement('div');
-    author.className = 'sub';
-    author.textContent = node.author;
-    wrapper.appendChild(author);
-  }
+      <!-- Metadados em grid -->
+      <div class="meta-grid">
+        ${node.yearDisplay ? `
+          <div class="meta-item">
+            <span class="meta-icon">📅</span>
+            <div>
+              <span class="meta-label">Ano</span>
+              <span class="meta-value">${escapeHtml(node.yearDisplay)}</span>
+            </div>
+          </div>
+        ` : ''}
+        ${node.advisor && node.advisor !== '—' ? `
+          <div class="meta-item">
+            <span class="meta-icon">👨‍🏫</span>
+            <div>
+              <span class="meta-label">Orientador</span>
+              <span class="meta-value">${escapeHtml(node.advisor)}</span>
+            </div>
+          </div>
+        ` : ''}
+        ${node.tematica ? `
+          <div class="meta-item">
+            <span class="meta-icon">🏷️</span>
+            <div>
+              <span class="meta-label">Temática</span>
+              <span class="meta-value">${escapeHtml(node.tematica)}</span>
+            </div>
+          </div>
+        ` : ''}
+        ${node.venue ? `
+          <div class="meta-item">
+            <span class="meta-icon">📚</span>
+            <div>
+              <span class="meta-label">Editora/Local</span>
+              <span class="meta-value">${escapeHtml(node.venue)}</span>
+            </div>
+          </div>
+        ` : ''}
+        <div class="meta-item">
+          <span class="meta-icon">🔗</span>
+          <div>
+            <span class="meta-label">Conexões</span>
+            <span class="meta-value">${degree} documento${degree !== 1 ? 's' : ''} relacionado${degree !== 1 ? 's' : ''}</span>
+          </div>
+        </div>
+      </div>
 
-  // ─── ANO ────────────────────────────────────────────────────────
-  if (node.yearDisplay) {
-    const year = document.createElement('div');
-    year.className = 'year';
-    year.textContent = `📅 ${node.yearDisplay}`;
-    wrapper.appendChild(year);
-  }
+      <!-- Resumo/Abstract -->
+      ${node.abstract ? `
+        <div class="abstract-section">
+          <h3 class="section-title">Resumo</h3>
+          <p class="abstract-text">${escapeHtml(node.abstract)}</p>
+        </div>
+      ` : `
+        <div class="abstract-section">
+          <h3 class="section-title">Resumo</h3>
+          <p class="abstract-text abstract-placeholder">Resumo não disponível para este documento.</p>
+        </div>
+      `}
 
-  // ─── ORIENTADOR ────────────────────────────────────────────────
-  if (node.advisor && node.advisor !== '—') {
-    const advisor = document.createElement('div');
-    advisor.className = 'advisor';
-    advisor.textContent = `👨‍🏫 Orientador: ${node.advisor}`;
-    wrapper.appendChild(advisor);
-  }
+      <!-- Palavras-chave -->
+      ${node.keywords && node.keywords.length > 0 ? `
+        <div class="keywords-section">
+          <h3 class="section-title">Palavras-chave</h3>
+          <div class="keywords-list">
+            ${node.keywords.map(kw => `<span class="keyword-tag">${escapeHtml(kw)}</span>`).join('')}
+          </div>
+        </div>
+      ` : ''}
 
-  // ─── TEMÁTICA ──────────────────────────────────────────────────
-  if (node.tematica) {
-    const tematica = document.createElement('div');
-    tematica.className = 'tematica';
-    tematica.textContent = `🏷️ ${node.tematica}`;
-    wrapper.appendChild(tematica);
-  }
+      <!-- Conexões / Documentos relacionados -->
+      ${connections.length > 0 ? `
+        <div class="connections-section">
+          <h3 class="section-title">Documentos Relacionados (${connections.length})</h3>
+          <div class="connections-list">
+            ${connections.slice(0, 10).map(c => `
+              <div class="connection-item" data-node-id="${c.node.id}">
+                <span class="connection-dot" style="background:${c.node.color || '#9CA3AF'};box-shadow:0 0 6px ${c.node.color || '#9CA3AF'}"></span>
+                <div class="connection-info">
+                  <div class="connection-title">${escapeHtml(c.node.label)}</div>
+                  <div class="connection-meta">${escapeHtml(c.node.author || '')} · ${escapeHtml(c.node.yearDisplay || '')}</div>
+                </div>
+                <span class="connection-weight">${c.weight.toFixed(1)}</span>
+              </div>
+            `).join('')}
+            ${connections.length > 10 ? `<div class="connection-more">+${connections.length - 10} documentos relacionados</div>` : ''}
+          </div>
+        </div>
+      ` : ''}
 
-  // ─── EDITORA/LOCAL ─────────────────────────────────────────────
-  if (node.venue) {
-    const venue = document.createElement('div');
-    venue.className = 'year';
-    venue.textContent = `📚 ${node.venue}`;
-    wrapper.appendChild(venue);
-  }
+      <!-- Ícone do tipo no rodapé -->
+      <div class="sidebar-footer">
+        <div class="type-icon-large" style="color:${node.color || '#9CA3AF'}">
+          ${DOC_TYPE_ICONS[node.docType] || '●'}
+        </div>
+        <div class="footer-label">${DOC_TYPE_LABELS[node.docType] || 'Documento'}</div>
+      </div>
+    </div>
+  `;
 
-  // ─── PALAVRAS-CHAVE ────────────────────────────────────────────
-  if (node.keywords && node.keywords.length > 0) {
-    const sectionTitle = document.createElement('div');
-    sectionTitle.className = 'section-title';
-    sectionTitle.textContent = 'Palavras-chave';
-    wrapper.appendChild(sectionTitle);
-
-    const kwContainer = document.createElement('div');
-    kwContainer.className = 'keywords';
-
-    node.keywords.forEach(kw => {
-      const tag = document.createElement('span');
-      tag.textContent = kw;
-      kwContainer.appendChild(tag);
-    });
-
-    wrapper.appendChild(kwContainer);
-  }
-
-  // ─── ÍCONE DO TIPO ─────────────────────────────────────────────
-  const typeIcon = document.createElement('div');
-  typeIcon.style.textAlign = 'center';
-  typeIcon.style.marginTop = '20px';
-  typeIcon.style.fontSize = '28px';
-  typeIcon.style.opacity = '0.5';
-  typeIcon.style.color = node.color || '#9CA3AF';
-  typeIcon.textContent = DOC_TYPE_ICONS[node.docType] || '●';
-  typeIcon.setAttribute('aria-hidden', 'true');
-  wrapper.appendChild(typeIcon);
-
-  frag.appendChild(wrapper);
   if (contentEl) {
-    contentEl.innerHTML = '';
-    contentEl.appendChild(frag);
+    contentEl.innerHTML = html;
+
+    // Bind do botão fechar
+    const closeBtn = contentEl.querySelector('.sidebar-close');
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+
+    // Bind dos itens de conexão (clicar para navegar)
+    contentEl.querySelectorAll('.connection-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const nodeId = item.dataset.nodeId;
+        if (nodeId) store.setState({ selectedNodeId: nodeId });
+      });
+    });
   }
+}
+
+function escapeHtml(text) {
+  if (!text) return '';
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
 }
