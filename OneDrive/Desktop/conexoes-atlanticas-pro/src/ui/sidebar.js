@@ -46,10 +46,16 @@ export function renderSidebar(node) {
     return { node: otherNode, weight: e.weight };
   }).filter(c => c.node).sort((a, b) => b.weight - a.weight);
 
-  // Calcular grau (número de conexões)
   const degree = connections.length;
 
-  // Montar HTML
+  // Botão de PDF
+  const pdfButton = node.pdfUrl ? `
+    <a href="${escapeHtml(node.pdfUrl)}" target="_blank" rel="noopener noreferrer" class="pdf-button">
+      <span class="pdf-icon">📄</span>
+      <span>Ver PDF do documento</span>
+    </a>
+  ` : '';
+
   const html = `
     <div class="detail-card">
       <button class="sidebar-close" aria-label="Fechar painel">×</button>
@@ -59,6 +65,9 @@ export function renderSidebar(node) {
         <span class="dot" style="background:${node.color};box-shadow:0 0 8px ${node.color}"></span>
         <span>${DOC_TYPE_LABELS[node.docType] || 'Documento'}</span>
       </div>
+
+      <!-- Botão PDF (se existir) -->
+      ${pdfButton}
 
       <!-- Título -->
       <h2 class="sidebar-title">${escapeHtml(node.fullTitle || node.label)}</h2>
@@ -136,7 +145,7 @@ export function renderSidebar(node) {
         </div>
       ` : ''}
 
-      <!-- Conexões / Documentos relacionados -->
+      <!-- Conexões -->
       ${connections.length > 0 ? `
         <div class="connections-section">
           <h3 class="section-title">Documentos Relacionados (${connections.length})</h3>
@@ -156,7 +165,7 @@ export function renderSidebar(node) {
         </div>
       ` : ''}
 
-      <!-- Ícone do tipo no rodapé -->
+      <!-- Rodapé -->
       <div class="sidebar-footer">
         <div class="type-icon-large" style="color:${node.color || '#9CA3AF'}">
           ${DOC_TYPE_ICONS[node.docType] || '●'}
@@ -169,11 +178,9 @@ export function renderSidebar(node) {
   if (contentEl) {
     contentEl.innerHTML = html;
 
-    // Bind do botão fechar
     const closeBtn = contentEl.querySelector('.sidebar-close');
     if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
 
-    // Bind dos itens de conexão (clicar para navegar)
     contentEl.querySelectorAll('.connection-item').forEach(item => {
       item.addEventListener('click', () => {
         const nodeId = item.dataset.nodeId;

@@ -47,15 +47,12 @@ function classifyDocType(d) {
 
   // IDs 63-104 são referências bibliográficas
   if (numId >= 63 && numId <= 104) {
-    // Verificar se é artigo de revista
     if (editora.includes('revista') || editora.includes('v.')) {
       return DOC_TYPES.ARTIGO_REVISTA;
     }
-    // Verificar se é capítulo
     if (editora.includes('capítulo') || editora.includes('capitulo')) {
       return DOC_TYPES.CAPITULO_LIVRO;
     }
-    // Verificar se é livro
     if (!editora.includes('dissertação') && !editora.includes('dissertacao')) {
       return DOC_TYPES.LIVRO;
     }
@@ -113,11 +110,12 @@ export class ArticleRepository {
       color: getNodeColorByType(docType),
       nodeType: id.startsWith('t') && parseInt(id.slice(1)) <= 62 ? 'original' : 'referencia',
       citations: 0,
-      abstract: null,
+      abstract: d.abstract || null,
       venue: d.editora_local || null,
-      doi: null,
+      doi: d.doi || null,
+      pdfUrl: d.pdf_url || null,  // 🎓 NOVO: link do PDF
       paperId: id,
-      url: null
+      url: d.url || null
     };
   }
 
