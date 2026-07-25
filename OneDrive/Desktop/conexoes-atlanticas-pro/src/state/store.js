@@ -13,7 +13,7 @@ class Store {
         query: '',
         period: 'all',
         tematica: 'all',
-        tipo: 'all'  // 🎨 NOVO: filtro por tipo de documento
+        tipo: 'all'  // NOVO: filtro por tipo de documento
       },
       ui: {
         sidebarOpen: false,
@@ -81,16 +81,29 @@ class Store {
     );
   }
 
+  /**
+   * Normaliza string para busca: remove acentos e converte para minúsculas
+   * @param {string} str
+   * @returns {string}
+   */
+  _normalize(str) {
+    if (!str) return '';
+    return str
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+  }
+
   _matchesFilters(node, filters) {
     const { query, period, tematica, tipo } = filters;
 
     if (query) {
-      const q = query.toLowerCase();
+      const q = this._normalize(query);
       const match = 
-        node.fullTitle?.toLowerCase().includes(q) ||
-        node.author?.toLowerCase().includes(q) ||
-        node.advisor?.toLowerCase().includes(q) ||
-        node.keywords?.some(k => k.toLowerCase().includes(q));
+        this._normalize(node.fullTitle).includes(q) ||
+        this._normalize(node.author).includes(q) ||
+        this._normalize(node.advisor).includes(q) ||
+        node.keywords?.some(k => this._normalize(k).includes(q));
       if (!match) return false;
     }
 
@@ -116,7 +129,7 @@ class Store {
       return false;
     }
 
-    // 🎨 NOVO: filtro por tipo de documento
+    // NOVO: filtro por tipo de documento
     if (tipo !== 'all' && node.docType !== tipo) {
       return false;
     }
