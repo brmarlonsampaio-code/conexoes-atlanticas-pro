@@ -6,13 +6,7 @@ import { classifyTematica } from '../utils/classifier.js';
 import { getNodeColorByTheme, DOC_TYPES } from '../config/colors.js';
 import { ARTICLES_DATA } from './articles-data.js';
 
-/**
- * Classifica o tipo de documento baseado nos dados
- * @param {Object} d — dados brutos do artigo
- * @returns {string} tipo de documento
- */
 function classifyDocType(d) {
-  // Se já tem tipo definido no dado
   if (d.tipo) {
     if (d.tipo === 'referencia_bibliografica') return DOC_TYPES.REFERENCIA_BIBLIOGRAFICA;
     if (d.tipo === 'dissertacao') return DOC_TYPES.DISSERTACAO_TESE;
@@ -22,7 +16,6 @@ function classifyDocType(d) {
     if (d.tipo === 'artigo') return DOC_TYPES.ARTIGO_REVISTA;
   }
 
-  // Inferência pelo campo editora_local
   const editora = (d.editora_local || '').toLowerCase();
   const titulo = (d.titulo || '').toLowerCase();
 
@@ -39,13 +32,11 @@ function classifyDocType(d) {
     return DOC_TYPES.LIVRO;
   }
 
-  // IDs 1-62 são trabalhos originais (dissertações/teses)
   const numId = parseInt(d.id);
   if (numId >= 1 && numId <= 62) {
     return DOC_TYPES.DISSERTACAO_TESE;
   }
 
-  // IDs 63-104 são referências bibliográficas
   if (numId >= 63 && numId <= 104) {
     if (editora.includes('revista') || editora.includes('v.')) {
       return DOC_TYPES.ARTIGO_REVISTA;
@@ -67,10 +58,6 @@ export class ArticleRepository {
     this.articles = null;
   }
 
-  /**
-   * Carrega artigos dos dados embeddados
-   * @returns {Promise<Object[]>}
-   */
   async load() {
     if (this.articles) return this.articles;
 
@@ -78,11 +65,6 @@ export class ArticleRepository {
     return this.articles;
   }
 
-  /**
-   * Mapeia artigo bruto para nó do grafo
-   * @param {Object} d 
-   * @returns {Object}
-   */
   _mapToNode(d) {
     let yearNum = null;
     let yearDisplay = d.ano;
@@ -95,8 +77,6 @@ export class ArticleRepository {
     const tematica = d.tematica || classifyTematica(d.keywords);
     const id = d.id.toString().startsWith('t') ? d.id : `t${d.id}`;
     const docType = classifyDocType(d);
-
-    // NOVO: cor baseada na TEMÁTICA (estilo Connected Papers)
     const color = getNodeColorByTheme(tematica);
 
     return {
@@ -110,10 +90,10 @@ export class ArticleRepository {
       keywords: d.keywords,
       tematica: tematica,
       docType: docType,
-      color: color,  // AGORA: cor por temática!
+      color: color,
       nodeType: id.startsWith('t') && parseInt(id.slice(1)) <= 62 ? 'original' : 'referencia',
-      connections: 0,  // será preenchido depois de buildEdges
-      radius: 5,       // será ajustado depois de buildEdges
+      connections: 0,
+      radius: 5,
       abstract: d.resumo || d.abstract || null,
       venue: d.editora_local || null,
       doi: d.doi || null,
@@ -123,11 +103,6 @@ export class ArticleRepository {
     };
   }
 
-  /**
-   * Constrói arestas baseadas em similaridade
-   * @param {Object[]} nodes 
-   * @returns {Object[]}
-   */
   buildEdges(nodes) {
     const edges = [];
     const edgeSet = new Set();
@@ -136,10 +111,12 @@ export class ArticleRepository {
       for (let j = i + 1; j < nodes.length; j++) {
         let weight = 0;
 
+        // MESMA TEMÁTICA: peso MUITO menor para evitar clusters densos
         if (nodes[i].tematica === nodes[j].tematica) {
-          weight += 2;
+          weight += 0.3;  // era 2, agora 0.3
         }
 
+        // Palavras-chave em comum
         const kw1 = new Set(nodes[i].keywords.map(k => k.toLowerCase()));
         const kw2 = new Set(nodes[j].keywords.map(k => k.toLowerCase()));
         let intersection = 0;
@@ -148,13 +125,15 @@ export class ArticleRepository {
         }
         weight += intersection * 0.5;
 
+        // Proximidade temporal
         if (nodes[i].year !== null && nodes[j].year !== null) {
           const diff = Math.abs(nodes[i].year - nodes[j].year);
-          if (diff <= 3) weight += 1;
-          else if (diff <= 6) weight += 0.5;
+          if (diff <= 3) weight += 0.3;  // era 1, agora 0.3
+          else if (diff <= 6) weight += 0.15;  // era 0.5, agora 0.15
         }
 
-        if (weight > 0) {
+        // Só criar edge se weight > 0.5 (threshold mais alto)
+        if (weight > 0.5) {
           const key = [nodes[i].id, nodes[j].id].sort().join('|');
           if (!edgeSet.has(key)) {
             edgeSet.add(key);
@@ -164,9 +143,9 @@ export class ArticleRepository {
       }
     }
 
-    const limitedEdges = this._limitDegree(edges, nodes, 8);
+    const limitedEdges = this._limitDegree(edges, nodes, 5);  // era 8, agora 5
 
-    // NOVO: calcular grau e radius após limitar arestas
+    // Calcular grau e radius
     const degree = {};
     nodes.forEach(n => degree[n.id] = 0);
     limitedEdges.forEach(e => {
@@ -177,9 +156,8 @@ export class ArticleRepository {
     });
     nodes.forEach(n => {
       n.connections = degree[n.id] || 1;
-      // Tamanho proporcional às conexões (estilo Connected Papers)
-      const baseSize = n.nodeType === 'original' ? 7 : 4.5;
-      n.radius = baseSize + Math.sqrt(n.connections) * 1.8;
+      const baseSize = n.nodeType === 'original' ? 6 : 4;
+      n.radius = baseSize + Math.sqrt(n.connections) * 1.5;
     });
 
     return limitedEdges;

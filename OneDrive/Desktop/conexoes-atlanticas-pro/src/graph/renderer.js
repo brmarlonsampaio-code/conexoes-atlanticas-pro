@@ -1,5 +1,5 @@
 /**
- * Renderer do grafo com D3.js - Layout espalhado estilo Connected Papers
+ * Renderer do grafo com D3.js - Layout espalhado
  */
 
 import { select, zoom, forceSimulation, forceManyBody, forceCenter, forceLink, forceCollide, forceX, forceY, drag } from 'd3';
@@ -38,15 +38,11 @@ export class GraphRenderer {
   }
 
   update(nodes, edges) {
-    // Inicializar em posições bem espalhadas (grid + aleatório)
-    const cols = Math.ceil(Math.sqrt(nodes.length));
-    const spacing = Math.max(this.width, this.height) / cols;
-    nodes.forEach((d, i) => {
-      const col = i % cols;
-      const row = Math.floor(i / cols);
-      // Posição base em grid + ruído aleatório grande
-      d.x = (col * spacing) + (Math.random() - 0.5) * spacing * 2;
-      d.y = (row * spacing) + (Math.random() - 0.5) * spacing * 2;
+    // Inicializar em posições ALEATÓRIAS pelo canvas inteiro
+    const margin = 80;
+    nodes.forEach((d) => {
+      d.x = margin + Math.random() * (this.width - margin * 2);
+      d.y = margin + Math.random() * (this.height - margin * 2);
       d.vx = 0;
       d.vy = 0;
     });
@@ -56,13 +52,13 @@ export class GraphRenderer {
 
     this.g.selectAll('*').remove();
 
-    // Links - bem finos e sutis
+    // Links bem sutis
     this.linkElements = this.g.append('g')
       .selectAll('line')
       .data(edges)
       .join('line')
-      .attr('stroke', 'rgba(148,163,184,0.08)')
-      .attr('stroke-width', d => Math.max(0.2, d.weight * 0.8));
+      .attr('stroke', 'rgba(148,163,184,0.06)')
+      .attr('stroke-width', d => Math.max(0.2, d.weight * 0.6));
 
     // Nós
     this.nodeElements = this.g.append('g')
@@ -73,8 +69,8 @@ export class GraphRenderer {
       .attr('fill', d => d.color)
       .attr('stroke', d => d.color)
       .attr('stroke-width', 1)
-      .attr('stroke-opacity', 0.4)
-      .attr('opacity', 0.8)
+      .attr('stroke-opacity', 0.35)
+      .attr('opacity', 0.75)
       .style('cursor', 'pointer')
       .on('click', (event, d) => {
         event.stopPropagation();
@@ -104,8 +100,8 @@ export class GraphRenderer {
           d.fy = null;
         }));
 
-    // Labels - SÓ os 8 mais conectados, fonte pequena
-    const topNodes = [...nodes].sort((a, b) => b.connections - a.connections).slice(0, 8);
+    // Labels - só os 6 mais conectados
+    const topNodes = [...nodes].sort((a, b) => b.connections - a.connections).slice(0, 6);
     const topIds = new Set(topNodes.map(d => d.id));
 
     this.labelElements = this.g.append('g')
@@ -117,39 +113,33 @@ export class GraphRenderer {
       .attr('dy', d => d.radius + 10)
       .style('font-size', '8px')
       .style('font-weight', '400')
-      .style('fill', 'rgba(255,255,255,0.4)')
+      .style('fill', 'rgba(255,255,255,0.35)')
       .style('pointer-events', 'none')
       .style('opacity', 0);
 
-    // ═══════════════════════════════════════════════════════════════
-    // FORÇAS - Muito mais espalhadas (estilo Connected Papers)
-    // ═══════════════════════════════════════════════════════════════
+    // FORÇAS - Máxima repulsão, mínima atração
     this.simulation = forceSimulation(nodes)
-      // Links: distância GRANDE, força FRACA (não puxa muito)
       .force('link', forceLink(edges)
         .id(d => d.id)
-        .distance(d => 120 + (1 - d.weight) * 100)  // 120-220px de distância
-        .strength(d => d.weight * 0.15)              // força bem fraca
+        .distance(d => 150 + (1 - d.weight) * 100)
+        .strength(d => d.weight * 0.08)
       )
-      // Repulsão FORTE entre TODOS os nós
       .force('charge', forceManyBody()
-        .strength(d => -200 - d.radius * 10)          // MUITA repulsão
-        .distanceMin(5)
-        .distanceMax(600)                              // alcance longo
+        .strength(d => -400 - d.radius * 15)
+        .distanceMin(3)
+        .distanceMax(800)
       )
-      // Colisão: empurra nós que se sobrepõem
       .force('collide', forceCollide()
-        .radius(d => d.radius + 12)                 // buffer maior
-        .strength(0.8)                               // colisão forte
-        .iterations(3)
+        .radius(d => d.radius + 20)
+        .strength(1.0)
+        .iterations(4)
       )
-      // Centro: atração MUITO fraca para o centro
       .force('center', forceCenter(this.width / 2, this.height / 2))
-      .force('x', forceX(this.width / 2).strength(0.008))
-      .force('y', forceY(this.height / 2).strength(0.008))
-      .alphaDecay(0.015)      // desaceleração lenta (mais tempo para espalhar)
-      .velocityDecay(0.3)     // amortecimento médio
-      .alpha(1)               // começa com energia máxima
+      .force('x', forceX(this.width / 2).strength(0.003))
+      .force('y', forceY(this.height / 2).strength(0.003))
+      .alphaDecay(0.012)
+      .velocityDecay(0.25)
+      .alpha(1)
       .on('tick', () => this._tick());
 
     this.svg.on('click', () => {
@@ -191,14 +181,14 @@ export class GraphRenderer {
     this.nodeElements
       .transition().duration(200)
       .attr('r', d => {
-        if (d.id === selectedId) return d.radius * 1.8;
-        if (d.id === highlightedId) return d.radius * 1.4;
+        if (d.id === selectedId) return d.radius * 2.0;
+        if (d.id === highlightedId) return d.radius * 1.5;
         return d.radius;
       })
       .attr('opacity', d => {
-        if (!targetId) return 0.8;
+        if (!targetId) return 0.75;
         if (connectedIds.has(d.id)) return 1;
-        return 0.12;
+        return 0.1;
       })
       .attr('stroke-width', d => {
         if (d.id === selectedId) return 3;
@@ -209,10 +199,10 @@ export class GraphRenderer {
     this.linkElements
       .transition().duration(200)
       .attr('stroke-opacity', d => {
-        if (!targetId) return 0.08;
+        if (!targetId) return 0.06;
         const s = typeof d.source === 'object' ? d.source.id : d.source;
         const t = typeof d.target === 'object' ? d.target.id : d.target;
-        if (s === targetId || t === targetId) return 0.4;
+        if (s === targetId || t === targetId) return 0.35;
         return 0.02;
       });
 
@@ -220,7 +210,7 @@ export class GraphRenderer {
       .style('opacity', d => {
         if (!targetId) return 0;
         if (d.id === targetId) return 1;
-        if (connectedIds.has(d.id)) return 0.7;
+        if (connectedIds.has(d.id)) return 0.6;
         return 0;
       });
   }
@@ -253,8 +243,8 @@ export class GraphRenderer {
           .attr('viewBox', [0, 0, width, height]);
         if (this.simulation) {
           this.simulation.force('center', forceCenter(width / 2, height / 2));
-          this.simulation.force('x', forceX(width / 2).strength(0.008));
-          this.simulation.force('y', forceY(height / 2).strength(0.008));
+          this.simulation.force('x', forceX(width / 2).strength(0.003));
+          this.simulation.force('y', forceY(height / 2).strength(0.003));
           this.simulation.alpha(0.3).restart();
         }
       }
