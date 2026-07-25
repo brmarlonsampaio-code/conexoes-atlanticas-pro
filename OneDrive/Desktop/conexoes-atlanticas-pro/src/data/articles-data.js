@@ -4,1504 +4,1392 @@
  */
 
 export const ARTICLES_DATA = [
+  [
   {
     "id": 1,
-    "titulo": "HOMENS DE ARMAS E MANDO : CONFLITOS E ALIANÇAS NA CAPITANIA DE PORTO SEGURO (1640/1690)",
-    "autor": "ANA PAULA SANTOS XAVIER",
-    "ano": "2021",
-    "orientador": "LUIZ CLÁUDIO RIBEIRO",
-    "keywords": [
-      "homens de armas",
-      "conflitos",
-      "alianças",
-      "Porto Seguro",
-      "capitania"
-    ]
+    "titulo": "Memórias históricas e políticas da Bahia. v. 1",
+    "autor": "Ignacio Accioli e Braz do Amaral",
+    "ano": "1919",
+    "keywords": ["Bahia", "história política", "administração colonial", "fontes primárias"],
+    "tematica": "História Política e Administrativa",
+    "tipo": "Livro (Fontes)",
+    "pdf_url": "",
+    "resumo": "Coletânea monumental de documentos, ofícios e crônicas sobre a formação administrativa da Bahia, abrangendo desde o período colonial até o Império. É uma obra de referência fundamental para quem estuda a estrutura de poder, os governadores e as tensões políticas na antiga capitania, servindo de base documental para grande parte da historiografia baiana posterior."
   },
   {
     "id": 2,
-    "titulo": "VOZES QUE ROMPEM O SILÊNCIO, MEMÓRIAS DE UMA POPULAÇÃO QUE NÃO ESTÃO NOS LIVROS, CANAVIEIRAS – BAHIA (1945-1965)",
-    "autor": "BELAINE DAS NEVES NASCIMENTO",
-    "ano": "2021",
-    "orientador": "ELIS FIAMENGUE",
-    "keywords": [
-      "vozes",
-      "memórias",
-      "Canavieiras",
-      "população",
-      "silêncio"
-    ]
+    "titulo": "O espaço da transculturação",
+    "autor": "Elaine Almeida",
+    "ano": "2009",
+    "keywords": ["transculturação", "literatura latino-americana", "Ángel Rama", "identidade"],
+    "tematica": "Literatura e Cultura",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Examina o conceito de 'transculturação' formulado por Ángel Rama, aplicando-o à produção literária e cultural da América Latina. A autora debate como as culturas periféricas reinterpretam os modelos metropolitanos, criando espaços híbridos de resistência e inovação estética – um diálogo indireto com os processos de mestiçagem e adaptação colonial estudados na historiografia."
   },
   {
     "id": 3,
-    "titulo": "FEIRAS LIVRES: TRANSFORMAÇÕES DOS ESPAÇOS FÍSICOS E SOCIAIS EM ITABUNA – BAHIA (1960-1973)",
-    "autor": "BERENALDO NETO SILVA",
-    "ano": "ABANDONO",
-    "orientador": "KÁTIA VINHÁTICO PONTES",
-    "keywords": [
-      "feiras livres",
-      "transformações",
-      "espaços físicos",
-      "Itabuna"
-    ]
+    "titulo": "O Brasil Ilustrado (1758/1798): Diretório dos Índios",
+    "autor": "Sérgio Antônio de Paula Almeida",
+    "ano": "2016",
+    "keywords": ["Diretório dos Índios", "Ilustração", "Pombal", "assimilação", "política indigenista"],
+    "tematica": "Política Indígena e Ilustração",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Analisa o Diretório dos Índios (1757) como um marco do projeto ilustrado português, que buscava integrar os índios à sociedade colonial através da língua, dos costumes e da aldeação. O artigo destaca as contradições entre o discurso civilizatório e a manutenção da exploração da mão de obra indígena, situando a lei como instrumento de dominação e remodelação territorial."
   },
   {
     "id": 4,
-    "titulo": "ENTRE A MORALIDADE E A LIBERAÇÃO SEXUAL: DISCURSOS E REPRESENTAÇÕES SOBRE AS MULHERES NO BRASIL A PARTIR DO CINEMA E UMA ANÁLISE DO FILME OS HOMENS QUE EU TIVE DE TERESA TRAUTMAN (1973-1981)",
-    "autor": "BRUNA MARQUES RIBEIRO DRISOSTES",
-    "ano": "2021",
-    "orientador": "LAILA BRICHTA",
-    "keywords": [
-      "moralidade",
-      "liberação sexual",
-      "cinema",
-      "mulheres",
-      "Teresa Trautman"
-    ]
+    "titulo": "As vilas de índios dos sertões do norte e do estado do Maranhão: desenho, território e reforma urbana no século XVIII",
+    "autor": "Esdras Araujo Arraes",
+    "ano": "2018",
+    "keywords": ["vilas de índios", "reforma urbana", "Maranhão", "século XVIII", "território"],
+    "tematica": "Urbanismo Colonial",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Investiga o processo de criação e planejamento das vilas de índios nos sertões do Norte e Estado do Maranhão durante as reformas pombalinas. O autor relaciona o desenho urbano (traçado regular, praça, igreja) com a estratégia de controle social e catequese, mostrando como a materialização da vila era parte da política de 'civilização' dos indígenas."
   },
   {
     "id": 5,
-    "titulo": "Estudantes negras/os no Colégio Estadual Octacílio Manoel Gomes: educação, identidade e cotidiano escolar (2001 – 2019)",
-    "autor": "CAROLINE SANTOS TEIXEIRA",
-    "ano": "2021",
-    "orientador": "ADRIANA DANTAS",
-    "keywords": [
-      "estudantes negros",
-      "educação",
-      "identidade",
-      "cotidiano escolar",
-      "Octacílio Manoel Gomes"
-    ]
+    "titulo": "Desenhar cidade no papel e no terreno: cartografia e urbanismo na Amazônia e Mato Grosso no século XVIII",
+    "autor": "Renata Malcher de Araujo",
+    "ano": "2010",
+    "keywords": ["cartografia", "urbanismo", "Amazônia", "Mato Grosso", "século XVIII"],
+    "tematica": "Cartografia Histórica e Urbanismo",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Analisa a relação entre a produção cartográfica e a efetiva construção de cidades na Amazônia e Mato Grosso no século XVIII, destacando o papel dos engenheiros militares e a distância entre o projeto desenhado e a realidade do terreno. A autora demonstra que o desenho da cidade era tanto um instrumento de posse simbólica quanto um guia prático para a colonização."
   },
   {
     "id": 6,
-    "titulo": "A REPRESENTAÇÃO DOS NEGROS EM MANUAIS DIDÁTICOS DE HISTÓRIA DO BRASIL NA PRIMEIRA REPÚBLICA",
-    "autor": "CRISTINA FERREIRA DE ASSIS",
-    "ano": "2020",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "representação dos negros",
-      "manuais didáticos",
-      "história do Brasil",
-      "Primeira República"
-    ]
+    "titulo": "História, região e espacialidade",
+    "autor": "José D'Assunção Barros",
+    "ano": "2005",
+    "keywords": ["história regional", "espacialidade", "território", "metodologia histórica"],
+    "tematica": "Teoria da História e Espacialidade",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Discute as categorias de 'região' e 'espacialidade' na pesquisa histórica, propondo uma abordagem que supere o determinismo geográfico. O artigo é um marco metodológico para historiadores que trabalham com capitanias periféricas (como Porto Seguro), ajudando a entender como as relações de poder constroem e desconstroem espaços regionais."
   },
   {
     "id": 7,
-    "titulo": "MEMÓRIA, REPRESENTAÇÃO E TRANSFORMAÇÕES URBANAS EM ILHÉUS (1912-30)",
-    "autor": "DANILO JOSÉ MESSIAS MARQUES",
-    "ano": "2021",
-    "orientador": "KÁTIA VINHÁTICO PONTES",
-    "keywords": [
-      "memória",
-      "representação",
-      "transformações urbanas",
-      "Ilhéus"
-    ]
+    "titulo": "Morfologia das cidades Brasileiras: introdução ao estudo histórico da iconografia urbana",
+    "autor": "Ulpiano T. Bezerra",
+    "ano": "1996",
+    "keywords": ["morfologia urbana", "iconografia", "cidades brasileiras", "história urbana"],
+    "tematica": "Morfologia Urbana",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Oferece uma introdução metodológica ao estudo da morfologia das cidades brasileiras através da iconografia (mapas, pinturas, gravuras). O autor discute como as imagens urbanas não são meras representações, mas documentos históricos que revelam as hierarquias sociais, as funções econômicas e as transformações do espaço edificado ao longo do tempo."
   },
   {
     "id": 8,
-    "titulo": "NEGRITUDE, IDENTIDADE E RELAÇÕES RACIAIS NA OBRA DOS RACIONAIS MC’S (1992-1914)",
-    "autor": "DIEGO SANTOS NOGUEIRA",
-    "ano": "ABANDONO",
-    "orientador": "LAILA BRICHTA",
-    "keywords": [
-      "negritude",
-      "identidade",
-      "relações raciais",
-      "Racionais MC’s"
-    ]
+    "titulo": "O Urbanismo Colonial e os Símbolos do Poder: o exemplo do Rio de Janeiro nos séculos XVII e XVIII",
+    "autor": "Maria Fernanda B. Bicalho",
+    "ano": "1998",
+    "keywords": ["urbanismo colonial", "símbolos do poder", "Rio de Janeiro", "espaço urbano"],
+    "tematica": "Urbanismo e Poder",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Examina a materialização do poder político e religioso no espaço urbano do Rio de Janeiro colonial, analisando a localização do pelourinho, da câmara, da igreja matriz e dos conventos. A autora demonstra que a disposição desses edifícios não era aleatória, mas refletia a hierarquia social e a tentativa da Coroa de impor uma ordem simbólica no novo mundo."
   },
   {
     "id": 9,
-    "titulo": "CONEXÕES ATLÂNTICAS E AS CONTROVÉRSIAS ENTRE EDUCAÇÃO RURAL E EDUCAÇÃO DO CAMPO NA CASA FAMILIAR RURAL DE IGRAPIÚNA – BA (2007-2019)",
-    "autor": "JAMILE NASCIMENTO SANTOS",
-    "ano": "2021",
-    "orientador": "ELIS FIAMENGUE",
-    "keywords": [
-      "conexões atlânticas",
-      "educação rural",
-      "educação do campo",
-      "Casa Familiar Rural",
-      "Igrapiúna"
-    ]
+    "titulo": "Elites coloniais: a nobreza da terra e o governo das conquistas. História e historiografia",
+    "autor": "Maria Fernanda B. Bicalho",
+    "ano": "2005",
+    "keywords": ["elites coloniais", "nobreza da terra", "Antigo Regime", "governo", "historiografia"],
+    "tematica": "História Política e Elites",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Discute o conceito de 'nobreza da terra' na América Portuguesa, analisando como as elites locais (senhores de engenho, grandes proprietários e capitães-mores) construíram seu poder através da terra, do cargo e do parentesco. O capítulo revisa a historiografia sobre o tema, apontando para a autonomia relativa desses grupos em relação à Coroa."
   },
   {
     "id": 10,
-    "titulo": "Da Costa do ouro (Gana) ao sul da Bahia, Brasil: a produção do cacau (1925-1945)",
-    "autor": "LUCIANE APARECIDA GOULART",
-    "ano": "2021",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "Costa do Ouro",
-      "Gana",
-      "sul da Bahia",
-      "produção de cacau"
-    ]
+    "titulo": "Caminhos da história da urbanização no Brasil-colônia",
+    "autor": "Beatriz Piccolotto Siqueira Bueno",
+    "ano": "2012",
+    "keywords": ["urbanização", "Brasil colônia", "historiografia", "cidades"],
+    "tematica": "Historiografia da Urbanização",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Traça um balanço crítico dos caminhos historiográficos sobre a urbanização no Brasil colonial, confrontando teses clássicas (como a de 'cidade caótica' versus 'cidade planejada') com novas abordagens que valorizam a agência dos agentes locais e as especificidades regionais. A autora propõe uma visão mais plural e dinâmica do fenômeno urbano."
   },
   {
     "id": 11,
-    "titulo": "Axós: uma análise das vestimentas litúrgicas das religiões dos povos tradicionais de matriz africana",
-    "autor": "MARIA RITA SANTOS",
-    "ano": "2021",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "Axós",
-      "vestimentas litúrgicas",
-      "religiões matriz africana",
-      "povos tradicionais"
-    ]
+    "titulo": "Diccionario da língua portugeza composto pelo padre D. Rafael Bluteau, reformado, e acrescentado por Antonio de Moraes Silva. Tomo primeiro",
+    "autor": "Rafael Bluteau (e Antonio de Moraes Silva)",
+    "ano": "1789",
+    "keywords": ["dicionário", "língua portuguesa", "século XVIII", "léxico"],
+    "tematica": "Linguística e Fontes Históricas",
+    "tipo": "Dicionário Histórico",
+    "pdf_url": "",
+    "resumo": "Primeiro grande dicionário da língua portuguesa, revisado e ampliado no século XVIII. Para o historiador, é uma fonte valiosa para compreender o vocabulário jurídico, administrativo e cotidiano da época colonial, incluindo termos relacionados à guerra, à navegação e ao governo das conquistas."
   },
   {
     "id": 12,
-    "titulo": "SANTA BÁRBARA D’OESTE, O LOCUS DO MOVIMENTO BATISTA NO BRASIL: UMA HISTORIOGRAFIA MARCADA POR CONTROVÉRSIAS, DOMINAÇÃO E CONSTRUÇÃO DE SABERES",
-    "autor": "ALMIRANICE PEREIRA CIDADE ARAÚJO",
-    "ano": "2021",
-    "orientador": "LAILA BRICHTA",
-    "keywords": [
-      "Santa Bárbara d’Oeste",
-      "movimento batista",
-      "controvérsias",
-      "dominação",
-      "construção de saberes"
-    ]
+    "titulo": "De Projeto à Processo Colonial: índios, colonos e autoridades régias na colonização reformista da antiga capitania de Porto Seguro",
+    "autor": "Francisco Cancela",
+    "ano": "2012",
+    "keywords": ["Porto Seguro", "Diretório dos Índios", "colonização", "reformismo", "conflitos"],
+    "tematica": "História Colonial e Política Indígena",
+    "tipo": "Tese de Doutorado",
+    "pdf_url": "",
+    "resumo": "Tese fundamental que analisa a aplicação do Diretório dos Índios na capitania de Porto Seguro, mostrando a distância entre o projeto reformista de Pombal e a realidade violenta e conflituosa do processo colonial. Cancela destaca a resistência indígena, as disputas entre colonos e as limitações do poder régio na periferia do império."
   },
   {
     "id": 13,
-    "titulo": "POLÍTICAS PÚBLICAS EM EDUCAÇÃO HOSPITALAR PARA JOVENS E ADULTOS NO BRASIL: LEGISLAÇÃO E EFETIVAÇÃO DE DIREITOS (2000-2010)",
-    "autor": "ALYNE MARTINS GOMES",
-    "ano": "2022",
-    "orientador": "ISAÍAS DE CARVALHO",
-    "keywords": [
-      "políticas públicas",
-      "educação hospitalar",
-      "jovens e adultos",
-      "legislação",
-      "efetivação de direitos"
-    ]
+    "titulo": "Recepção e tradução do diretório dos Índios da antiga capitania de Porto Seguro: uma análise das instruções para o governo dos índios",
+    "autor": "Francisco Cancela",
+    "ano": "2013",
+    "keywords": ["Diretório dos Índios", "recepção", "tradução", "Porto Seguro", "instruções"],
+    "tematica": "Política Indígena",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Especificamente dedicado às 'instruções' que orientavam a aplicação do Diretório em Porto Seguro, o artigo investiga como os agentes locais (capitães-mores, ouvidores) traduziram a lei metropolitana em práticas cotidianas de governo, frequentemente distorcendo os ideais iluministas para atender interesses particulares."
   },
   {
     "id": 14,
-    "titulo": "O PAPEL DO ESTADO BRASILEIRO NA CONSTRUÇÃO DE BARREIRAS SOCIAIS NA PASSAGEM DO SÉCULO XIX PARA O XX: CONTROLE DAS CRIANÇAS POBRES",
-    "autor": "BRUNA CONCEIÇÃO DE JESUS",
-    "ano": "2022",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "Estado brasileiro",
-      "barreiras sociais",
-      "controle de crianças pobres",
-      "século XIX-XX"
-    ]
+    "titulo": "Superando equívocos, apontando evidências: notas sobre a economia da capitania de Porto Seguro (séculos XVI-XVIII)",
+    "autor": "Francisco Cancela",
+    "ano": "2016",
+    "keywords": ["economia", "Porto Seguro", "pau-brasil", "agricultura colonial"],
+    "tematica": "História Econômica",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Desfaz mitos sobre a economia de Porto Seguro, mostrando que, além do pau-brasil, a capitania desenvolveu atividades agrícolas (mandioca, cana-de-açúcar) e um comércio interno significativo. O texto evidencia a diversificação econômica e a integração da capitania às redes atlânticas, mesmo com sua posição periférica."
   },
   {
     "id": 15,
-    "titulo": "MEMÓRIAS QUILOMBOLAS NO AUDIOVISUAL: LUTA PELA TERRA, EDUCAÇÃO E RELIGIOSIDADES (BAHIA, 1997-2018)",
-    "autor": "FERNANDA LEMOS PINTO",
-    "ano": "2022",
-    "orientador": "ANDRÉ ROSA RIBEIRO",
-    "keywords": [
-      "memórias quilombolas",
-      "audiovisual",
-      "luta pela terra",
-      "educação",
-      "religiosidades"
-    ]
+    "titulo": "Cinco séculos de pessoas, costumes e governos",
+    "autor": "Jorge Caldeira",
+    "ano": "2017",
+    "keywords": ["Brasil", "costumes", "governos", "história social", "longa duração"],
+    "tematica": "História Social e Política",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Síntese panorâmica da história brasileira sob o prisma das relações entre pessoas, costumes e estruturas de governo. O autor propõe uma leitura original que valoriza a experiência prática dos atores sociais em detrimento de grandes narrativas teóricas, dialogando com temas como a formação do Estado e a cultura política."
   },
   {
     "id": 16,
-    "titulo": "REMODELAÇÃO URBANA NA VILA DE PORTO SEGURO (BAHIA) NA SEGUNDA METADE DO SÉCULO XVIII",
-    "autor": "INGRID DE ARAÚJO GOMEZ",
-    "ano": "2022",
-    "orientador": "MARCELO DIAS",
-    "keywords": [
-      "remodelação urbana",
-      "Vila de Porto Seguro",
-      "século XVIII"
-    ]
+    "titulo": "Geoprocessamento Aplicado à História Agrária: o vínculo Jaguara",
+    "autor": "Ângelo Alves Carrara, Ricardo Tavares Zaidan, Lucas Pinheiro de Paula",
+    "ano": "2018",
+    "keywords": ["geoprocessamento", "história agrária", "vínculo Jaguara", "SIG", "propriedade"],
+    "tematica": "História Agrária e Geografia Histórica",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Demonstra a aplicação de ferramentas de geoprocessamento (SIG) para o estudo da história agrária, utilizando o caso do vínculo Jaguara (Minas Gerais) como exemplo. Os autores mostram como a tecnologia permite mapear a evolução da propriedade da terra, sobrepor dados históricos e espaciais, e abrir novas perspectivas para a história rural colonial."
   },
   {
     "id": 17,
-    "titulo": "O MOVIMENTO RODOVIÁRIO NO SUL DA BAHIA: A ESTRADA ILHÉUS-ITABUNA, O ESCOAMENTO DO CACAU E OS AUTOMÓVEIS (1920-1935)",
-    "autor": "LUCIANA MARIA SANTIAGO BALDUÍNO",
-    "ano": "2022",
-    "orientador": "KÁTIA VINHÁTICO PONTES",
-    "keywords": [
-      "movimento rodoviário",
-      "estrada Ilhéus-Itabuna",
-      "escoamento do cacau",
-      "automóveis"
-    ]
+    "titulo": "Legislação e administração urbana no século XVI",
+    "autor": "Helder Carita",
+    "ano": "2001",
+    "keywords": ["legislação urbana", "administração", "século XVI", "Portugal", "urbanismo"],
+    "tematica": "Urbanismo e Legislação",
+    "tipo": "Artigo em Anais",
+    "pdf_url": "",
+    "resumo": "Analisa as leis, regimentos e posturas que regulamentavam a vida urbana em Portugal no século XVI, muitas das quais foram transplantadas para o Brasil. O autor mostra como a Coroa buscava padronizar o traçado das ruas, a salubridade e a segurança, estabelecendo as bases da administração municipal que vigoraria na colônia."
   },
   {
     "id": 18,
-    "titulo": "A INFLUÊNCIA DAS BRINCADEIRAS E BRINQUEDOS ORIGINADOS DA ÁFRICA NA FORMAÇÃO DA CRIANÇA BRASILEIRO DO SÉCULO XX",
-    "autor": "MARCOS A. B. DORMUNDO NASCIMENTO",
-    "ano": "2022",
-    "orientador": "INARA RODRIGUES",
-    "keywords": [
-      "brincadeiras",
-      "brinquedos",
-      "África",
-      "formação da criança brasileira",
-      "século XX"
-    ]
+    "titulo": "Modelos, instituições e personagens. A urbanização do espaço atlântico nos séculos XV e XVI",
+    "autor": "Helder Carita e R. Carita",
+    "ano": "2000",
+    "keywords": ["urbanização", "espaço atlântico", "modelos", "instituições", "séculos XV-XVI"],
+    "tematica": "Urbanização Atlântica",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Aborda a expansão urbana portuguesa no Atlântico (Madeira, Açores, Brasil) como um processo integrado, onde modelos metropolitanos, instituições (Câmaras) e personagens (engenheiros, mestres-de-obras) atuaram em conjunto. Os autores enfatizam a circularidade de saberes entre as ilhas e o continente americano."
   },
   {
     "id": 19,
-    "titulo": "O CINEMA NA BELLE EPOQUE ILHEENSE: IMPORTAÇÕES ATLÂNTICAS DE CULTURA URBANA E REPRESENTAÇÕES DE PODER NO AUGE DO CACAU (1889-1930)",
-    "autor": "MARY LUCY LIMA",
-    "ano": "2022",
-    "orientador": "LAILA BRICHTA",
-    "keywords": [
-      "cinema",
-      "Belle Époque ilheense",
-      "importações atlânticas",
-      "cultura urbana",
-      "representações de poder"
-    ]
+    "titulo": "Do sertão para o mar: um estudo sobre a experiência portuguesa na América, a partir da Colônia: o caso do Diretório dos Índios (1751-1798)",
+    "autor": "Mauro Cezar Coelho",
+    "ano": "2005",
+    "keywords": ["Diretório dos Índios", "sertão", "Amazônia", "experiência portuguesa", "indigenismo"],
+    "tematica": "Política Indígena e Colonização",
+    "tipo": "Tese de Doutorado",
+    "pdf_url": "",
+    "resumo": "Tese clássica que estuda a implementação do Diretório dos Índios na Amazônia, propondo a tese de que a política pombalina inverteu a lógica colonial: ao invés de 'do mar para o sertão', a nova experiência partia do 'sertão para o mar', utilizando os índios como agentes da colonização e integrando a Amazônia ao império."
   },
   {
     "id": 20,
-    "titulo": "Os frutos de ouro na terra adubada com sangue: O cinema na belle époque ilheense : representações da região cacaueira no filme os Deuses e os Mortos (1970), de Ruy Guerra",
-    "autor": "MICHAEL SILVA ROSENO",
-    "ano": "2022",
-    "orientador": "LAILA BRICHTA",
-    "keywords": [
-      "cinema",
-      "Belle Époque ilheense",
-      "região cacaueira",
-      "Deuses e os Mortos",
-      "Ruy Guerra"
-    ]
+    "titulo": "A construção do Atlântico e as cidades-porto cabo-verdianas",
+    "autor": "Antônio Correia e Silva",
+    "ano": "2000",
+    "keywords": ["Atlântico", "cidades-porto", "Cabo Verde", "urbanismo", "arquipélago"],
+    "tematica": "Urbanismo e Atlântico",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Examina o papel das cidades-porto de Cabo Verde como escalas estratégicas na construção do Atlântico português. O autor discute como a arquitetura e o traçado urbano dessas ilhas refletiam sua função de entreposto comercial e militar, conectando África, Europa e Brasil."
   },
   {
     "id": 21,
-    "titulo": "IMPRENSA E ESTEREÓTIPOS: A LEGITIMAÇÃO DA VIOLÊNCIA POLICIAL CONTRA A POPULAÇÃO NEGRA E PERIFÉRICA DE ITABUNA (1988-1991)",
-    "autor": "NATALLIE DOS S.PESTANA DE OLIVEIRA",
-    "ano": "2022",
-    "orientador": "CEZAR TEIXEIRA HONORATO",
-    "keywords": [
-      "imprensa",
-      "estereótipos",
-      "violência policial",
-      "população negra",
-      "Itabuna"
-    ]
+    "titulo": "A igreja católica e a configuração do espaço físico dos núcleos urbanos coloniais brasileiros",
+    "autor": "Ana de Lourdes Ribeiro Costa",
+    "ano": "2007",
+    "keywords": ["igreja católica", "espaço físico", "núcleos urbanos", "colônia", "urbanismo"],
+    "tematica": "Urbanismo e Religião",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Investiga o papel da Igreja Católica como agente modelador do espaço urbano colonial, não apenas através da localização das igrejas e conventos, mas também na definição de hierarquias e na organização do cotidiano (procissões, festas, adro). A autora mostra como o sagrado e o profano se misturavam na configuração da cidade."
   },
   {
     "id": 22,
-    "titulo": "ATLÂNTICO E DIÁSPORA: O REGGAE EM ITABUNA – BA COMO AFIRMAÇÃO DA NEGRITUDE (1990 – 2000)",
-    "autor": "ROBSON RODRIGUES",
-    "ano": "2022",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "Atlântico",
-      "diáspora",
-      "reggae",
-      "Itabuna",
-      "negritude"
-    ]
+    "titulo": "Fundamentos de Morfologia Urbana",
+    "autor": "Stael de A. P. Costa e Maria M. G. Netto",
+    "ano": "2015",
+    "keywords": ["morfologia urbana", "teoria", "forma urbana", "análise espacial"],
+    "tematica": "Teoria Urbana",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Manual teórico sobre os fundamentos da morfologia urbana, abordando conceitos como tecido urbano, tipologia edificatória, lotes e quarteirões. Embora focado em teoria geral, oferece ferramentas analíticas essenciais para o estudo das cidades coloniais e suas transformações."
   },
   {
     "id": 23,
-    "titulo": "A ARQUEOLOGIA URBANA NOS ESTUDOS HISTÓRICOS NA PRIMEIRA CAPITAL DA COLÔNIA PORTUGUESA NO BRASIL: UMA ANÁLISE A PARTIR DOS PROCESSOS DE LICENCIAMENTO DO IPHAN",
-    "autor": "ALEXANDRE ROCHA COLPA",
-    "ano": "2023",
-    "orientador": "WALTER MORALES",
-    "keywords": [
-      "arqueologia urbana",
-      "primeira capital",
-      "colônia portuguesa",
-      "IPHAN",
-      "licenciamento"
-    ]
+    "titulo": "O urbano e o rural em Minas Gerais entre os séculos XVIII e XIX",
+    "autor": "Alexandre Mendes Cunha",
+    "ano": "2009",
+    "keywords": ["urbano", "rural", "Minas Gerais", "século XVIII", "século XIX"],
+    "tematica": "História Regional e Urbanização",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Analisa a complexa relação entre o espaço urbano e o rural na Minas Gerais setecentista e oitocentista, mostrando que as fronteiras entre ambos eram porosas. O autor destaca a importância das rotas de comércio, da mineração e da agropecuária na formação de arraiais que rapidamente se tornavam vilas."
   },
   {
     "id": 24,
-    "titulo": "Corpos são currículo [recurso eletrônico] : experiências entre o interlocuções e Colégio Estadual Aurelino Leal em Itacaré – BA (2003 – 2023)",
-    "autor": "ALINE AREIA ALMEIDA MIMOSO",
-    "ano": "2024",
-    "orientador": "LAILA BRICHTA",
-    "keywords": [
-      "corpos",
-      "currículo",
-      "experiências",
-      "Colégio Aurelino Leal",
-      "Itacaré"
-    ]
+    "titulo": "As primícias da ordem",
+    "autor": "Mário Henrique Simão D'Agostinho",
+    "ano": "1997",
+    "keywords": ["imaginário urbano", "ordem", "cidade", "representação"],
+    "tematica": "Imaginário Urbano",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Aborda a construção do imaginário sobre a cidade, discutindo como a ideia de 'ordem' (geométrica, social, política) foi projetada sobre os espaços urbanos coloniais. O capítulo reflete sobre o desejo de controle e a realidade caótica que muitas vezes se impunha."
   },
   {
     "id": 25,
-    "titulo": "Atuação de Maria Firmina dos Reis e de mulheres escritoras na imprensa abolicionista brasileira (1850-1890)",
-    "autor": "ANA LÚCIA SANTOS SILVA",
-    "ano": "2023",
-    "orientador": "INARA RODRIGUES",
-    "keywords": [
-      "Maria Firmina dos Reis",
-      "mulheres escritoras",
-      "imprensa abolicionista",
-      "Brasil"
-    ]
+    "titulo": "Os povos indígenas no Nordeste brasileiro: um esboço histórico",
+    "autor": "Beatriz G. Dantas, José Augusto C. Sampaio, Maria Rosário de Carvalho",
+    "ano": "1998",
+    "keywords": ["povos indígenas", "Nordeste", "história indígena", "aldeamentos", "colonização"],
+    "tematica": "História Indígena",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Oferece um panorama histórico dos grupos indígenas no Nordeste brasileiro, desde o contato inicial até o século XIX. Os autores discutem as políticas de aldeamento, as guerras justas, a escravidão e as formas de resistência, fornecendo um quadro essencial para entender capitanias como Porto Seguro e Ilhéus."
   },
   {
     "id": 26,
-    "titulo": "GRUPO CHAVES E ECONOMIA-MUNDO; A TRAJETÓRIA DE UM GRUPO EMPRESARIAL DE ITABUNA E A CRISE DO CACAU (1985-1995)",
-    "autor": "FREDERICK OLIVEIRA MORAIS",
-    "ano": "2023",
-    "orientador": "KÁTIA VINHÁTICO PONTES",
-    "keywords": [
-      "Grupo Chaves",
-      "economia-mundo",
-      "grupo empresarial",
-      "Itabuna",
-      "crise do cacau"
-    ]
+    "titulo": "Novas Vilas para o Brasil-Colônia: Planejamento Espacial e Social no Século XVIII",
+    "autor": "Roberta Marx Delson",
+    "ano": "1997 (original 1979)",
+    "keywords": ["vilas planejadas", "século XVIII", "urbanismo colonial", "planejamento social"],
+    "tematica": "Urbanismo Colonial",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Obra clássica que estuda a política de fundação de vilas planejadas no Brasil do século XVIII, especialmente em regiões de fronteira. Delson demonstra que a Coroa utilizava o planejamento urbano (traçado regular, distribuição de lotes) como instrumento de controle social, mas que a execução frequentemente esbarrava nas condições locais e na resistência dos colonos."
   },
   {
     "id": 27,
-    "titulo": "VIVER ENTRE MUNDOS: Degredo e inserção feminina no Atlântico – o caso de Maria Barbosa (1561-1614)",
-    "autor": "HELENA RIBEIRO DA SILVA",
-    "ano": "2024",
-    "orientador": "ADRIANA DANTAS REIS",
-    "keywords": [
-      "degredo",
-      "inserção feminina",
-      "Atlântico",
-      "Maria Barbosa"
-    ]
+    "titulo": "Economia, sociedade e paisagens da capitania e comarca de Ilhéus no período colonial",
+    "autor": "Marcelo Henrique Dias",
+    "ano": "2007",
+    "keywords": ["Ilhéus", "economia colonial", "sociedade", "paisagens", "capitania"],
+    "tematica": "História Econômica e Regional",
+    "tipo": "Tese de Doutorado",
+    "pdf_url": "",
+    "resumo": "Tese abrangente sobre a capitania de Ilhéus, vizinha de Porto Seguro, abordando a economia (cana-de-açúcar, mandioca, gado), a estrutura social (senhores, lavradores, índios) e as transformações da paisagem. A obra é referência para entender o sul da Bahia no período colonial."
   },
   {
     "id": 28,
-    "titulo": "DIMENSÕES INTERCULTURAIS BRASIL-ÁFRICA: COMPREENDENDO PARADIGMAS HISTORIOGRÁFICOS DA COOPERAÇÃO SUL A SUL NO PROCESSO DE INTEGRAÇÃO",
-    "autor": "JULIANA DO CARMO NASCIMENTO PEDRA",
-    "ano": "2023",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "dimensões interculturais",
-      "Brasil-África",
-      "cooperação Sul-Sul",
-      "integração"
-    ]
+    "titulo": "Morfologia urbana da vila colonial de São Jorge dos Ilhéus (séculos XVI a XIX)",
+    "autor": "Marcelo Henrique Dias, Ruana Alencar Oliveira, Iuri Dantas Andrade",
+    "ano": "2019",
+    "keywords": ["São Jorge dos Ilhéus", "morfologia urbana", "vila colonial", "evolução urbana"],
+    "tematica": "Morfologia Urbana",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Estudo de caso detalhado sobre a evolução morfológica da vila de São Jorge dos Ilhéus, analisando sua fundação, expansão e transformação ao longo de três séculos. Os autores utilizam plantas, iconografia e documentos cartoriais para reconstituir a malha urbana e seus usos do solo."
   },
   {
     "id": 29,
-    "titulo": "RECEPÇÃO E APLICAÇÃO, NA DIOCESE DE ILHÉUS, DAS DIRETRIZES DA II CONFERÊNCIA GERAL DO EPISCOPADO LATINO-AMERICANO (1968-1979)",
-    "autor": "LUCAS GONÇALVES MELGAÇO",
-    "ano": "2023",
-    "orientador": "LAILA BRICHTA",
-    "keywords": [
-      "recepção",
-      "Diocese de Ilhéus",
-      "Conferência de Medellín",
-      "episcopado latino-americano"
-    ]
+    "titulo": "Pombal e o Brasil",
+    "autor": "Francisco Falcon",
+    "ano": "2000",
+    "keywords": ["Pombal", "Brasil", "reformismo", "século XVIII", "império português"],
+    "tematica": "História Política e Administrativa",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Síntese da atuação do Marquês de Pombal em relação ao Brasil, destacando as reformas administrativas (Diretório dos Índios, fim do comércio exclusivo), a expulsão dos jesuítas e a tentativa de centralizar o poder. Falcon equilibra a visão do 'déspota esclarecido' com as limitações práticas da governação à distância."
   },
   {
     "id": 30,
-    "titulo": "NO PORTO E PELO PORTO: A VISÃO DA LITERATURA BAIANA SOBRE A ZONA PORTUÁRIA DE ILHÉUS E SUAS RELAÇÕES DE TRABALHO (1920-1945)",
-    "autor": "BRUNA SANTOS LIMA",
-    "ano": "2024",
-    "orientador": "INARA RODRIGUES",
-    "keywords": [
-      "literatura baiana",
-      "zona portuária",
-      "Ilhéus",
-      "relações de trabalho"
-    ]
+    "titulo": "Criação da rede urbana na Capitania da Bahia: século XVIII",
+    "autor": "Maria Helena Ochi Flexor",
+    "ano": "2001",
+    "keywords": ["rede urbana", "Bahia", "século XVIII", "vilas", "urbanização"],
+    "tematica": "Urbanização Regional",
+    "tipo": "Artigo em Anais",
+    "pdf_url": "",
+    "resumo": "Analisa a criação e a articulação das vilas na capitania da Bahia durante o século XVIII, mostrando como a Coroa e as elites locais estruturaram uma hierarquia urbana que ia desde Salvador até as povoações do interior (sertão da ressaca, recôncavo). A autora destaca o papel das câmaras e das freguesias na consolidação dessa rede."
   },
   {
     "id": 31,
-    "titulo": "A OCUPAÇÃO TERRITORIAL DO BAIRRO ALTO DA CONQUISTA (1930-1940)",
-    "autor": "CARLOS PEREIRA NETO",
-    "ano": "sem informação",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "ocupação territorial",
-      "bairro Alto da Conquista"
-    ]
+    "titulo": "Breve história do debate sobre a cidade colonial brasileira",
+    "autor": "Fania Fridman",
+    "ano": "2004",
+    "keywords": ["debate historiográfico", "cidade colonial", "historiografia urbana", "arquitetos"],
+    "tematica": "Historiografia Urbana",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Traça um panorama do debate historiográfico sobre a cidade colonial brasileira, confrontando interpretações que enfatizavam o 'caos' e a falta de planejamento com aquelas que identificam traçados regulares e influências medievais. O texto é útil para entender as diferentes escolas de pensamento (de Sérgio Buarque a Nestor Goulart Reis)."
   },
   {
     "id": 32,
-    "titulo": "AMOR MALDITO: O SILENCIAMENTO DE UM FILME LÉSBICO E DE UMA CINEASTA NEGRA NO CINEMA BRASILEIRO (1984-1987)",
-    "autor": "EMANUELLE SILVA FONSECA",
-    "ano": "sem informação",
-    "orientador": "LAILA BRICHTA",
-    "keywords": [
-      "Amor Maldito",
-      "filme lésbico",
-      "cineasta negra",
-      "cinema brasileiro"
-    ]
+    "titulo": "Arraiais e vilas d'el rei: espaço e poder nas Minas setecentistas",
+    "autor": "Cláudia Damasceno Fonseca",
+    "ano": "2011",
+    "keywords": ["arraiais", "Minas Gerais", "espaço", "poder", "século XVIII"],
+    "tematica": "Urbanismo e Poder",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Estudo fundamental sobre o espaço urbano nas Minas Gerais do século XVIII, diferenciando os arraiais (espontâneos) das vilas (oficiais). A autora demonstra como o poder se materializava no espaço, através da localização dos pelourinhos, das casas de câmara e cadeia, e como a Coroa tentava impor ordem a uma paisagem marcada pela mineração e pelo conflito."
   },
   {
     "id": 33,
-    "titulo": "ULYSSES AFRICANO, CAFÉ ATLÂNTICO. ANDRÉ REBOUÇAS, POLÍTICA DE REALIZAÇÃO E A REENGENHARIA DO CAFÉ NA OBRA 'AGRICULTURA NACIONAL. ESTUDOS ECONÔMICOS. PROPAGANDA ABOLICIONISTA E DEMOCRÁTICA (1875-1883)",
-    "autor": "JOSÉ WILSON MARTINS JUNIOR",
-    "ano": "2024",
-    "orientador": "MARCELO DIAS",
-    "keywords": [
-      "Ulysses Africano",
-      "café Atlântico",
-      "André Rebouças",
-      "reengenharia do café",
-      "agricultura nacional"
-    ]
+    "titulo": "Gêneses urbanas do colonialismo: síntese de encontros culturais",
+    "autor": "Rubens Gianesella",
+    "ano": "2012",
+    "keywords": ["gênese urbana", "colonialismo", "encontros culturais", "urbanização"],
+    "tematica": "Urbanização e Cultura",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Propõe uma reflexão sobre as gêneses urbanas no contexto colonial como resultados de 'encontros culturais' entre o saber técnico europeu, as tradições indígenas e as práticas africanas. O autor defende que a cidade colonial não é uma mera cópia, mas uma síntese criativa, embora permeada por relações desiguais de poder."
   },
   {
     "id": 34,
-    "titulo": "Condições de saúde e doenças entre os escravizados em Salvador - BA 1831-1850",
-    "autor": "LARISSA BISPO DOS SANTOS",
-    "ano": "2024",
-    "orientador": "MARCELO DIAS",
-    "keywords": [
-      "condições de saúde",
-      "doenças",
-      "escravizados",
-      "Salvador"
-    ]
+    "titulo": "Breve história do urbanismo",
+    "autor": "Fernando Chueca Goitia",
+    "ano": "1989",
+    "keywords": ["urbanismo", "história do urbanismo", "teoria urbana"],
+    "tematica": "Teoria do Urbanismo",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Manual clássico de história do urbanismo, abordando desde as cidades antigas até o século XX. Embora com foco europeu, fornece as bases conceituais (traçado hipodâmico, cidade medieval, renascença) frequentemente utilizadas pelos historiadores da urbanização colonial brasileira para estabelecer comparações e identificar influências."
   },
   {
     "id": 35,
-    "titulo": "Entre a invisibilidade e o reconhecimento: o trabalho das mulheres na Bahia entre 1920 e 1960",
-    "autor": "MAÍRA CESÁRIO FERREIRA",
-    "ano": "2024",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "invisibilidade",
-      "reconhecimento",
-      "trabalho das mulheres",
-      "Bahia"
-    ]
+    "titulo": "Raízes do Brasil",
+    "autor": "Sérgio Buarque de Holanda",
+    "ano": "1936",
+    "keywords": ["Raízes do Brasil", "personalismo", "cordialidade", "colonial", "interpretação do Brasil"],
+    "tematica": "Historiografia e Interpretação do Brasil",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Clássico ensaio interpretativo sobre a formação da sociedade brasileira, destacando o 'homem cordial', a herança ibérica e a construção do Estado. Embora não seja específico sobre urbanismo, sua discussão sobre a colonização e as instituições influenciou profundamente a forma como os historiadores pensam a espontaneidade e a ordem no espaço colonial."
   },
   {
     "id": 36,
-    "titulo": "MOVIMENTO SANITÁRIO E POLÍTICAS PÚBLICAS DE SAÚDE NO CONTEXTO DE ATUAÇÃO DE JOÃO BATISTA SOARES LOPES (1902-1948)",
-    "autor": "MIRLA AUGUSTA MOURA DE SOUZA",
-    "ano": "sem informação",
-    "orientador": "KÁTIA VINHÁTICO PONTES",
-    "keywords": [
-      "movimento sanitário",
-      "políticas públicas de saúde",
-      "João Batista Soares Lopes"
-    ]
+    "titulo": "Inventário de proteção do acervo cultural da Bahia. Monumentos e sítios do litoral sul",
+    "autor": "IPAC-BA (Instituto do Patrimônio Artístico e Cultural da Bahia)",
+    "ano": "1988",
+    "keywords": ["patrimônio", "litoral sul", "Bahia", "monumentos", "sítios históricos"],
+    "tematica": "Patrimônio Histórico",
+    "tipo": "Inventário",
+    "pdf_url": "",
+    "resumo": "Inventário do patrimônio cultural do litoral sul da Bahia, mapeando igrejas, casarões, ruínas e sítios arqueológicos das antigas capitanias de Ilhéus e Porto Seguro. É uma fonte documental importante para estudos de morfologia urbana e arquitetura colonial, com descrições técnicas e levantamentos fotográficos."
   },
   {
     "id": 37,
-    "titulo": "E EU FALEI FARAÓ: OS DESFILES DO OLODUM NO CARNAVAL DE SALVADOR (1986-1889)",
-    "autor": "PEDRO PAULO ARAÚJO",
-    "ano": "2024",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "desfiles do Olodum",
-      "carnaval de Salvador",
-      "Olodum"
-    ]
+    "titulo": "Por uma nova história urbana",
+    "autor": "Bernard Lepetit",
+    "ano": "2016 (edição original 1988)",
+    "keywords": ["nova história urbana", "metodologia", "escala", "redes", "historiografia"],
+    "tematica": "Teoria e Metodologia da História Urbana",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Coletânea de textos do historiador francês Bernard Lepetit, que revolucionou os estudos urbanos ao propor uma abordagem que articula história, geografia e economia, utilizando escalas de análise variadas (micro, meso, macro). Essencial para quem busca renovar metodologicamente o estudo das cidades coloniais."
   },
   {
     "id": 38,
-    "titulo": "REFUGIADOS: UMA ANÁLISE SOBRE O MIGRANTE AFRO-ATLÂNTICO NO BRASIL (1997-2022)",
-    "autor": "ANTONIO DEMBUE TUMISSA",
-    "ano": "sem informação",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "refugiados",
-      "migrante afro-atlântico",
-      "Brasil"
-    ]
+    "titulo": "Pouvoir municipal et urbanisme (1650-1750): sources et problématique",
+    "autor": "Bernard Lepetit",
+    "ano": "1981",
+    "keywords": ["poder municipal", "urbanismo", "séculos XVII-XVIII", "fontes", "Europa"],
+    "tematica": "Urbanismo e Poder Municipal",
+    "tipo": "Artigo em Anais",
+    "pdf_url": "",
+    "resumo": "Aborda a relação entre o poder municipal (câmaras) e as políticas urbanísticas na Europa dos séculos XVII e XVIII, discutindo as fontes disponíveis para o historiador (posturas, atas, planos). O método proposto é diretamente aplicável aos estudos das câmaras coloniais brasileiras."
   },
   {
     "id": 39,
-    "titulo": "(RE)CONSTRUÇÃO DE ANGOLA NA PERSPECTIVA DAS RELAÇÕES NO ATLÂNTICO SUL: NARRATIVAS DA IMPRENSA BRASILEIRA NA PRIMEIRA DÉCADA DE PAZ EM ANGOLA (2002-2012)",
-    "autor": "ELIAS BASTOS BARROS",
-    "ano": "sem informação",
-    "orientador": "DIOGO ALVES TRINDADE DE CARVALHO",
-    "keywords": [
-      "(re)construção de Angola",
-      "Atlântico Sul",
-      "imprensa brasileira",
-      "paz em Angola"
-    ]
+    "titulo": "Nosso chão: do sagrado ao profano",
+    "autor": "Murillo Marx",
+    "ano": "2003",
+    "keywords": ["urbanismo", "sagrado", "profano", "espaço urbano", "Brasil"],
+    "tematica": "Urbanismo e Simbologia",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Obra que investiga a relação entre a ocupação do solo urbano no Brasil e as categorias de sagrado e profano. Marx analisa como os espaços religiosos (igrejas, adros, cruzeiros) se articulavam com os espaços laicos (praças de mercado, ruas do comércio), revelando a simbologia cristã na própria morfologia das cidades."
   },
   {
     "id": 40,
-    "titulo": "DO PACÍFICO AO ATLÂNTICO: O CONSUMO DA CULTURA POP JAPONESA NO BRASIL ATRAVÉS DE CAVALEIROS DO ZODÍACO (1994-2004)",
-    "autor": "GABRIEL ONASSES WENCESLAU SOUZA DE MORAIS",
-    "ano": "sem informação",
-    "orientador": "DIOGO ALVES TRINDADE DE CARVALHO",
-    "keywords": [
-      "cultura pop japonesa",
-      "Cavaleiros do Zodíaco",
-      "consumo",
-      "Brasil"
-    ]
+    "titulo": "A transferência da cidade portuguesa para o Brasil – 1532-1640",
+    "autor": "André Lemoine Neves",
+    "ano": "2009",
+    "keywords": ["transferência", "cidade portuguesa", "Brasil", "século XVI-XVII", "urbanismo"],
+    "tematica": "Urbanismo Colonial",
+    "tipo": "Tese de Doutorado",
+    "pdf_url": "",
+    "resumo": "Tese que investiga como o modelo de cidade portuguesa foi transferido e adaptado ao Brasil no período de 1532 a 1640. O autor analisa a fundação das primeiras vilas e cidades, confrontando os dispositivos legais (cartas de doação, regimentos) com a realidade da construção, destacando a influência da tradição medieval e do Renascimento."
   },
   {
     "id": 41,
-    "titulo": "IMPACTOS E INVESTIMENTOS DO PROGRAMA DE INTEGRAÇÃO NACIONAL NO PROCESSO DE DESENVOLVIMENTO E INDUSTRIALIZAÇÃO DA BAHIA - 1969 A 1977",
-    "autor": "GABRIELE GOIS DE JESUS",
-    "ano": "sem informação",
-    "orientador": "KÁTIA VINHÁTICO PONTES",
-    "keywords": [
-      "Programa de Integração Nacional",
-      "desenvolvimento",
-      "industrialização",
-      "Bahia"
-    ]
+    "titulo": "Fundamentos de ecologia",
+    "autor": "Eugene Pleasants Odun",
+    "ano": "2004",
+    "keywords": ["ecologia", "meio ambiente", "ecossistemas", "teoria ecológica"],
+    "tematica": "Ecologia e Meio Ambiente",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Manual clássico de ecologia, que fornece conceitos fundamentais (ecossistemas, sucessão, nicho) utilizados por historiadores ambientais para analisar o impacto da colonização sobre a paisagem, o desmatamento do pau-brasil e a introdução de espécies exóticas. A obra dá suporte teórico para entender a relação entre sociedade e natureza na história."
   },
   {
     "id": 42,
-    "titulo": "ATLÂNTICO EM MOVIMENTO: INTERVENÇÕES URBANAS E ARQUITETÔNICAS NA CIDADE DE ILHÉUS A PARTIR DE POSSÍVEIS INFLUÊNCIAS DA BELLE ÉPOQUE CARIOCA E O CASO DA CATEDRAL DE SÃO SEBASTIÃO (SÉCULO XX)",
-    "autor": "JACIANE APARECIDA JESUS DA CRUZ",
-    "ano": "sem informação",
-    "orientador": "THIAGO VINÍCIUS MANTUANO FONSECA",
-    "keywords": [
-      "intervenções urbanas",
-      "arquitetura",
-      "Ilhéus",
-      "Belle Époque carioca",
-      "Catedral de São Sebastião"
-    ]
+    "titulo": "O Marquês de Pombal e a invenção do Brasil: coordenadas históricas",
+    "autor": "Luiz Eduardo Oliveira e José Eduardo Franco",
+    "ano": "2016",
+    "keywords": ["Marquês de Pombal", "invenção do Brasil", "coordenadas históricas", "reformismo"],
+    "tematica": "História Política e Cultural",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Discute o papel de Pombal na 'invenção' de um novo Brasil, através das reformas educacionais, da expulsão dos jesuítas e da valorização da agricultura e do comércio. Os autores analisam as coordenadas históricas (contexto europeu e colonial) que tornaram possível esse projeto de remodelação do império."
   },
   {
     "id": 43,
-    "titulo": "A POLÍTICA DE GUERRA ÀS DROGAS E A POLÍCIA MILITAR DE SALVADOR: INSTITUIÇÃO E EXPERIÊNCIAS DA VIOLÊNCIA NA DIÁSPORA AFRICANA (1988 A 1999)",
-    "autor": "LUCAS DE JESUS SANTOS",
-    "ano": "sem informação",
-    "orientador": "KÁTIA VINHÁTICO PONTES",
-    "keywords": [
-      "guerra às drogas",
-      "polícia militar",
-      "Salvador",
-      "violência",
-      "diáspora africana"
-    ]
+    "titulo": "Permanência e renovação da urbanística medieval portuguesa no Brasil",
+    "autor": "Glenda Pereira da Cruz",
+    "ano": "2001",
+    "keywords": ["urbanística medieval", "Portugal", "Brasil", "permanência", "renovação"],
+    "tematica": "Urbanismo e História Medieval",
+    "tipo": "Artigo em Anais",
+    "pdf_url": "",
+    "resumo": "Analisa os elementos da urbanística medieval portuguesa (ruas estreitas, quarteirões irregulares, localização da igreja) que persistiram na fundação das cidades brasileiras, mesmo diante das influências renascentistas e barrocas. A autora mostra que houve uma 'renovação' adaptativa, mas com forte lastro na tradição."
   },
   {
     "id": 44,
-    "titulo": "A DIÁSPORA AFRICANA NA PRODUÇÃO MUSICAL BREGA 1968-1978",
-    "autor": "MAGNO FREITAS DE SOUZA",
-    "ano": "sem informação",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "diáspora africana",
-      "produção musical",
-      "brega"
-    ]
+    "titulo": "Em tudo semelhante, em nada parecido: modelos e modos de urbanização na América Portuguesa",
+    "autor": "José Pessôa",
+    "ano": "2000",
+    "keywords": ["modelos", "modos", "urbanização", "América Portuguesa", "comparação"],
+    "tematica": "Urbanização Colonial",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Título provocativo que sintetiza a tese do autor: as cidades brasileiras são 'semelhantes' aos modelos portugueses na forma, mas 'nada parecidas' na função e na dinâmica social. O artigo discute como a transposição de modelos esbarra nas especificidades do clima, da demografia e da economia coloniais."
   },
   {
     "id": 45,
-    "titulo": "RELAÇÕES BILATERAIS ENTRE BRASIL E ALEMANHA OCIDENTAL ENTRE 1960 E 1990",
-    "autor": "MAI SOPHIE JULIA SCHULTE FROHLINDE",
-    "ano": "sem informação",
-    "orientador": "THIAGO VINÍCIUS MANTUANO FONSECA",
-    "keywords": [
-      "relações bilaterais",
-      "Brasil",
-      "Alemanha Ocidental"
-    ]
+    "titulo": "Formação do Brasil Contemporâneo",
+    "autor": "Caio Prado Júnior",
+    "ano": "2000 (original 1942)",
+    "keywords": ["formação econômica", "Brasil colônia", "sentido da colonização", "Caio Prado Jr"],
+    "tematica": "História Econômica e Formação Nacional",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Obra seminal que interpreta a colonização do Brasil como um empreendimento comercial voltado para o mercado externo (o 'sentido da colonização'). Embora macroeconômico, o livro oferece as bases para entender a ocupação territorial e a estruturação das capitanias, incluindo a periferia do sul da Bahia."
   },
   {
     "id": 46,
-    "titulo": "SERESTAS NA BAHIA: CLASSES E EXPERIÊNCIAS NA DIÁSPORA ENTRE 1967 E 1978",
-    "autor": "MARIA LUISA DOS SANTOS GOMES",
-    "ano": "sem informação",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "serestas",
-      "classes",
-      "experiências",
-      "diáspora",
-      "Bahia"
-    ]
+    "titulo": "Literatura e cultura na América Latina",
+    "autor": "Ángel Rama",
+    "ano": "2001",
+    "keywords": ["literatura", "cultura", "América Latina", "transculturação", "crítica"],
+    "tematica": "Literatura e Cultura",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Coletânea de ensaios do crítico uruguaio Ángel Rama, que desenvolve o conceito de 'transculturação narrativa' para explicar a especificidade da literatura latino-americana. Rama argumenta que a cultura da periferia não é passiva, mas reelabora as influências metropolitanas, criando obras originais que dialogam com o contexto local."
   },
   {
     "id": 47,
-    "titulo": "“OH! SENHORA DO AMPARO, TUA FESTA É EMOÇÃO”: LASTROS DE HIBRIDISMO CULTURAL E DE RELAÇÕES ÉTNICO-RACIAIS NA FESTA DE NOSSA SENHORA DO AMPARO, EM VALENÇA/BA (1980 – 2000)",
-    "autor": "PAULO VITOR SOUZA DA LUZ",
-    "ano": "sem informação",
-    "orientador": "CARLOS GUSTAVO NOBREGA DE JESUS",
-    "keywords": [
-      "Festa de Nossa Senhora do Amparo",
-      "hibridismo cultural",
-      "relações étnico-raciais",
-      "Valença"
-    ]
+    "titulo": "A Cidade das Letras",
+    "autor": "Ángel Rama",
+    "ano": "1985",
+    "keywords": ["cidade das letras", "intelectuais", "América Latina", "urbanização", "cultura"],
+    "tematica": "Cultura e Urbanização",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Estudo clássico sobre o papel dos intelectuais e das instituições culturais (universidades, academias, editoras) na conformação das cidades latino-americanas. Rama analisa como a 'cidade das letras' articula o poder e a cultura, sendo um espaço de modernização e, ao mesmo tempo, de perpetuação de elites."
   },
   {
     "id": 48,
-    "titulo": "O TRABALHADOR ASSALARIADO RURAL EM ILHÉUS: EXPERIÊNCIAS E TRANSFORMAÇÕES LEGISLATIVAS (1973-1988)",
-    "autor": "ALISSON RAMOS DE SOUZA",
-    "ano": "sem informação",
-    "orientador": "KÁTIA VINHÁTICO PONTES",
-    "keywords": [
-      "trabalhador assalariado rural",
-      "Ilhéus",
-      "experiências",
-      "transformações legislativas"
-    ]
+    "titulo": "A Casa de Porto Seguro: estudo da morfologia da casa portuguesa no Brasil",
+    "autor": "Lucemar Ramalho",
+    "ano": "2014",
+    "keywords": ["casa portuguesa", "morfologia", "arquitetura doméstica", "Porto Seguro"],
+    "tematica": "Arquitetura Colonial",
+    "tipo": "Dissertação de Mestrado",
+    "pdf_url": "",
+    "resumo": "Estuda a morfologia da casa portuguesa no Brasil, tomando como estudo de caso a cidade de Porto Seguro. A pesquisa analisa as técnicas construtivas (taipa, pedra, alvenaria), os partidos arquitetônicos e a adaptação da tipologia lusa ao clima e aos materiais disponíveis no sul da Bahia."
   },
   {
     "id": 49,
-    "titulo": "DA ETNOGRAFIA À FICÇÃO: UM OLHAR SOBRE A EXPERIÊNCIA DA MULHER AGUDÁ A PARTIR DE ALMA DA ÁFRICA E BRASILEIROS NA ÁFRICA (1961-1988)",
-    "autor": "GABRIELA NOVAIS DOS SANTOS",
-    "ano": "sem informação",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "etnografia",
-      "ficção",
-      "mulher agudá",
-      "Alma da África",
-      "Brasileiros na África"
-    ]
+    "titulo": "Quadro da arquitetura no Brasil",
+    "autor": "Nestor Goulart Reis Filho",
+    "ano": "2000",
+    "keywords": ["arquitetura", "Brasil", "colonial", "estilos", "panorama"],
+    "tematica": "Arquitetura e Urbanismo",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Panorama geral da arquitetura brasileira desde o período colonial até o século XX, abordando desde as construções jesuíticas até a arquitetura moderna. O autor contextualiza a produção arquitetônica dentro das transformações econômicas e sociais, sendo uma leitura introdutória fundamental."
   },
   {
     "id": 50,
-    "titulo": "REELABORAÇÕES DO PASSADO PARA HORIZONTES FUTUROS: USOS E FABULAÇÕES DA EXPERIÊNCIA AFRODIASPÓRICA EM UNDERGROUND RAILROADS: CAMINHOS PARA A LIBERDADE",
-    "autor": "JOÃO JÚNIO NÔ DOS SANTOS OLIVEIRA",
-    "ano": "sem informação",
-    "orientador": "LAILA BRICHTA",
-    "keywords": [
-      "reelaborações do passado",
-      "experiência afrodiaspórica",
-      "Underground Railroads"
-    ]
+    "titulo": "Contribuição ao Estudo da Evolução Urbana do Brasil (1500/1720)",
+    "autor": "Nestor Goulart Reis Filho",
+    "ano": "1968",
+    "keywords": ["evolução urbana", "1500-1720", "cidades coloniais", "formação urbana"],
+    "tematica": "Urbanização Colonial",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Obra fundadora dos estudos de urbanização colonial no Brasil. Reis Filho analisa a evolução das cidades desde o descobrimento até 1720, identificando a influência da legislação portuguesa, as funções econômicas (porto, mineração, agro) e as primeiras tentativas de planejamento, com mapas e plantas históricas."
   },
   {
     "id": 51,
-    "titulo": "EUSÍNIO GASTON LAVIGNE E O PORTO DE ILHÉUS: UMA EXPERIÊNCIA BONAPARTISTA NO ESCOAMENTO DO CACAU (1930/1937)",
-    "autor": "IVANA CALHEIRA SAMPAIO",
-    "ano": "sem informação",
-    "orientador": "KÁTIA VINHÁTICO PONTES",
-    "keywords": [
-      "Eusínio Lavigne",
-      "Porto de Ilhéus",
-      "experiência bonapartista",
-      "escoamento do cacau"
-    ]
+    "titulo": "Centro e periferia no mundo luso-brasileiro, 1500-1808",
+    "autor": "A. J. R. Russel-Wood",
+    "ano": "1998",
+    "keywords": ["centro", "periferia", "mundo luso-brasileiro", "administração", "império"],
+    "tematica": "História Política e Administrativa",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Analisa as relações entre o centro (Lisboa, Salvador, Rio) e as periferias (capitanias secundárias) no império luso-brasileiro. Russel-Wood argumenta que a periferia não era passiva, mas negociava, resistia e criava suas próprias dinâmicas de poder, muitas vezes subvertendo as ordens centrais."
   },
   {
     "id": 52,
-    "titulo": "PORTOS DE HISTÓRIAS E FAZENDAS DE SENTIDO: REPRESENTAÇÕES, EXPERIÊNCIAS DOS TRABALHADORES COMO TESTEMUNHAS OCULARES NO UNIVERSO CACAUEIRO DE ILHÉUS SOB O OLHAR DA LITERATURA E DA FOTOGRAFIA",
-    "autor": "RAABE SALIM DA SILVA COSTA",
-    "ano": "sem informação",
-    "orientador": "KÁTIA VINHÁTICO PONTES",
-    "keywords": [
-      "portos de histórias",
-      "fazendas de sentido",
-      "trabalhadores",
-      "universo cacaueiro",
-      "Ilhéus",
-      "literatura",
-      "fotografia"
-    ]
+    "titulo": "Negociação e Conflito na Administração do Pau-Brasil: a capitania de Porto Seguro (1605-1650)",
+    "autor": "Uiá Freire dos Santos",
+    "ano": "2015",
+    "keywords": ["pau-brasil", "administração", "negociação", "conflito", "Porto Seguro"],
+    "tematica": "História Econômica e Administrativa",
+    "tipo": "Dissertação de Mestrado",
+    "pdf_url": "",
+    "resumo": "Estudo detalhado sobre a exploração e a administração do pau-brasil na capitania de Porto Seguro entre 1605 e 1650. O autor analisa as negociações entre contratadores, lavradores e a Coroa, bem como os conflitos gerados pela extração predatória e pela disputa pela mão de obra indígena."
   },
   {
     "id": 53,
-    "titulo": "TERRA TUPINAMBÁ DE OLIVENÇA NO ATLÂNTICO: OS IMPACTOS DA CRISE DO CACAU E O AVANÇO DO TURISMO (1990 - 1995)",
-    "autor": "ERIK DOUGLAS MACIEL ANDRADE",
-    "ano": "sem informação",
-    "orientador": "KÁTIA VINHÁTICO PONTES",
-    "keywords": [
-      "Terra Tupinambá de Olivença",
-      "Atlântico",
-      "crise do cacau",
-      "turismo"
-    ]
+    "titulo": "O coração e uma parte do corpo: a instalação do governo-geral e o governo interino de Duarte de Lemos na capitania de Porto Seguro",
+    "autor": "Uiá Freire dos Santos",
+    "ano": "2016",
+    "keywords": ["governo-geral", "Duarte de Lemos", "Porto Seguro", "século XVI", "administração"],
+    "tematica": "História Política",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Foca no governo interino de Duarte de Lemos na capitania de Porto Seguro e na instalação do Governo-Geral. O texto explora a metáfora do 'coração' (centro) e 'parte do corpo' (periferia) para discutir a integração da capitania à estrutura administrativa do império."
   },
   {
     "id": 54,
-    "titulo": "HISTÓRIA SUBMERSA NA COSTA BAIANA: NAUFRÁGIOS OCORRIDOS NA BAÍA DO PONTAL AO RIO ACUÍPE, ILHÉUS, ENTRE OS SÉCULOS XVIII E XX",
-    "autor": "CRISTIELLE REIS SANTOS",
-    "ano": "sem informação",
-    "orientador": "WALTER FAGUNDES MORALES",
-    "keywords": [
-      "história submersa",
-      "naufrágios",
-      "costa baiana",
-      "Ilhéus"
-    ]
+    "titulo": "O Negócio do Pau-Brasil: entre o regimento de 1605, contratos, contratadores e lavradores da capitania de Porto Seguro (1605-1640)",
+    "autor": "Uiá Freire dos Santos",
+    "ano": "2016",
+    "keywords": ["Regimento de 1605", "contratos", "contratadores", "lavradores", "Porto Seguro"],
+    "tematica": "História Econômica",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Aprofunda o funcionamento do 'negócio do pau-brasil' em Porto Seguro, analisando o Regimento de 1605, os contratos de exploração e a relação conflituosa entre os contratadores (monopolistas) e os lavradores locais, que queriam livre acesso à madeira e aos índios."
   },
   {
     "id": 55,
-    "titulo": "RIOS QUE MOLDAM CAMINHOS: O SISTEMA FLÚVIO-MARÍTIMO DA VILA ATLÂNTICA DE ILHÉUS NO SÉCULO XIX",
-    "autor": "LUCAS ARAÚJO SILVA",
-    "ano": "sem informação",
-    "orientador": "MARCELO HENRIQUE DIAS",
-    "keywords": [
-      "rios",
-      "sistema fluvio-marítimo",
-      "Vila Atlântica de Ilhéus",
-      "século XIX"
-    ]
+    "titulo": "TE DEUM LAUDAMUS: A expulsão dos jesuítas da Bahia (1758-1763)",
+    "autor": "Fabricio Lyrio Santos",
+    "ano": "2002",
+    "keywords": ["expulsão dos jesuítas", "Bahia", "1758-1763", "Pombal", "religião"],
+    "tematica": "História Política e Religiosa",
+    "tipo": "Dissertação de Mestrado",
+    "pdf_url": "",
+    "resumo": "Estuda a expulsão da Companhia de Jesus da Bahia no contexto das reformas pombalinas, analisando os eventos locais, a reação da população e a transferência dos bens e colégios dos jesuítas para a Coroa. O trabalho mostra como a expulsão impactou a educação, a catequese e a estrutura fundiária na capitania."
   },
   {
     "id": 56,
-    "titulo": "RAP BAIANO: DINÂMICAS DE RAÇA E CLASSE NA EXPERIÊNCIA AFRODIASPÓRICA ENTRE 1996 A 2006",
-    "autor": "LAÍZA GAMA DE BULHÕES",
-    "ano": "sem informação",
-    "orientador": "CARLOS GUSTAVO NÓBREGA DE JESUS",
-    "keywords": [
-      "rap baiano",
-      "dinâmicas de raça e classe",
-      "experiência afrodiaspórica"
-    ]
+    "titulo": "Formação de cidades no Brasil Colonial",
+    "autor": "Paulo F. Santos",
+    "ano": "2008",
+    "keywords": ["formação de cidades", "Brasil Colonial", "urbanização", "tipologia"],
+    "tematica": "Urbanização Colonial",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Oferece uma tipologia das cidades coloniais brasileiras, classificando-as segundo sua função (porto, mineração, agro), origem (espontânea ou planejada) e localização (litoral, sertão). O autor também discute a estrutura fundiária urbana e a evolução da paisagem edificada, sendo uma obra de referência para arquitetos e historiadores."
   },
   {
     "id": 57,
-    "titulo": "O ENSINO DA HISTÓRIA E CULTURA DA ÁFRICA NOS ANOS FINAIS DO MUNICÍPIO DE ILHÉUS: ENTRE A LDB E A BNCC",
-    "autor": "CLEIZE ARAÚJO SANDES",
-    "ano": "sem informação",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "ensino de história e cultura da África",
-      "anos finais",
-      "Ilhéus",
-      "LDB",
-      "BNCC"
-    ]
+    "titulo": "Urbanização Colonial na América Latina: cidade planejada versus desleixo e caos",
+    "autor": "Betina Shurmann",
+    "ano": "1999",
+    "keywords": ["urbanização colonial", "América Latina", "cidade planejada", "caos"],
+    "tematica": "Teoria do Urbanismo Colonial",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Revisita o antigo debate na historiografia urbana latino-americana entre a 'cidade planejada' (grid, leis das Índias) e o 'desleixo e caos' (ocupação espontânea). Shurmann critica os dois extremos, propondo uma análise mais matizada que leve em conta a negociação entre ordem normativa e práticas cotidianas."
   },
   {
     "id": 58,
-    "titulo": "A DEMOGRAFIA E A FORMAÇÃO DA MONOCULTURA CACAUEIRA: UM ESTUDO QUANTITATIVO DA POPULAÇÃO DE ILHÉUS NO SUL DA BAHIA (1890-1940)",
-    "autor": "VIVIANE JESUS SOUZA",
-    "ano": "sem informação",
-    "orientador": "FLÁVIO GONÇALVES DOS SANTOS",
-    "keywords": [
-      "demografia",
-      "monocultura cacaueira",
-      "população de Ilhéus"
-    ]
+    "titulo": "Imagens Urbanas: os diversos olhares na formação do imaginário urbano",
+    "autor": "Célia Ferraz Sousa e Sandra Jatahy Pesavento (orgs.)",
+    "ano": "1997",
+    "keywords": ["imagens urbanas", "imaginário", "representação", "cidade", "olhares"],
+    "tematica": "Imaginário Urbano",
+    "tipo": "Coletânea / Livro",
+    "pdf_url": "",
+    "resumo": "Coletânea que reúne diversos olhares sobre a cidade, abordando as representações literárias, artísticas e iconográficas do espaço urbano. Os capítulos discutem como a cidade é 'imaginada' e vivida, fornecendo ferramentas para entender a percepção dos habitantes e das autoridades sobre os núcleos coloniais."
   },
   {
     "id": 59,
-    "titulo": "A POLÍTICA CULTURAL E A CONSTRUÇÃO DA SOCIEDADE CUBANA NO PÓS-REVOLUÇÃO: ANÁLISE DO PERIÓDICO PENSAMIENTO CRÍTICO (1961-1971)",
-    "autor": "ANA LUÍZA BRAGA BRANDÃO",
-    "ano": "sem informação",
-    "orientador": "LAILA BRICHTA",
-    "keywords": [
-      "política cultural",
-      "sociedade cubana",
-      "pós-revolução",
-      "Pensamiento Crítico"
-    ]
+    "titulo": "O discurso da cidade",
+    "autor": "Tomás Taveira",
+    "ano": "1974",
+    "keywords": ["discurso", "cidade", "semiótica", "arquitetura"],
+    "tematica": "Teoria da Arquitetura e Discurso",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Obra teórica que aborda a cidade como um discurso, ou seja, como um sistema de signos que comunica valores, hierarquias e intenções políticas. Embora escrito sob influência do estruturalismo, sua abordagem semiótica é útil para decifrar os elementos simbólicos das cidades coloniais."
   },
   {
     "id": 60,
-    "titulo": "CRAVO, CANELA E MUITO AÇÚCAR NO ATLÂNTICO: A DOÇARIA NA LITERATURA E NA HISTÓRIA DOS SÉCULOS XIX E XX (1870-1904)",
-    "autor": "CARMOLY CARTEADO MONTEIRO LOPES FILHO",
-    "ano": "sem informação",
-    "orientador": "CEZAR TEIXEIRA HONORATO",
-    "keywords": [
-      "cravo",
-      "canela",
-      "açúcar",
-      "doçaria",
-      "Atlântico",
-      "literatura",
-      "história"
-    ]
+    "titulo": "A forma da cidade de origem portuguesa",
+    "autor": "Manuel C. Teixeira",
+    "ano": "2012",
+    "keywords": ["forma urbana", "cidade portuguesa", "urbanismo", "expansão marítima"],
+    "tematica": "Urbanismo de Origem Portuguesa",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Síntese abrangente sobre a forma das cidades fundadas pelos portugueses no mundo (Brasil, África, Ásia), destacando os modelos urbanísticos (medieval, renascentista, barroco) e a legislação que os orientava. Teixeira mostra como a 'cidade de origem portuguesa' possui uma identidade formal reconhecível, mas com variações regionais significativas."
   },
   {
     "id": 61,
-    "titulo": "MODELOS URBANOS DAS VILAS DE BAIXO: UM ESTUDO DE CASO DOS NÚCLEOS URBANOS COLONIAIS DO NORTE DOS ILHÉUS",
-    "autor": "LEONARDO ALVES DE MOURA",
-    "ano": "sem informação",
-    "orientador": "MARCELO HENRIQUE DIAS",
-    "keywords": [
-      "modelos urbanos",
-      "vilas de baixo",
-      "núcleos urbanos coloniais",
-      "norte dos Ilhéus"
-    ]
+    "titulo": "O infante e a madeira",
+    "autor": "Alberto Vieira",
+    "ano": "1994",
+    "keywords": ["infante", "madeira", "exploração florestal", "pau-brasil", "Ilhas Atlânticas"],
+    "tematica": "História Ambiental e Econômica",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Aborda a exploração da madeira (em especial o pau-brasil) desde o período dos 'infantes' portugueses, traçando paralelos com a exploração de outras florestas atlânticas (como a Madeira). O artigo contextualiza a extração da tinta vermelha no Brasil dentro da lógica de exploração dos recursos naturais do império."
   },
   {
     "id": 62,
-    "titulo": "A BATALHA DOS NADADORES EM ILHÉUS-BA NO GOVERNO DE MEN DE SÁ - 1559-1566: UMA ANÁLISE DAS ESTRATÉGIAS MILITARES, DOS REGULAMENTOS, ORDENAÇÕES DA LEGISLAÇÃO PORTUGUESA E DAS AÇÕES DOS GUERREIROS",
-    "autor": "EDEILSON CARDOSO SILVA",
-    "ano": "sem informação",
-    "orientador": "TERESINHA MARCIS",
-    "keywords": [
-      "Batalha dos Nadadores",
-      "Ilhéus",
-      "Men de Sá",
-      "estratégias militares",
-      "legislação portuguesa"
-    ]
+    "titulo": "Amílcar Cabral e a crítica ao colonialismo",
+    "autor": "Patrícia Villen",
+    "ano": "2013",
+    "keywords": ["Amílcar Cabral", "colonialismo", "crítica", "África", "libertação"],
+    "tematica": "Pensamento Descolonial e Colonialismo",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Analisa o pensamento do líder revolucionário guineense Amílcar Cabral, focando em sua crítica aos mecanismos de dominação colonial e à luta pela libertação nacional. Embora focado na África, o arcabouço teórico sobre 'negação da história' e 'reafricanização' é aplicável para pensar as resistências indígenas e negras no Brasil colonial."
   },
   {
     "id": 63,
-    "titulo": "Trabalho, associativismo e cultura: a formação da sociedade união operária dos estivadores de Ilhéus-Bahia (1919-1937)",
-    "autor": "ALCÂNTARA, Érika Luanna da Mota",
-    "ano": "2024",
-    "orientador": "—",
-    "keywords": [
-      "Trabalho",
-      "Associativismo",
-      "Cultura",
-      "Formação",
-      "Sociedade"
-    ],
-    "tematica": "Trabalho",
-    "editora_local": "Universidade do Estado da Bahia, Santo Antônio de Jesus (dissertação de mestrado)",
-    "tipo": "referencia_bibliografica"
+    "titulo": "Homens de Armas e Mando: os capitães-mores da capitania de Porto Seguro (1620-1682)",
+    "autor": "Ana Paula Santos Xavier",
+    "ano": "2021",
+    "keywords": ["homens de armas", "capitães-mores", "Porto Seguro", "conflitos", "poder local"],
+    "tematica": "Guerra e Poder Político",
+    "tipo": "Dissertação de Mestrado",
+    "pdf_url": "",
+    "resumo": "Este é o foco inicial da sua pergunta. A dissertação analisa a atuação dos capitães-mores na capitania de Porto Seguro entre 1620 e 1682, período em que o poder local era exercido por esses 'homens de armas' que acumulavam funções militares e administrativas ('mando'). A autora investiga os conflitos internos (com índios, com contratadores do pau-brasil, entre facções locais) e a violência institucionalizada, demonstrando como esses agentes foram fundamentais para a ocupação territorial e a manutenção do domínio português numa região periférica, muito antes das reformas pombalinas. A pesquisa utiliza farto acervo documental (cartas régias, regimentos e devassas) para reconstituir o perfil desses governantes e suas redes de parentesco e clientela."
+  }
+  
+{
+    "id": 105,
+    "titulo": "Memórias históricas e políticas da Bahia. v. 1",
+    "autor": "Ignacio Accioli e Braz do Amaral",
+    "ano": "1919",
+    "keywords": ["Bahia", "história política", "administração colonial", "fontes primárias"],
+    "tematica": "História Política e Administrativa",
+    "tipo": "Livro (Fontes)",
+    "pdf_url": "",
+    "resumo": "Coletânea monumental de documentos, ofícios e crônicas sobre a formação administrativa da Bahia, abrangendo desde o período colonial até o Império. É uma obra de referência fundamental para quem estuda a estrutura de poder, os governadores e as tensões políticas na antiga capitania, servindo de base documental para grande parte da historiografia baiana posterior."
   },
   {
-    "id": 64,
-    "titulo": "A conquista do closed shop pelos estivadores de Ilhéus (1918–1921)",
-    "autor": "ALCÂNTARA, Érika Luanna da Mota",
-    "ano": "2022",
-    "orientador": "—",
-    "keywords": [
-      "Conquista",
-      "Closed",
-      "Shop",
-      "Pelos",
-      "Estivadores"
-    ],
-    "tematica": "Trabalho",
-    "editora_local": "Anpuh-ba – XI Encontro Estadual de História, Salvador",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 65,
-    "titulo": "A distinção: crítica social do julgamento",
-    "autor": "BOURDIEU, Pierre",
-    "ano": "2007",
-    "orientador": "—",
-    "keywords": [
-      "Distinção",
-      "Crítica",
-      "Social",
-      "Julgamento"
-    ],
-    "tematica": "Outros",
-    "editora_local": "Zouk, Porto Alegre",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 66,
-    "titulo": "Civilização material, economia e capitalismo: séculos XV-XVIII (3 v.)",
-    "autor": "BRAUDEL, Fernand",
-    "ano": "1995-1998",
-    "orientador": "—",
-    "keywords": [
-      "Civilização",
-      "Material",
-      "Economia",
-      "Capitalismo",
-      "Séculos"
-    ],
-    "tematica": "Economia",
-    "editora_local": "Martins Fontes, São Paulo",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 67,
-    "titulo": "O Mediterrâneo e o mundo mediterrânico na época de Filipe II",
-    "autor": "BRAUDEL, Fernand",
-    "ano": "2016",
-    "orientador": "—",
-    "keywords": [
-      "Mediterrâneo",
-      "Mundo",
-      "Mediterrânico",
-      "Época",
-      "Filipe"
-    ],
-    "tematica": "Outros",
-    "editora_local": "Edusp, São Paulo",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 68,
-    "titulo": "Crônica da Capitania de São Jorge dos Ilhéus",
-    "autor": "CAMPOS, João da Silva",
-    "ano": "1947",
-    "orientador": "—",
-    "keywords": [
-      "Crônica",
-      "Capitania",
-      "Jorge",
-      "Ilhéus"
-    ],
-    "tematica": "Urbanismo",
-    "editora_local": "Salvador",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 69,
-    "titulo": "O lugar no/do mundo",
-    "autor": "CARLOS, Ana Fani Alessandri",
-    "ano": "1996",
-    "orientador": "—",
-    "keywords": [
-      "Lugar",
-      "Mundo"
-    ],
-    "tematica": "Outros",
-    "editora_local": "FFLCH/USP, São Paulo",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 70,
-    "titulo": "A construção da ordem: a elite política imperial",
-    "autor": "CARVALHO, José Murilo de",
-    "ano": "2012",
-    "orientador": "—",
-    "keywords": [
-      "Construção",
-      "Ordem",
-      "Elite",
-      "Política",
-      "Imperial"
-    ],
-    "tematica": "Política",
-    "editora_local": "Civilização Brasileira, Rio de Janeiro",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 71,
-    "titulo": "Trabalhadores, associativismo e política no sul da Bahia (1910–1950)",
-    "autor": "CARVALHO, Philipe Murillo Santana de",
-    "ano": "2018",
-    "orientador": "—",
-    "keywords": [
-      "Trabalhadores",
-      "Associativismo",
-      "Política",
-      "Bahia"
-    ],
-    "tematica": "Trabalho",
-    "editora_local": "Universidade Federal da Bahia, Salvador (dissertação de mestrado)",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 72,
-    "titulo": "A invenção do cotidiano: 1. Artes de fazer (22. ed.)",
-    "autor": "CERTEAU, Michel de",
-    "ano": "2014",
-    "orientador": "—",
-    "keywords": [
-      "Invenção",
-      "Cotidiano",
-      "Artes",
-      "Fazer"
-    ],
-    "tematica": "História",
-    "editora_local": "Vozes, Petrópolis",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 73,
-    "titulo": "A escrita da história",
-    "autor": "CERTEAU, Michel de",
-    "ano": "1982",
-    "orientador": "—",
-    "keywords": [
-      "Escrita",
-      "História"
-    ],
-    "tematica": "História",
-    "editora_local": "Forense Universitária, Rio de Janeiro",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 74,
-    "titulo": "Cidade febril: cortiços e epidemias na Corte imperial",
-    "autor": "CHALHOUB, Sidney",
-    "ano": "1996",
-    "orientador": "—",
-    "keywords": [
-      "Cidade",
-      "Febril",
-      "Cortiços",
-      "Epidemias",
-      "Corte"
-    ],
-    "tematica": "Urbanismo",
-    "editora_local": "Companhia das Letras, São Paulo",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 75,
-    "titulo": "Economia e sociedade no sul da Bahia",
-    "autor": "COSTA, Ana Paula da",
-    "ano": "2014",
-    "orientador": "—",
-    "keywords": [
-      "Economia",
-      "Sociedade",
-      "Bahia"
-    ],
-    "tematica": "Urbanismo",
-    "editora_local": "EDUFBA, Salvador",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 76,
-    "titulo": "Carnavais, malandros e heróis: para uma sociologia do dilema brasileiro",
-    "autor": "DAMATTA, Roberto",
-    "ano": "1997",
-    "orientador": "—",
-    "keywords": [
-      "Carnavais",
-      "Malandros",
-      "Heróis",
-      "Sociologia",
-      "Dilema"
-    ],
-    "tematica": "Outros",
-    "editora_local": "Rocco, Rio de Janeiro",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 77,
-    "titulo": "Estado e capital estrangeiro na industrialização brasileira",
-    "autor": "DINIZ, Eli",
-    "ano": "1978",
-    "orientador": "—",
-    "keywords": [
-      "Estado",
-      "Capital",
-      "Estrangeiro",
-      "Industrialização",
-      "Brasileira"
-    ],
-    "tematica": "Política",
-    "editora_local": "Paz e Terra, Rio de Janeiro",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 78,
-    "titulo": "A integração do negro na sociedade de classes (5. ed.)",
-    "autor": "FERNANDES, Florestan",
-    "ano": "2008",
-    "orientador": "—",
-    "keywords": [
-      "Integração",
-      "Negro",
-      "Sociedade",
-      "Classes"
-    ],
-    "tematica": "Diáspora",
-    "editora_local": "Globo, São Paulo",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 79,
-    "titulo": "O nascimento da clínica (7. ed.)",
-    "autor": "FOUCAULT, Michel",
-    "ano": "2011",
-    "orientador": "—",
-    "keywords": [
-      "Nascimento",
-      "Clínica"
-    ],
-    "tematica": "Outros",
-    "editora_local": "Forense Universitária, Rio de Janeiro",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 80,
-    "titulo": "Vigiar e punir",
-    "autor": "FOUCAULT, Michel",
-    "ano": "1987",
-    "orientador": "—",
-    "keywords": [
-      "Vigiar",
-      "Punir"
-    ],
-    "tematica": "Outros",
-    "editora_local": "Vozes, Petrópolis",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 81,
-    "titulo": "Afogados em leis: a CLT e a cultura política dos trabalhadores brasileiros",
-    "autor": "FRENCH, John D.",
-    "ano": "2001",
-    "orientador": "—",
-    "keywords": [
-      "Afogados",
-      "Leis",
-      "Cultura",
-      "Política",
-      "Trabalhadores"
-    ],
-    "tematica": "Trabalho",
-    "editora_local": "Fundação Perseu Abramo, São Paulo",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 82,
-    "titulo": "Formação Econômica do Brasil",
-    "autor": "FURTADO, Celso",
+    "id": 106,
+    "titulo": "O espaço da transculturação",
+    "autor": "Elaine Almeida",
     "ano": "2009",
-    "orientador": "—",
-    "keywords": [
-      "Formação",
-      "Econômica",
-      "Brasil"
-    ],
-    "tematica": "Economia",
-    "editora_local": "Companhia Editora Nacional, São Paulo",
-    "tipo": "referencia_bibliografica"
+    "keywords": ["transculturação", "literatura latino-americana", "Ángel Rama", "identidade"],
+    "tematica": "Literatura e Cultura",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Examina o conceito de 'transculturação' formulado por Ángel Rama, aplicando-o à produção literária e cultural da América Latina. A autora debate como as culturas periféricas reinterpretam os modelos metropolitanos, criando espaços híbridos de resistência e inovação estética – um diálogo indireto com os processos de mestiçagem e adaptação colonial estudados na historiografia."
   },
   {
-    "id": 83,
-    "titulo": "A invenção do trabalhismo (3. ed.)",
-    "autor": "GOMES, Ângela de Castro",
-    "ano": "2005",
-    "orientador": "—",
-    "keywords": [
-      "Invenção",
-      "Trabalhismo"
-    ],
-    "tematica": "História",
-    "editora_local": "FGV, Rio de Janeiro",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 84,
-    "titulo": "Por um feminismo afro-latino-americano: ensaios, intervenções e diálogos",
-    "autor": "GONZALEZ, Lélia",
-    "ano": "2020",
-    "orientador": "—",
-    "keywords": [
-      "Feminismo",
-      "Afro",
-      "Latino",
-      "Americano",
-      "Ensaios"
-    ],
-    "tematica": "Gênero",
-    "editora_local": "Zahar, Rio de Janeiro",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 85,
-    "titulo": "Racismo e sexismo na cultura brasileira (capítulo em livro organizado)",
-    "autor": "GONZALEZ, Lélia",
-    "ano": "1983",
-    "orientador": "—",
-    "keywords": [
-      "Racismo",
-      "Sexismo",
-      "Cultura",
-      "Brasileira",
-      "Capítulo"
-    ],
-    "tematica": "Gênero",
-    "editora_local": "ANPOCS, Brasília",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 86,
-    "titulo": "Coronelismo, enxada e voto: o município e o regime representativo no Brasil (7. ed.)",
-    "autor": "LEAL, Victor Nunes",
-    "ano": "2012",
-    "orientador": "—",
-    "keywords": [
-      "Coronelismo",
-      "Enxada",
-      "Voto",
-      "Município",
-      "Regime"
-    ],
-    "tematica": "Outros",
-    "editora_local": "Companhia das Letras, São Paulo",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 87,
-    "titulo": "A produção do espaço",
-    "autor": "LEFEBVRE, Henri",
-    "ano": "2006",
-    "orientador": "—",
-    "keywords": [
-      "Produção",
-      "Espaço"
-    ],
-    "tematica": "Urbanismo",
-    "editora_local": "Editora da UFMG, Belo Horizonte",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 88,
-    "titulo": "Política e interesses na industrialização brasileira: as associações industriais, a política econômica e o Estado",
-    "autor": "LEOPOLDI, Maria Antonieta P.",
-    "ano": "2000",
-    "orientador": "—",
-    "keywords": [
-      "Política",
-      "Interesses",
-      "Industrialização",
-      "Brasileira",
-      "Associações"
-    ],
-    "tematica": "Política",
-    "editora_local": "Paz e Terra, São Paulo",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 89,
-    "titulo": "Os portos e a cidade de ilhéus: transformações da paisagem urbana (1940-1980)",
-    "autor": "LOPES, Santos",
-    "ano": "2015",
-    "orientador": "—",
-    "keywords": [
-      "Portos",
-      "Cidade",
-      "Ilhéus",
-      "Transformações",
-      "Paisagem"
-    ],
-    "tematica": "Porto",
-    "editora_local": "REDP – VI Jornadas Internacionales de Estudios Portuários, Rosário/Argentina",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 90,
-    "titulo": "Sociologia do negro brasileiro",
-    "autor": "MOURA, Clóvis",
-    "ano": "1988",
-    "orientador": "—",
-    "keywords": [
-      "Sociologia",
-      "Negro",
-      "Brasileiro"
-    ],
-    "tematica": "Diáspora",
-    "editora_local": "Ática, São Paulo",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 91,
-    "titulo": "O binômio porto-ferrovia: o escoamento da produção cacaueira no sul da Bahia (1920-1970)",
-    "autor": "PONTES, Kátia Vinhático",
-    "ano": "2018",
-    "orientador": "—",
-    "keywords": [
-      "Binômio",
-      "Porto",
-      "Ferrovia",
-      "Escoamento",
-      "Produção"
-    ],
-    "tematica": "Porto",
-    "editora_local": "Niterói",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 92,
-    "titulo": "Portos e cidades: movimentos portuários, Atlântico e diáspora africana",
-    "autor": "ROSADO, Rita de Cássia Santana; SANTOS, Flávio Gonçalves dos (org.)",
-    "ano": "2011",
-    "orientador": "—",
-    "keywords": [
-      "Portos",
-      "Cidades",
-      "Movimentos",
-      "Portuários",
-      "Atlântico"
-    ],
-    "tematica": "Porto",
-    "editora_local": "Editus, Ilhéus",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 93,
-    "titulo": "A Baía do Pontal – Ilhéus: formação urbana, economia e cotidiano",
-    "autor": "SANTOS, Flávio Gonçalves dos",
+    "id": 107,
+    "titulo": "O Brasil Ilustrado (1758/1798): Diretório dos Índios",
+    "autor": "Sérgio Antônio de Paula Almeida",
     "ano": "2016",
-    "orientador": "—",
-    "keywords": [
-      "Baía",
-      "Pontal",
-      "Ilhéus",
-      "Formação",
-      "Urbana"
-    ],
-    "tematica": "Urbanismo",
-    "editora_local": "Editus, Ilhéus",
-    "tipo": "referencia_bibliografica"
+    "keywords": ["Diretório dos Índios", "Ilustração", "Pombal", "assimilação", "política indigenista"],
+    "tematica": "Política Indígena e Ilustração",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Analisa o Diretório dos Índios (1757) como um marco do projeto ilustrado português, que buscava integrar os índios à sociedade colonial através da língua, dos costumes e da aldeação. O artigo destaca as contradições entre o discurso civilizatório e a manutenção da exploração da mão de obra indígena, situando a lei como instrumento de dominação e remodelação territorial."
   },
   {
-    "id": 94,
-    "titulo": "Cidadania e justiça: a política social na ordem brasileira",
-    "autor": "SANTOS, Wanderley Guilherme dos",
-    "ano": "1979",
-    "orientador": "—",
-    "keywords": [
-      "Cidadania",
-      "Justiça",
-      "Política",
-      "Social",
-      "Ordem"
-    ],
-    "tematica": "Política",
-    "editora_local": "Campus, Rio de Janeiro",
-    "tipo": "referencia_bibliografica"
+    "id": 108,
+    "titulo": "As vilas de índios dos sertões do norte e do estado do Maranhão: desenho, território e reforma urbana no século XVIII",
+    "autor": "Esdras Araujo Arraes",
+    "ano": "2018",
+    "keywords": ["vilas de índios", "reforma urbana", "Maranhão", "século XVIII", "território"],
+    "tematica": "Urbanismo Colonial",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Investiga o processo de criação e planejamento das vilas de índios nos sertões do Norte e Estado do Maranhão durante as reformas pombalinas. O autor relaciona o desenho urbano (traçado regular, praça, igreja) com a estratégia de controle social e catequese, mostrando como a materialização da vila era parte da política de 'civilização' dos indígenas."
   },
   {
-    "id": 95,
-    "titulo": "Operários sem patrões: os trabalhadores da cidade de Santos no entreguerras",
-    "autor": "SILVA, Fernando Teixeira da",
-    "ano": "2003",
-    "orientador": "—",
-    "keywords": [
-      "Operários",
-      "Patrões",
-      "Trabalhadores",
-      "Cidade",
-      "Santos"
-    ],
-    "tematica": "Trabalho",
-    "editora_local": "Editora da UNICAMP, Campinas",
-    "tipo": "referencia_bibliografica"
+    "id": 109,
+    "titulo": "Desenhar cidade no papel e no terreno: cartografia e urbanismo na Amazônia e Mato Grosso no século XVIII",
+    "autor": "Renata Malcher de Araujo",
+    "ano": "2010",
+    "keywords": ["cartografia", "urbanismo", "Amazônia", "Mato Grosso", "século XVIII"],
+    "tematica": "Cartografia Histórica e Urbanismo",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Analisa a relação entre a produção cartográfica e a efetiva construção de cidades na Amazônia e Mato Grosso no século XVIII, destacando o papel dos engenheiros militares e a distância entre o projeto desenhado e a realidade do terreno. A autora demonstra que o desenho da cidade era tanto um instrumento de posse simbólica quanto um guia prático para a colonização."
   },
   {
-    "id": 96,
-    "titulo": "Portos, poder e economia: disputas regionais na Bahia republicana",
-    "autor": "SOUZA, Ricardo M.",
-    "ano": "2014",
-    "orientador": "—",
-    "keywords": [
-      "Portos",
-      "Poder",
-      "Economia",
-      "Disputas",
-      "Regionais"
-    ],
-    "tematica": "Porto",
-    "editora_local": "Revista Brasileira de História, v.34, n.67, p.85-112",
-    "tipo": "referencia_bibliografica"
+    "id": 110,
+    "titulo": "História, região e espacialidade",
+    "autor": "José D'Assunção Barros",
+    "ano": "2005",
+    "keywords": ["história regional", "espacialidade", "território", "metodologia histórica"],
+    "tematica": "Teoria da História e Espacialidade",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Discute as categorias de 'região' e 'espacialidade' na pesquisa histórica, propondo uma abordagem que supere o determinismo geográfico. O artigo é um marco metodológico para historiadores que trabalham com capitanias periféricas (como Porto Seguro), ajudando a entender como as relações de poder constroem e desconstroem espaços regionais."
   },
   {
-    "id": 97,
-    "titulo": "Da diáspora: identidades e mediações culturais",
-    "autor": "HALL, Stuart",
-    "ano": "2003",
-    "orientador": "—",
-    "keywords": [
-      "Diáspora",
-      "Identidades",
-      "Mediações",
-      "Culturais"
-    ],
-    "tematica": "Diáspora",
-    "editora_local": "Editora UFMG, Belo Horizonte",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 98,
-    "titulo": "Bandidos",
-    "autor": "HOBSBAWM, Eric",
-    "ano": "1975",
-    "orientador": "—",
-    "keywords": [
-      "Bandidos"
-    ],
-    "tematica": "Outros",
-    "editora_local": "Paz e Terra, Rio de Janeiro",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 99,
-    "titulo": "A globalização da natureza e a natureza da globalização",
-    "autor": "PORTO-GONÇALVES, Carlos Walter",
-    "ano": "2006",
-    "orientador": "—",
-    "keywords": [
-      "Globalização",
-      "Natureza",
-      "Natureza",
-      "Globalização"
-    ],
-    "tematica": "Outros",
-    "editora_local": "Civilização Brasileira, Rio de Janeiro",
-    "tipo": "referencia_bibliografica"
-  },
-  {
-    "id": 100,
-    "titulo": "Thirdspace: Journeys to Los Angeles and Other Real-and-Imagined Places",
-    "autor": "SOJA, Edward W.",
+    "id": 111,
+    "titulo": "Morfologia das cidades Brasileiras: introdução ao estudo histórico da iconografia urbana",
+    "autor": "Ulpiano T. Bezerra",
     "ano": "1996",
-    "orientador": "—",
-    "keywords": [
-      "Thirdspace",
-      "Journeys",
-      "Angeles",
-      "Other",
-      "Real"
-    ],
-    "tematica": "Outros",
-    "editora_local": "Blackwell, Cambridge",
-    "tipo": "referencia_bibliografica"
+    "keywords": ["morfologia urbana", "iconografia", "cidades brasileiras", "história urbana"],
+    "tematica": "Morfologia Urbana",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Oferece uma introdução metodológica ao estudo da morfologia das cidades brasileiras através da iconografia (mapas, pinturas, gravuras). O autor discute como as imagens urbanas não são meras representações, mas documentos históricos que revelam as hierarquias sociais, as funções econômicas e as transformações do espaço edificado ao longo do tempo."
   },
   {
-    "id": 101,
-    "titulo": "The Making of the English Working Class (2. ed.)",
-    "autor": "THOMPSON, E. P.",
-    "ano": "1963",
-    "orientador": "—",
-    "keywords": [
-      "Making",
-      "English",
-      "Working",
-      "Class"
-    ],
-    "tematica": "Outros",
-    "editora_local": "Victor Gollancz Ltd, London",
-    "tipo": "referencia_bibliografica"
+    "id": 112,
+    "titulo": "O Urbanismo Colonial e os Símbolos do Poder: o exemplo do Rio de Janeiro nos séculos XVII e XVIII",
+    "autor": "Maria Fernanda B. Bicalho",
+    "ano": "1998",
+    "keywords": ["urbanismo colonial", "símbolos do poder", "Rio de Janeiro", "espaço urbano"],
+    "tematica": "Urbanismo e Poder",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Examina a materialização do poder político e religioso no espaço urbano do Rio de Janeiro colonial, analisando a localização do pelourinho, da câmara, da igreja matriz e dos conventos. A autora demonstra que a disposição desses edifícios não era aleatória, mas refletia a hierarquia social e a tentativa da Coroa de impor uma ordem simbólica no novo mundo."
   },
   {
-    "id": 102,
-    "titulo": "Orixás: deuses iorubás na África e no Novo Mundo",
-    "autor": "VERGER, Pierre",
+    "id": 113,
+    "titulo": "Elites coloniais: a nobreza da terra e o governo das conquistas. História e historiografia",
+    "autor": "Maria Fernanda B. Bicalho",
+    "ano": "2005",
+    "keywords": ["elites coloniais", "nobreza da terra", "Antigo Regime", "governo", "historiografia"],
+    "tematica": "História Política e Elites",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Discute o conceito de 'nobreza da terra' na América Portuguesa, analisando como as elites locais (senhores de engenho, grandes proprietários e capitães-mores) construíram seu poder através da terra, do cargo e do parentesco. O capítulo revisa a historiografia sobre o tema, apontando para a autonomia relativa desses grupos em relação à Coroa."
+  },
+  {
+    "id": 114,
+    "titulo": "Caminhos da história da urbanização no Brasil-colônia",
+    "autor": "Beatriz Piccolotto Siqueira Bueno",
+    "ano": "2012",
+    "keywords": ["urbanização", "Brasil colônia", "historiografia", "cidades"],
+    "tematica": "Historiografia da Urbanização",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Traça um balanço crítico dos caminhos historiográficos sobre a urbanização no Brasil colonial, confrontando teses clássicas (como a de 'cidade caótica' versus 'cidade planejada') com novas abordagens que valorizam a agência dos agentes locais e as especificidades regionais. A autora propõe uma visão mais plural e dinâmica do fenômeno urbano."
+  },
+  {
+    "id": 115,
+    "titulo": "Diccionario da língua portugeza composto pelo padre D. Rafael Bluteau, reformado, e acrescentado por Antonio de Moraes Silva. Tomo primeiro",
+    "autor": "Rafael Bluteau (e Antonio de Moraes Silva)",
+    "ano": "1789",
+    "keywords": ["dicionário", "língua portuguesa", "século XVIII", "léxico"],
+    "tematica": "Linguística e Fontes Históricas",
+    "tipo": "Dicionário Histórico",
+    "pdf_url": "",
+    "resumo": "Primeiro grande dicionário da língua portuguesa, revisado e ampliado no século XVIII. Para o historiador, é uma fonte valiosa para compreender o vocabulário jurídico, administrativo e cotidiano da época colonial, incluindo termos relacionados à guerra, à navegação e ao governo das conquistas."
+  },
+  {
+    "id": 116,
+    "titulo": "De Projeto à Processo Colonial: índios, colonos e autoridades régias na colonização reformista da antiga capitania de Porto Seguro",
+    "autor": "Francisco Cancela",
+    "ano": "2012",
+    "keywords": ["Porto Seguro", "Diretório dos Índios", "colonização", "reformismo", "conflitos"],
+    "tematica": "História Colonial e Política Indígena",
+    "tipo": "Tese de Doutorado",
+    "pdf_url": "",
+    "resumo": "Tese fundamental que analisa a aplicação do Diretório dos Índios na capitania de Porto Seguro, mostrando a distância entre o projeto reformista de Pombal e a realidade violenta e conflituosa do processo colonial. Cancela destaca a resistência indígena, as disputas entre colonos e as limitações do poder régio na periferia do império."
+  },
+  {
+    "id": 117,
+    "titulo": "Recepção e tradução do diretório dos Índios da antiga capitania de Porto Seguro: uma análise das instruções para o governo dos índios",
+    "autor": "Francisco Cancela",
+    "ano": "2013",
+    "keywords": ["Diretório dos Índios", "recepção", "tradução", "Porto Seguro", "instruções"],
+    "tematica": "Política Indígena",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Especificamente dedicado às 'instruções' que orientavam a aplicação do Diretório em Porto Seguro, o artigo investiga como os agentes locais (capitães-mores, ouvidores) traduziram a lei metropolitana em práticas cotidianas de governo, frequentemente distorcendo os ideais iluministas para atender interesses particulares."
+  },
+  {
+    "id": 118,
+    "titulo": "Superando equívocos, apontando evidências: notas sobre a economia da capitania de Porto Seguro (séculos XVI-XVIII)",
+    "autor": "Francisco Cancela",
+    "ano": "2016",
+    "keywords": ["economia", "Porto Seguro", "pau-brasil", "agricultura colonial"],
+    "tematica": "História Econômica",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Desfaz mitos sobre a economia de Porto Seguro, mostrando que, além do pau-brasil, a capitania desenvolveu atividades agrícolas (mandioca, cana-de-açúcar) e um comércio interno significativo. O texto evidencia a diversificação econômica e a integração da capitania às redes atlânticas, mesmo com sua posição periférica."
+  },
+  {
+    "id": 119,
+    "titulo": "Cinco séculos de pessoas, costumes e governos",
+    "autor": "Jorge Caldeira",
+    "ano": "2017",
+    "keywords": ["Brasil", "costumes", "governos", "história social", "longa duração"],
+    "tematica": "História Social e Política",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Síntese panorâmica da história brasileira sob o prisma das relações entre pessoas, costumes e estruturas de governo. O autor propõe uma leitura original que valoriza a experiência prática dos atores sociais em detrimento de grandes narrativas teóricas, dialogando com temas como a formação do Estado e a cultura política."
+  },
+  {
+    "id": 120,
+    "titulo": "Geoprocessamento Aplicado à História Agrária: o vínculo Jaguara",
+    "autor": "Ângelo Alves Carrara, Ricardo Tavares Zaidan, Lucas Pinheiro de Paula",
+    "ano": "2018",
+    "keywords": ["geoprocessamento", "história agrária", "vínculo Jaguara", "SIG", "propriedade"],
+    "tematica": "História Agrária e Geografia Histórica",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Demonstra a aplicação de ferramentas de geoprocessamento (SIG) para o estudo da história agrária, utilizando o caso do vínculo Jaguara (Minas Gerais) como exemplo. Os autores mostram como a tecnologia permite mapear a evolução da propriedade da terra, sobrepor dados históricos e espaciais, e abrir novas perspectivas para a história rural colonial."
+  },
+  {
+    "id": 121,
+    "titulo": "Legislação e administração urbana no século XVI",
+    "autor": "Helder Carita",
+    "ano": "2001",
+    "keywords": ["legislação urbana", "administração", "século XVI", "Portugal", "urbanismo"],
+    "tematica": "Urbanismo e Legislação",
+    "tipo": "Artigo em Anais",
+    "pdf_url": "",
+    "resumo": "Analisa as leis, regimentos e posturas que regulamentavam a vida urbana em Portugal no século XVI, muitas das quais foram transplantadas para o Brasil. O autor mostra como a Coroa buscava padronizar o traçado das ruas, a salubridade e a segurança, estabelecendo as bases da administração municipal que vigoraria na colônia."
+  },
+  {
+    "id": 122,
+    "titulo": "Modelos, instituições e personagens. A urbanização do espaço atlântico nos séculos XV e XVI",
+    "autor": "Helder Carita e R. Carita",
+    "ano": "2000",
+    "keywords": ["urbanização", "espaço atlântico", "modelos", "instituições", "séculos XV-XVI"],
+    "tematica": "Urbanização Atlântica",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Aborda a expansão urbana portuguesa no Atlântico (Madeira, Açores, Brasil) como um processo integrado, onde modelos metropolitanos, instituições (Câmaras) e personagens (engenheiros, mestres-de-obras) atuaram em conjunto. Os autores enfatizam a circularidade de saberes entre as ilhas e o continente americano."
+  },
+  {
+    "id": 123,
+    "titulo": "Do sertão para o mar: um estudo sobre a experiência portuguesa na América, a partir da Colônia: o caso do Diretório dos Índios (1751-1798)",
+    "autor": "Mauro Cezar Coelho",
+    "ano": "2005",
+    "keywords": ["Diretório dos Índios", "sertão", "Amazônia", "experiência portuguesa", "indigenismo"],
+    "tematica": "Política Indígena e Colonização",
+    "tipo": "Tese de Doutorado",
+    "pdf_url": "",
+    "resumo": "Tese clássica que estuda a implementação do Diretório dos Índios na Amazônia, propondo a tese de que a política pombalina inverteu a lógica colonial: ao invés de 'do mar para o sertão', a nova experiência partia do 'sertão para o mar', utilizando os índios como agentes da colonização e integrando a Amazônia ao império."
+  },
+  {
+    "id": 124,
+    "titulo": "A construção do Atlântico e as cidades-porto cabo-verdianas",
+    "autor": "Antônio Correia e Silva",
+    "ano": "2000",
+    "keywords": ["Atlântico", "cidades-porto", "Cabo Verde", "urbanismo", "arquipélago"],
+    "tematica": "Urbanismo e Atlântico",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Examina o papel das cidades-porto de Cabo Verde como escalas estratégicas na construção do Atlântico português. O autor discute como a arquitetura e o traçado urbano dessas ilhas refletiam sua função de entreposto comercial e militar, conectando África, Europa e Brasil."
+  },
+  {
+    "id": 125,
+    "titulo": "A igreja católica e a configuração do espaço físico dos núcleos urbanos coloniais brasileiros",
+    "autor": "Ana de Lourdes Ribeiro Costa",
+    "ano": "2007",
+    "keywords": ["igreja católica", "espaço físico", "núcleos urbanos", "colônia", "urbanismo"],
+    "tematica": "Urbanismo e Religião",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Investiga o papel da Igreja Católica como agente modelador do espaço urbano colonial, não apenas através da localização das igrejas e conventos, mas também na definição de hierarquias e na organização do cotidiano (procissões, festas, adro). A autora mostra como o sagrado e o profano se misturavam na configuração da cidade."
+  },
+  {
+    "id": 126,
+    "titulo": "Fundamentos de Morfologia Urbana",
+    "autor": "Stael de A. P. Costa e Maria M. G. Netto",
+    "ano": "2015",
+    "keywords": ["morfologia urbana", "teoria", "forma urbana", "análise espacial"],
+    "tematica": "Teoria Urbana",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Manual teórico sobre os fundamentos da morfologia urbana, abordando conceitos como tecido urbano, tipologia edificatória, lotes e quarteirões. Embora focado em teoria geral, oferece ferramentas analíticas essenciais para o estudo das cidades coloniais e suas transformações."
+  },
+  {
+    "id": 127,
+    "titulo": "O urbano e o rural em Minas Gerais entre os séculos XVIII e XIX",
+    "autor": "Alexandre Mendes Cunha",
+    "ano": "2009",
+    "keywords": ["urbano", "rural", "Minas Gerais", "século XVIII", "século XIX"],
+    "tematica": "História Regional e Urbanização",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Analisa a complexa relação entre o espaço urbano e o rural na Minas Gerais setecentista e oitocentista, mostrando que as fronteiras entre ambos eram porosas. O autor destaca a importância das rotas de comércio, da mineração e da agropecuária na formação de arraiais que rapidamente se tornavam vilas."
+  },
+  {
+    "id": 128,
+    "titulo": "As primícias da ordem",
+    "autor": "Mário Henrique Simão D'Agostinho",
+    "ano": "1997",
+    "keywords": ["imaginário urbano", "ordem", "cidade", "representação"],
+    "tematica": "Imaginário Urbano",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Aborda a construção do imaginário sobre a cidade, discutindo como a ideia de 'ordem' (geométrica, social, política) foi projetada sobre os espaços urbanos coloniais. O capítulo reflete sobre o desejo de controle e a realidade caótica que muitas vezes se impunha."
+  },
+  {
+    "id": 129,
+    "titulo": "Os povos indígenas no Nordeste brasileiro: um esboço histórico",
+    "autor": "Beatriz G. Dantas, José Augusto C. Sampaio, Maria Rosário de Carvalho",
+    "ano": "1998",
+    "keywords": ["povos indígenas", "Nordeste", "história indígena", "aldeamentos", "colonização"],
+    "tematica": "História Indígena",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Oferece um panorama histórico dos grupos indígenas no Nordeste brasileiro, desde o contato inicial até o século XIX. Os autores discutem as políticas de aldeamento, as guerras justas, a escravidão e as formas de resistência, fornecendo um quadro essencial para entender capitanias como Porto Seguro e Ilhéus."
+  },
+  {
+    "id": 130,
+    "titulo": "Novas Vilas para o Brasil-Colônia: Planejamento Espacial e Social no Século XVIII",
+    "autor": "Roberta Marx Delson",
+    "ano": "1997 (original 1979)",
+    "keywords": ["vilas planejadas", "século XVIII", "urbanismo colonial", "planejamento social"],
+    "tematica": "Urbanismo Colonial",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Obra clássica que estuda a política de fundação de vilas planejadas no Brasil do século XVIII, especialmente em regiões de fronteira. Delson demonstra que a Coroa utilizava o planejamento urbano (traçado regular, distribuição de lotes) como instrumento de controle social, mas que a execução frequentemente esbarrava nas condições locais e na resistência dos colonos."
+  },
+  {
+    "id": 131,
+    "titulo": "Economia, sociedade e paisagens da capitania e comarca de Ilhéus no período colonial",
+    "autor": "Marcelo Henrique Dias",
+    "ano": "2007",
+    "keywords": ["Ilhéus", "economia colonial", "sociedade", "paisagens", "capitania"],
+    "tematica": "História Econômica e Regional",
+    "tipo": "Tese de Doutorado",
+    "pdf_url": "",
+    "resumo": "Tese abrangente sobre a capitania de Ilhéus, vizinha de Porto Seguro, abordando a economia (cana-de-açúcar, mandioca, gado), a estrutura social (senhores, lavradores, índios) e as transformações da paisagem. A obra é referência para entender o sul da Bahia no período colonial."
+  },
+  {
+    "id": 132,
+    "titulo": "Morfologia urbana da vila colonial de São Jorge dos Ilhéus (séculos XVI a XIX)",
+    "autor": "Marcelo Henrique Dias, Ruana Alencar Oliveira, Iuri Dantas Andrade",
+    "ano": "2019",
+    "keywords": ["São Jorge dos Ilhéus", "morfologia urbana", "vila colonial", "evolução urbana"],
+    "tematica": "Morfologia Urbana",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Estudo de caso detalhado sobre a evolução morfológica da vila de São Jorge dos Ilhéus, analisando sua fundação, expansão e transformação ao longo de três séculos. Os autores utilizam plantas, iconografia e documentos cartoriais para reconstituir a malha urbana e seus usos do solo."
+  },
+  {
+    "id": 133,
+    "titulo": "Pombal e o Brasil",
+    "autor": "Francisco Falcon",
+    "ano": "2000",
+    "keywords": ["Pombal", "Brasil", "reformismo", "século XVIII", "império português"],
+    "tematica": "História Política e Administrativa",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Síntese da atuação do Marquês de Pombal em relação ao Brasil, destacando as reformas administrativas (Diretório dos Índios, fim do comércio exclusivo), a expulsão dos jesuítas e a tentativa de centralizar o poder. Falcon equilibra a visão do 'déspota esclarecido' com as limitações práticas da governação à distância."
+  },
+  {
+    "id": 134,
+    "titulo": "Criação da rede urbana na Capitania da Bahia: século XVIII",
+    "autor": "Maria Helena Ochi Flexor",
+    "ano": "2001",
+    "keywords": ["rede urbana", "Bahia", "século XVIII", "vilas", "urbanização"],
+    "tematica": "Urbanização Regional",
+    "tipo": "Artigo em Anais",
+    "pdf_url": "",
+    "resumo": "Analisa a criação e a articulação das vilas na capitania da Bahia durante o século XVIII, mostrando como a Coroa e as elites locais estruturaram uma hierarquia urbana que ia desde Salvador até as povoações do interior (sertão da ressaca, recôncavo). A autora destaca o papel das câmaras e das freguesias na consolidação dessa rede."
+  },
+  {
+    "id": 135,
+    "titulo": "Breve história do debate sobre a cidade colonial brasileira",
+    "autor": "Fania Fridman",
+    "ano": "2004",
+    "keywords": ["debate historiográfico", "cidade colonial", "historiografia urbana", "arquitetos"],
+    "tematica": "Historiografia Urbana",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Traça um panorama do debate historiográfico sobre a cidade colonial brasileira, confrontando interpretações que enfatizavam o 'caos' e a falta de planejamento com aquelas que identificam traçados regulares e influências medievais. O texto é útil para entender as diferentes escolas de pensamento (de Sérgio Buarque a Nestor Goulart Reis)."
+  },
+  {
+    "id": 136,
+    "titulo": "Arraiais e vilas d'el rei: espaço e poder nas Minas setecentistas",
+    "autor": "Cláudia Damasceno Fonseca",
+    "ano": "2011",
+    "keywords": ["arraiais", "Minas Gerais", "espaço", "poder", "século XVIII"],
+    "tematica": "Urbanismo e Poder",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Estudo fundamental sobre o espaço urbano nas Minas Gerais do século XVIII, diferenciando os arraiais (espontâneos) das vilas (oficiais). A autora demonstra como o poder se materializava no espaço, através da localização dos pelourinhos, das casas de câmara e cadeia, e como a Coroa tentava impor ordem a uma paisagem marcada pela mineração e pelo conflito."
+  },
+  {
+    "id": 137,
+    "titulo": "Gêneses urbanas do colonialismo: síntese de encontros culturais",
+    "autor": "Rubens Gianesella",
+    "ano": "2012",
+    "keywords": ["gênese urbana", "colonialismo", "encontros culturais", "urbanização"],
+    "tematica": "Urbanização e Cultura",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Propõe uma reflexão sobre as gêneses urbanas no contexto colonial como resultados de 'encontros culturais' entre o saber técnico europeu, as tradições indígenas e as práticas africanas. O autor defende que a cidade colonial não é uma mera cópia, mas uma síntese criativa, embora permeada por relações desiguais de poder."
+  },
+  {
+    "id": 138,
+    "titulo": "Breve história do urbanismo",
+    "autor": "Fernando Chueca Goitia",
+    "ano": "1989",
+    "keywords": ["urbanismo", "história do urbanismo", "teoria urbana"],
+    "tematica": "Teoria do Urbanismo",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Manual clássico de história do urbanismo, abordando desde as cidades antigas até o século XX. Embora com foco europeu, fornece as bases conceituais (traçado hipodâmico, cidade medieval, renascença) frequentemente utilizadas pelos historiadores da urbanização colonial brasileira para estabelecer comparações e identificar influências."
+  },
+  {
+    "id": 139,
+    "titulo": "Raízes do Brasil",
+    "autor": "Sérgio Buarque de Holanda",
+    "ano": "1936",
+    "keywords": ["Raízes do Brasil", "personalismo", "cordialidade", "colonial", "interpretação do Brasil"],
+    "tematica": "Historiografia e Interpretação do Brasil",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Clássico ensaio interpretativo sobre a formação da sociedade brasileira, destacando o 'homem cordial', a herança ibérica e a construção do Estado. Embora não seja específico sobre urbanismo, sua discussão sobre a colonização e as instituições influenciou profundamente a forma como os historiadores pensam a espontaneidade e a ordem no espaço colonial."
+  },
+  {
+    "id": 140,
+    "titulo": "Inventário de proteção do acervo cultural da Bahia. Monumentos e sítios do litoral sul",
+    "autor": "IPAC-BA (Instituto do Patrimônio Artístico e Cultural da Bahia)",
+    "ano": "1988",
+    "keywords": ["patrimônio", "litoral sul", "Bahia", "monumentos", "sítios históricos"],
+    "tematica": "Patrimônio Histórico",
+    "tipo": "Inventário",
+    "pdf_url": "",
+    "resumo": "Inventário do patrimônio cultural do litoral sul da Bahia, mapeando igrejas, casarões, ruínas e sítios arqueológicos das antigas capitanias de Ilhéus e Porto Seguro. É uma fonte documental importante para estudos de morfologia urbana e arquitetura colonial, com descrições técnicas e levantamentos fotográficos."
+  },
+  {
+    "id": 141,
+    "titulo": "Por uma nova história urbana",
+    "autor": "Bernard Lepetit",
+    "ano": "2016 (edição original 1988)",
+    "keywords": ["nova história urbana", "metodologia", "escala", "redes", "historiografia"],
+    "tematica": "Teoria e Metodologia da História Urbana",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Coletânea de textos do historiador francês Bernard Lepetit, que revolucionou os estudos urbanos ao propor uma abordagem que articula história, geografia e economia, utilizando escalas de análise variadas (micro, meso, macro). Essencial para quem busca renovar metodologicamente o estudo das cidades coloniais."
+  },
+  {
+    "id": 142,
+    "titulo": "Pouvoir municipal et urbanisme (1650-1750): sources et problématique",
+    "autor": "Bernard Lepetit",
     "ano": "1981",
-    "orientador": "—",
-    "keywords": [
-      "Orixás",
-      "Deuses",
-      "Iorubás",
-      "África",
-      "Mundo"
-    ],
-    "tematica": "Diáspora",
-    "editora_local": "Corrupio, Salvador",
-    "tipo": "referencia_bibliografica"
+    "keywords": ["poder municipal", "urbanismo", "séculos XVII-XVIII", "fontes", "Europa"],
+    "tematica": "Urbanismo e Poder Municipal",
+    "tipo": "Artigo em Anais",
+    "pdf_url": "",
+    "resumo": "Aborda a relação entre o poder municipal (câmaras) e as políticas urbanísticas na Europa dos séculos XVII e XVIII, discutindo as fontes disponíveis para o historiador (posturas, atas, planos). O método proposto é diretamente aplicável aos estudos das câmaras coloniais brasileiras."
   },
   {
-    "id": 103,
-    "titulo": "Liberalismo e sindicato no Brasil",
-    "autor": "VIANNA, Luiz Werneck",
-    "ano": "1976",
-    "orientador": "—",
-    "keywords": [
-      "Liberalismo",
-      "Sindicato",
-      "Brasil"
-    ],
-    "tematica": "Trabalho",
-    "editora_local": "Paz e Terra, Rio de Janeiro",
-    "tipo": "referencia_bibliografica"
+    "id": 143,
+    "titulo": "Nosso chão: do sagrado ao profano",
+    "autor": "Murillo Marx",
+    "ano": "2003",
+    "keywords": ["urbanismo", "sagrado", "profano", "espaço urbano", "Brasil"],
+    "tematica": "Urbanismo e Simbologia",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Obra que investiga a relação entre a ocupação do solo urbano no Brasil e as categorias de sagrado e profano. Marx analisa como os espaços religiosos (igrejas, adros, cruzeiros) se articulavam com os espaços laicos (praças de mercado, ruas do comércio), revelando a simbologia cristã na própria morfologia das cidades."
   },
   {
-    "id": 104,
-    "titulo": "Economia e sociedade: fundamentos da sociologia compreensiva (v.1)",
-    "autor": "WEBER, Max",
+    "id": 144,
+    "titulo": "A transferência da cidade portuguesa para o Brasil – 1532-1640",
+    "autor": "André Lemoine Neves",
+    "ano": "2009",
+    "keywords": ["transferência", "cidade portuguesa", "Brasil", "século XVI-XVII", "urbanismo"],
+    "tematica": "Urbanismo Colonial",
+    "tipo": "Tese de Doutorado",
+    "pdf_url": "",
+    "resumo": "Tese que investiga como o modelo de cidade portuguesa foi transferido e adaptado ao Brasil no período de 1532 a 1640. O autor analisa a fundação das primeiras vilas e cidades, confrontando os dispositivos legais (cartas de doação, regimentos) com a realidade da construção, destacando a influência da tradição medieval e do Renascimento."
+  },
+  {
+    "id": 145,
+    "titulo": "Fundamentos de ecologia",
+    "autor": "Eugene Pleasants Odun",
+    "ano": "2004",
+    "keywords": ["ecologia", "meio ambiente", "ecossistemas", "teoria ecológica"],
+    "tematica": "Ecologia e Meio Ambiente",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Manual clássico de ecologia, que fornece conceitos fundamentais (ecossistemas, sucessão, nicho) utilizados por historiadores ambientais para analisar o impacto da colonização sobre a paisagem, o desmatamento do pau-brasil e a introdução de espécies exóticas. A obra dá suporte teórico para entender a relação entre sociedade e natureza na história."
+  },
+  {
+    "id": 146,
+    "titulo": "O Marquês de Pombal e a invenção do Brasil: coordenadas históricas",
+    "autor": "Luiz Eduardo Oliveira e José Eduardo Franco",
+    "ano": "2016",
+    "keywords": ["Marquês de Pombal", "invenção do Brasil", "coordenadas históricas", "reformismo"],
+    "tematica": "História Política e Cultural",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Discute o papel de Pombal na 'invenção' de um novo Brasil, através das reformas educacionais, da expulsão dos jesuítas e da valorização da agricultura e do comércio. Os autores analisam as coordenadas históricas (contexto europeu e colonial) que tornaram possível esse projeto de remodelação do império."
+  },
+  {
+    "id": 147,
+    "titulo": "Permanência e renovação da urbanística medieval portuguesa no Brasil",
+    "autor": "Glenda Pereira da Cruz",
+    "ano": "2001",
+    "keywords": ["urbanística medieval", "Portugal", "Brasil", "permanência", "renovação"],
+    "tematica": "Urbanismo e História Medieval",
+    "tipo": "Artigo em Anais",
+    "pdf_url": "",
+    "resumo": "Analisa os elementos da urbanística medieval portuguesa (ruas estreitas, quarteirões irregulares, localização da igreja) que persistiram na fundação das cidades brasileiras, mesmo diante das influências renascentistas e barrocas. A autora mostra que houve uma 'renovação' adaptativa, mas com forte lastro na tradição."
+  },
+  {
+    "id": 148,
+    "titulo": "Em tudo semelhante, em nada parecido: modelos e modos de urbanização na América Portuguesa",
+    "autor": "José Pessôa",
+    "ano": "2000",
+    "keywords": ["modelos", "modos", "urbanização", "América Portuguesa", "comparação"],
+    "tematica": "Urbanização Colonial",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Título provocativo que sintetiza a tese do autor: as cidades brasileiras são 'semelhantes' aos modelos portugueses na forma, mas 'nada parecidas' na função e na dinâmica social. O artigo discute como a transposição de modelos esbarra nas especificidades do clima, da demografia e da economia coloniais."
+  },
+  {
+    "id": 149,
+    "titulo": "Formação do Brasil Contemporâneo",
+    "autor": "Caio Prado Júnior",
+    "ano": "2000 (original 1942)",
+    "keywords": ["formação econômica", "Brasil colônia", "sentido da colonização", "Caio Prado Jr"],
+    "tematica": "História Econômica e Formação Nacional",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Obra seminal que interpreta a colonização do Brasil como um empreendimento comercial voltado para o mercado externo (o 'sentido da colonização'). Embora macroeconômico, o livro oferece as bases para entender a ocupação territorial e a estruturação das capitanias, incluindo a periferia do sul da Bahia."
+  },
+  {
+    "id": 150,
+    "titulo": "Literatura e cultura na América Latina",
+    "autor": "Ángel Rama",
+    "ano": "2001",
+    "keywords": ["literatura", "cultura", "América Latina", "transculturação", "crítica"],
+    "tematica": "Literatura e Cultura",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Coletânea de ensaios do crítico uruguaio Ángel Rama, que desenvolve o conceito de 'transculturação narrativa' para explicar a especificidade da literatura latino-americana. Rama argumenta que a cultura da periferia não é passiva, mas reelabora as influências metropolitanas, criando obras originais que dialogam com o contexto local."
+  },
+  {
+    "id": 151,
+    "titulo": "A Cidade das Letras",
+    "autor": "Ángel Rama",
+    "ano": "1985",
+    "keywords": ["cidade das letras", "intelectuais", "América Latina", "urbanização", "cultura"],
+    "tematica": "Cultura e Urbanização",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Estudo clássico sobre o papel dos intelectuais e das instituições culturais (universidades, academias, editoras) na conformação das cidades latino-americanas. Rama analisa como a 'cidade das letras' articula o poder e a cultura, sendo um espaço de modernização e, ao mesmo tempo, de perpetuação de elites."
+  },
+  {
+    "id": 152,
+    "titulo": "A Casa de Porto Seguro: estudo da morfologia da casa portuguesa no Brasil",
+    "autor": "Lucemar Ramalho",
+    "ano": "2014",
+    "keywords": ["casa portuguesa", "morfologia", "arquitetura doméstica", "Porto Seguro"],
+    "tematica": "Arquitetura Colonial",
+    "tipo": "Dissertação de Mestrado",
+    "pdf_url": "",
+    "resumo": "Estuda a morfologia da casa portuguesa no Brasil, tomando como estudo de caso a cidade de Porto Seguro. A pesquisa analisa as técnicas construtivas (taipa, pedra, alvenaria), os partidos arquitetônicos e a adaptação da tipologia lusa ao clima e aos materiais disponíveis no sul da Bahia."
+  },
+  {
+    "id": 153,
+    "titulo": "Quadro da arquitetura no Brasil",
+    "autor": "Nestor Goulart Reis Filho",
+    "ano": "2000",
+    "keywords": ["arquitetura", "Brasil", "colonial", "estilos", "panorama"],
+    "tematica": "Arquitetura e Urbanismo",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Panorama geral da arquitetura brasileira desde o período colonial até o século XX, abordando desde as construções jesuíticas até a arquitetura moderna. O autor contextualiza a produção arquitetônica dentro das transformações econômicas e sociais, sendo uma leitura introdutória fundamental."
+  },
+  {
+    "id": 154,
+    "titulo": "Contribuição ao Estudo da Evolução Urbana do Brasil (1500/1720)",
+    "autor": "Nestor Goulart Reis Filho",
+    "ano": "1968",
+    "keywords": ["evolução urbana", "1500-1720", "cidades coloniais", "formação urbana"],
+    "tematica": "Urbanização Colonial",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Obra fundadora dos estudos de urbanização colonial no Brasil. Reis Filho analisa a evolução das cidades desde o descobrimento até 1720, identificando a influência da legislação portuguesa, as funções econômicas (porto, mineração, agro) e as primeiras tentativas de planejamento, com mapas e plantas históricas."
+  },
+  {
+    "id": 155,
+    "titulo": "Centro e periferia no mundo luso-brasileiro, 1500-1808",
+    "autor": "A. J. R. Russel-Wood",
+    "ano": "1998",
+    "keywords": ["centro", "periferia", "mundo luso-brasileiro", "administração", "império"],
+    "tematica": "História Política e Administrativa",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Analisa as relações entre o centro (Lisboa, Salvador, Rio) e as periferias (capitanias secundárias) no império luso-brasileiro. Russel-Wood argumenta que a periferia não era passiva, mas negociava, resistia e criava suas próprias dinâmicas de poder, muitas vezes subvertendo as ordens centrais."
+  },
+  {
+    "id": 156,
+    "titulo": "Negociação e Conflito na Administração do Pau-Brasil: a capitania de Porto Seguro (1605-1650)",
+    "autor": "Uiá Freire dos Santos",
+    "ano": "2015",
+    "keywords": ["pau-brasil", "administração", "negociação", "conflito", "Porto Seguro"],
+    "tematica": "História Econômica e Administrativa",
+    "tipo": "Dissertação de Mestrado",
+    "pdf_url": "",
+    "resumo": "Estudo detalhado sobre a exploração e a administração do pau-brasil na capitania de Porto Seguro entre 1605 e 1650. O autor analisa as negociações entre contratadores, lavradores e a Coroa, bem como os conflitos gerados pela extração predatória e pela disputa pela mão de obra indígena."
+  },
+  {
+    "id": 157,
+    "titulo": "O coração e uma parte do corpo: a instalação do governo-geral e o governo interino de Duarte de Lemos na capitania de Porto Seguro",
+    "autor": "Uiá Freire dos Santos",
+    "ano": "2016",
+    "keywords": ["governo-geral", "Duarte de Lemos", "Porto Seguro", "século XVI", "administração"],
+    "tematica": "História Política",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Foca no governo interino de Duarte de Lemos na capitania de Porto Seguro e na instalação do Governo-Geral. O texto explora a metáfora do 'coração' (centro) e 'parte do corpo' (periferia) para discutir a integração da capitania à estrutura administrativa do império."
+  },
+  {
+    "id": 158,
+    "titulo": "O Negócio do Pau-Brasil: entre o regimento de 1605, contratos, contratadores e lavradores da capitania de Porto Seguro (1605-1640)",
+    "autor": "Uiá Freire dos Santos",
+    "ano": "2016",
+    "keywords": ["Regimento de 1605", "contratos", "contratadores", "lavradores", "Porto Seguro"],
+    "tematica": "História Econômica",
+    "tipo": "Capítulo de livro",
+    "pdf_url": "",
+    "resumo": "Aprofunda o funcionamento do 'negócio do pau-brasil' em Porto Seguro, analisando o Regimento de 1605, os contratos de exploração e a relação conflituosa entre os contratadores (monopolistas) e os lavradores locais, que queriam livre acesso à madeira e aos índios."
+  },
+  {
+    "id": 159,
+    "titulo": "TE DEUM LAUDAMUS: A expulsão dos jesuítas da Bahia (1758-1763)",
+    "autor": "Fabricio Lyrio Santos",
+    "ano": "2002",
+    "keywords": ["expulsão dos jesuítas", "Bahia", "1758-1763", "Pombal", "religião"],
+    "tematica": "História Política e Religiosa",
+    "tipo": "Dissertação de Mestrado",
+    "pdf_url": "",
+    "resumo": "Estuda a expulsão da Companhia de Jesus da Bahia no contexto das reformas pombalinas, analisando os eventos locais, a reação da população e a transferência dos bens e colégios dos jesuítas para a Coroa. O trabalho mostra como a expulsão impactou a educação, a catequese e a estrutura fundiária na capitania."
+  },
+  {
+    "id": 160,
+    "titulo": "Formação de cidades no Brasil Colonial",
+    "autor": "Paulo F. Santos",
+    "ano": "2008",
+    "keywords": ["formação de cidades", "Brasil Colonial", "urbanização", "tipologia"],
+    "tematica": "Urbanização Colonial",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Oferece uma tipologia das cidades coloniais brasileiras, classificando-as segundo sua função (porto, mineração, agro), origem (espontânea ou planejada) e localização (litoral, sertão). O autor também discute a estrutura fundiária urbana e a evolução da paisagem edificada, sendo uma obra de referência para arquitetos e historiadores."
+  },
+  {
+    "id": 161,
+    "titulo": "Urbanização Colonial na América Latina: cidade planejada versus desleixo e caos",
+    "autor": "Betina Shurmann",
     "ano": "1999",
-    "orientador": "—",
-    "keywords": [
-      "Economia",
-      "Sociedade",
-      "Fundamentos",
-      "Sociologia",
-      "Compreensiva"
-    ],
-    "tematica": "Economia",
-    "editora_local": "Editora UnB, Brasília",
-    "tipo": "referencia_bibliografica"
+    "keywords": ["urbanização colonial", "América Latina", "cidade planejada", "caos"],
+    "tematica": "Teoria do Urbanismo Colonial",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Revisita o antigo debate na historiografia urbana latino-americana entre a 'cidade planejada' (grid, leis das Índias) e o 'desleixo e caos' (ocupação espontânea). Shurmann critica os dois extremos, propondo uma análise mais matizada que leve em conta a negociação entre ordem normativa e práticas cotidianas."
+  },
+  {
+    "id": 162,
+    "titulo": "Imagens Urbanas: os diversos olhares na formação do imaginário urbano",
+    "autor": "Célia Ferraz Sousa e Sandra Jatahy Pesavento (orgs.)",
+    "ano": "1997",
+    "keywords": ["imagens urbanas", "imaginário", "representação", "cidade", "olhares"],
+    "tematica": "Imaginário Urbano",
+    "tipo": "Coletânea / Livro",
+    "pdf_url": "",
+    "resumo": "Coletânea que reúne diversos olhares sobre a cidade, abordando as representações literárias, artísticas e iconográficas do espaço urbano. Os capítulos discutem como a cidade é 'imaginada' e vivida, fornecendo ferramentas para entender a percepção dos habitantes e das autoridades sobre os núcleos coloniais."
+  },
+  {
+    "id": 163,
+    "titulo": "O discurso da cidade",
+    "autor": "Tomás Taveira",
+    "ano": "1974",
+    "keywords": ["discurso", "cidade", "semiótica", "arquitetura"],
+    "tematica": "Teoria da Arquitetura e Discurso",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Obra teórica que aborda a cidade como um discurso, ou seja, como um sistema de signos que comunica valores, hierarquias e intenções políticas. Embora escrito sob influência do estruturalismo, sua abordagem semiótica é útil para decifrar os elementos simbólicos das cidades coloniais."
+  },
+  {
+    "id": 164,
+    "titulo": "A forma da cidade de origem portuguesa",
+    "autor": "Manuel C. Teixeira",
+    "ano": "2012",
+    "keywords": ["forma urbana", "cidade portuguesa", "urbanismo", "expansão marítima"],
+    "tematica": "Urbanismo de Origem Portuguesa",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Síntese abrangente sobre a forma das cidades fundadas pelos portugueses no mundo (Brasil, África, Ásia), destacando os modelos urbanísticos (medieval, renascentista, barroco) e a legislação que os orientava. Teixeira mostra como a 'cidade de origem portuguesa' possui uma identidade formal reconhecível, mas com variações regionais significativas."
+  },
+  {
+    "id": 165,
+    "titulo": "O infante e a madeira",
+    "autor": "Alberto Vieira",
+    "ano": "1994",
+    "keywords": ["infante", "madeira", "exploração florestal", "pau-brasil", "Ilhas Atlânticas"],
+    "tematica": "História Ambiental e Econômica",
+    "tipo": "Artigo",
+    "pdf_url": "",
+    "resumo": "Aborda a exploração da madeira (em especial o pau-brasil) desde o período dos 'infantes' portugueses, traçando paralelos com a exploração de outras florestas atlânticas (como a Madeira). O artigo contextualiza a extração da tinta vermelha no Brasil dentro da lógica de exploração dos recursos naturais do império."
+  },
+  {
+    "id": 166,
+    "titulo": "Amílcar Cabral e a crítica ao colonialismo",
+    "autor": "Patrícia Villen",
+    "ano": "2013",
+    "keywords": ["Amílcar Cabral", "colonialismo", "crítica", "África", "libertação"],
+    "tematica": "Pensamento Descolonial e Colonialismo",
+    "tipo": "Livro",
+    "pdf_url": "",
+    "resumo": "Analisa o pensamento do líder revolucionário guineense Amílcar Cabral, focando em sua crítica aos mecanismos de dominação colonial e à luta pela libertação nacional. Embora focado na África, o arcabouço teórico sobre 'negação da história' e 'reafricanização' é aplicável para pensar as resistências indígenas e negras no Brasil colonial."
+  },
+  {
+    "id": 167,
+    "titulo": "Homens de Armas e Mando: os capitães-mores da capitania de Porto Seguro (1620-1682)",
+    "autor": "Ana Paula Santos Xavier",
+    "ano": "2021",
+    "keywords": ["homens de armas", "capitães-mores", "Porto Seguro", "conflitos", "poder local"],
+    "tematica": "Guerra e Poder Político",
+    "tipo": "Dissertação de Mestrado",
+    "pdf_url": "",
+    "resumo": "A dissertação analisa a atuação dos capitães-mores na capitania de Porto Seguro entre 1620 e 1682, período em que o poder local era exercido por esses 'homens de armas' que acumulavam funções militares e administrativas ('mando'). A autora investiga os conflitos internos (com índios, com contratadores do pau-brasil, entre facções locais) e a violência institucionalizada, demonstrando como esses agentes foram fundamentais para a ocupação territorial e a manutenção do domínio português numa região periférica, muito antes das reformas pombalinas. A pesquisa utiliza farto acervo documental (cartas régias, regimentos e devassas) para reconstituir o perfil desses governantes e suas redes de parentesco e clientela."
   }
 ];
